@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     EditText usernamek;
     EditText password;
     Button loginButton;
-//    TextView signupText;
+    TextView signupText;
 
 
     @Override
@@ -41,11 +41,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-//        signupText.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(MainActivity.this, Registrasi.class));
-//            }
-//        });
+        signupText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, registrasi.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }

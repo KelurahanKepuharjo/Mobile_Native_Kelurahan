@@ -85,7 +85,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="0dp"
                 android:gravity="center_horizontal"
-                android:text="Sudah memiliki akun? Login"
+                android:text="Sudah memiliki akun? Daftar"
                 android:textAlignment="center"
                 android:textColor="@color/purple"
                 android:textSize="14sp" />
