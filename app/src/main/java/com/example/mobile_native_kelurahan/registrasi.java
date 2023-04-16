@@ -16,7 +16,7 @@ public class registrasi extends AppCompatActivity {
     EditText password;
     EditText KonfirmasiKataSandi;
     Button btnDaftar;
-    TextView signinText;
+//    TextView signinText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class registrasi extends AppCompatActivity {
         password = findViewById(R.id.password);
         KonfirmasiKataSandi = findViewById(R.id.KonfirmasiKataSandi);
         btnDaftar = findViewById(R.id.btnDaftar);
-        signinText = findViewById(R.id.signinText);
+//        signinText = findViewById(R.id.signinText);
 
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,13 +37,13 @@ public class registrasi extends AppCompatActivity {
             }
         });
 
-        signinText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(registrasi.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+//        signinText.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(registrasi.this, MainActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
     }
 }

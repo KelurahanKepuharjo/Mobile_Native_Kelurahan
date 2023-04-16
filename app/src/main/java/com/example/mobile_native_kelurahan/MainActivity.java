@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     EditText usernamek;
     EditText password;
     Button loginButton;
-    TextView signupText;
+//    TextView signupText;
 
 
     @Override
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (usernamek.getText().toString().equals("111") && password.getText().toString().equals("111")) {
                     Toast.makeText(MainActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                    Intent intent = new Intent(MainActivity.this, login.class);
                     startActivity(intent);
                     finish();
                 } else {
@@ -41,13 +41,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        signupText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, registrasi.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+//        signupText.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this, registrasi.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
     }
 }

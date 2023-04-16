@@ -9,7 +9,7 @@
     android:background="@drawable/loginbkg"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".registrasi">
+    tools:context=".login">
 
     <androidx.cardview.widget.CardView
 
