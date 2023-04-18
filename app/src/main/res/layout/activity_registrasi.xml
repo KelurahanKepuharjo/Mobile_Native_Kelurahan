@@ -27,7 +27,6 @@
             android:orientation="vertical"
             android:padding="15dp">
 
-
             <TextView
                 android:id="@+id/regisText"
                 android:layout_width="match_parent"
@@ -46,11 +45,13 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
-                android:drawablePadding="2dp"
+                android:drawablePadding="6dp"
                 android:hint="Nomer Induk Kependudukan"
+                android:inputType="number"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/NoKK"
@@ -58,13 +59,14 @@
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/ic_baseline_lock_24"
+                android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:drawablePadding="8dp"
                 android:hint="No. Kartu Keluarga"
-                android:inputType="textPassword"
+
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/notelp"
@@ -75,6 +77,7 @@
                 android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:drawablePadding="8dp"
                 android:hint="No. Telephone"
+                android:inputType="number"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background" />
@@ -85,9 +88,10 @@
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/ic_baseline_person_24"
+                android:drawableLeft="@drawable/ic_baseline_lock_24"
                 android:drawablePadding="8dp"
                 android:hint="Kata Sandi"
+                android:inputType="textPassword"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background" />
@@ -98,9 +102,10 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/ic_baseline_person_24"
+                android:drawableLeft="@drawable/ic_baseline_lock_24"
                 android:drawablePadding="8dp"
                 android:hint="Konfirmasi Kata Sandi"
+                android:inputType="textPassword"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background" />

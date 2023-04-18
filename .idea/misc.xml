@@ -4,11 +4,29 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/drawable-v24/custom_edittext.xml" value="0.1" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/drawable-v24/home_selected_icon.xml" value="0.1" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/drawable-v24/like_selected_icon.xml" value="0.1" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/drawable-v24/notification_selected_icon.xml" value="0.1" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/drawable-v24/profile_selected_icon.xml" value="0.1" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/drawable/custom_edittext.xml" value="0.1405" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/drawable/home_icon.xml" value="0.1" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.1" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.1" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/drawable/like_icon.xml" value="0.1" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/drawable/notification_icon.xml" value="0.1" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/drawable/profile_icon.xml" value="0.1" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/drawable/round_back_home_100.xml" value="0.1" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/drawable/round_back_like_100.xml" value="0.1" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/drawable/round_back_notification_100.xml" value="0.1" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/drawable/round_back_profile_100.xml" value="0.1" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/layout/activity_home_adapter.xml" value="0.1" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/layout/activity_main.xml" value="0.152" />
-        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/layout/activity_registrasi.xml" value="0.10029251984956122" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/layout/activity_registrasi.xml" value="0.264" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/layout/fragment_likes.xml" value="0.10008357709987463" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/layout/fragment_notification.xml" value="0.10008357709987463" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/layout/fragment_profile.xml" value="0.10008357709987463" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.141" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.141" />
       </map>
