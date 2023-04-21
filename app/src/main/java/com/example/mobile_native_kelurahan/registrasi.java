@@ -17,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.android.volley.VolleyError;
+import com.example.mobile_native_kelurahan.Auth.AuthServices;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -54,8 +55,6 @@ public class registrasi extends AppCompatActivity implements View.OnClickListene
         btnDaftar.setOnClickListener(this);
         signupText.setOnClickListener(this);
 
-
-
 //        btnDaftar.setOnClickListener(new OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -63,14 +62,14 @@ public class registrasi extends AppCompatActivity implements View.OnClickListene
 //            }
 //        });
 
-        signupText.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(registrasi.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+//        signupText.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(registrasi.this, MainActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
     }
 
     @Override
@@ -87,7 +86,21 @@ public class registrasi extends AppCompatActivity implements View.OnClickListene
 
             if (!nik.isEmpty() && !no_tlp.isEmpty() && !pass.isEmpty() && !cpass.isEmpty() && !no_tlp.isEmpty()) {
                 if (pass.equals(cpass)) {
-                    Register();
+                    AuthServices.register(this, nik, pass, no_tlp, new AuthServices.RegisterResponseListener() {
+                        @Override
+                        public void onSuccess(JSONObject response) {
+                            Toast.makeText(registrasi.this, "Berhasil Mengaktifkan Akun Anda", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(registrasi.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+
+                        @Override
+                        public void onError(String message) {
+                            nik_reg.setError(message);
+                            Toast.makeText(registrasi.this, message, Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }else {
                     Toast.makeText(this, "Kata sandi harus sama", Toast.LENGTH_SHORT).show();
                 }
@@ -100,59 +113,4 @@ public class registrasi extends AppCompatActivity implements View.OnClickListene
         }
     }
 
-    private  void  Register(){
-        final String nik = this.nik_reg.getText().toString().trim();
-        final String pass = this.pass_reg.getText().toString().trim();
-        final String no_tlp = notelp_reg.getText().toString().trim();
-        final String cpass = this.cpass_reg.getText().toString().trim();
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, REGISTER_URL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    String message = jsonObject.getString("message");
-                    if (message.equals("Berhasil Register")){
-                        JSONObject userObj = jsonObject.getJSONObject("user");
-                        Toast.makeText(registrasi.this, "Berhasil Ya", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(registrasi.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                } catch (JSONException e){
-                    e.printStackTrace();
-                }
-            }
-        },
-                new Response.ErrorListener(){
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        try {
-                            String responseBody = new String(error.networkResponse.data, "utf-8");
-                            JSONObject jsonObject = new JSONObject(responseBody);
-                            String message = jsonObject.getString("message");
-                            if (message.equals("Akun sudah terdaftar")) {
-                                nik_reg.setError("Akun sudah terdaftar");
-                            } else if (message.equals("Nik anda belum terdaftar")) {
-                                nik_reg.setError("Nik anda belum terdaftar");
-                            }
-                        } catch (JSONException | UnsupportedEncodingException e) {
-                            e.printStackTrace();
-                            nik_reg.setError("Gagal register: " + e.getMessage());
-                        }
-                    }
-                })
-        {
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<>();
-                params.put("nik", nik);
-                params.put("password", pass);
-                params.put("no_hp", no_tlp);
-                return params;
-            }
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue(registrasi.this);
-        requestQueue.add(stringRequest);
-    }
 }
