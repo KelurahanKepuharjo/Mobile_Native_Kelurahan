@@ -20,50 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AuthServices {
-    private static RequestQueue requestQueue;
-
-    public static void getUserData(String token, Context context, final AuthResponseHandler authResponseHandler) {
-        String BASEURL = "http://192.168.137.1:8000/api/auth/me";
-        JSONObject jsonObject = new JSONObject();
-        try {
-            jsonObject.put("Authorization", "Bearer " + token);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, BASEURL, jsonObject, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                authResponseHandler.onSuccess(response);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                authResponseHandler.onError(error);
-            }
-        }) {
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String> headers = new HashMap<>();
-                headers.put("Content-Type", "application/json");
-                return headers;
-            }
-        };
-
-        if (requestQueue == null) {
-            requestQueue = Volley.newRequestQueue(context);
-        }
-        requestQueue.add(jsonObjectRequest);
-    }
-
-    public interface AuthResponseHandler {
-        void onSuccess(JSONObject response);
-        void onError(VolleyError error);
-    }
-
-
-    private static String URL = "http://192.168.43.199:8000/api/auth/";
-
+    private static String URL = "http://192.168.0.117:8000/api/auth";
 
     public interface RegisterResponseListener {
         void onSuccess(JSONObject response);
@@ -74,10 +31,15 @@ public class AuthServices {
         void onError(String message);
         void onTokenReceived(String token);
     }
+    public interface UserDataResponseListener {
+        void onSuccess(JSONObject response);
+        void onError(String message);
+    }
+
 
     public static void register(Context context, String nik, String pass, String no_tlp, RegisterResponseListener listener) {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL+"register", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL + "/register", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -130,13 +92,13 @@ public class AuthServices {
 
     public static void login(Context context, String nik, String pass, LoginResponseListener listener) {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL+"login", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL + "/login", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     String message = jsonObject.getString("message");
-                    if (message.equals("Berhasil Login")){
+                    if (message.equals("Berhasil login")){
                         JSONObject userObj = jsonObject.getJSONObject("user");
                         String token = jsonObject.getString("token");
                         listener.onSuccess(userObj);
@@ -181,4 +143,52 @@ public class AuthServices {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
     }
+
+    public static void getUserData(Context context, String token, final UserDataResponseListener listener) {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "/me",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String message = jsonObject.getString("message");
+                            if (message.equals("success")){
+                                JSONObject userObj = jsonObject.getJSONObject("data");
+                                listener.onSuccess(userObj);
+                            }
+                        } catch (JSONException e){
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        if (error.networkResponse != null && error.networkResponse.data != null) {
+                            try {
+                                String responseBody = new String(error.networkResponse.data, "utf-8");
+                                JSONObject jsonObject = new JSONObject(responseBody);
+                                String message = jsonObject.getString("message");
+                                listener.onError(message);
+                            } catch (JSONException | UnsupportedEncodingException e) {
+                                e.printStackTrace();
+                                listener.onError("Gagal mendapatkan data user: " + e.getMessage());
+                            }
+                        } else {
+                            listener.onError("Gagal mendapatkan data user: network response is null");
+                        }
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer " + token);
+                return headers;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(stringRequest);
+    }
+
 }

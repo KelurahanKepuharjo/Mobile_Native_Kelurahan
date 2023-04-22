@@ -1,14 +1,23 @@
 package com.example.mobile_native_kelurahan;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.example.mobile_native_kelurahan.Auth.AuthServices;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,8 +62,6 @@ public class ProfileFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -80,8 +87,24 @@ public class ProfileFragment extends Fragment {
                 getActivity().finish();
             }
         });
+        SharedPreferences preferences = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE);
+        String token = preferences.getString("token", "");
+        AuthServices.getUserData(getContext(), token, new AuthServices.UserDataResponseListener() {
+            @Override
+            public void onSuccess(JSONObject response) {
+                try {
+                    JSONObject data = response.getJSONObject("data");
+                    JSONObject masyarakat = data.getJSONObject("masyarakat");
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onError(String message) {
+                Log.e("getUserData Error", message);
+            }
+        });
         return view;
     }
-
-
 }

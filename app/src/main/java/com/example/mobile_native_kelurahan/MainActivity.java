@@ -48,27 +48,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         loginButton.setOnClickListener(this);
         signinText.setOnClickListener(this);
 
-//        loginButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (nik.getText().toString().equals("111") && password.getText().toString().equals("111")) {
-//                    Toast.makeText(MainActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
-//                    Intent intent = new Intent(MainActivity.this, homeAdapter.class);
-//                    startActivity(intent);
-//                    finish();
-//                } else {
-//                    Toast.makeText(MainActivity.this, "Login Failed!", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-//        signinText.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, registrasi.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
+        SharedPreferences preferences = getSharedPreferences("myPrefs", MODE_PRIVATE);
+        boolean isLogin = preferences.getBoolean("isLogin", false);
+
+        if (isLogin) {
+            Intent intent = new Intent(MainActivity.this, homeAdapter.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     @Override
@@ -83,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (nik.isEmpty() && password.isEmpty()) {
                 Toast.makeText(this, "Nik atau Password tidak bole kosong", Toast.LENGTH_SHORT).show();
             }else {
-                AuthServices.login(this, nik, password, new AuthServices.LoginResponseListener() {
+                AuthServices.login(MainActivity.this, nik, password, new AuthServices.LoginResponseListener() {
                     @Override
                     public void onSuccess(JSONObject response) {
                         Intent intent = new Intent(MainActivity.this, homeAdapter.class);
@@ -100,7 +87,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onTokenReceived(String token) {
                         SharedPreferences.Editor editor = getSharedPreferences("myPrefs", MODE_PRIVATE).edit();
                         editor.putString("token", token);
+                        editor.putBoolean("isLogin", true);
                         editor.apply();
+
                         Intent intent = new Intent(MainActivity.this, homeAdapter.class);
                         intent.putExtra("token", token);
                         startActivity(intent);
@@ -108,47 +97,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
             }
         }
-    }
-
-    private void Login(String nik, String password) {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, LOGIN_URL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    String message = jsonObject.getString("message");
-                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
-                    if (message.equals("Berhasil Login")) {
-                        Intent intent = new Intent(MainActivity.this, homeAdapter.class);
-                        startActivity(intent);
-                        finish();
-                        String token = jsonObject.getString("token");
-                        JSONObject jsonObject1 = jsonObject.getJSONObject("user");
-                        SharedPreferences.Editor editor = getSharedPreferences("myPrefs", MODE_PRIVATE).edit();
-                        editor.putString("token", token);
-                        editor.apply();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-                Toast.makeText(MainActivity.this, "Login gagal" + error.getMessage(), Toast.LENGTH_LONG);
-            }
-        }
-        ){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("nik", nik);
-                params.put("password", password);
-                return params;
-            }
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
-        requestQueue.add(stringRequest);
     }
 }

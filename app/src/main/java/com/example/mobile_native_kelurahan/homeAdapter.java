@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -166,6 +167,8 @@ public class homeAdapter extends AppCompatActivity {
                             .setReorderingAllowed(true)
                             .replace(R.id.fragmentContainer, ProfileFragment.class, null)
                             .commit();
+                    SharedPreferences preferences = getSharedPreferences("myPrefs", MODE_PRIVATE);
+                    String token = preferences.getString("token", "");
 
                     homeTxt.setVisibility(View.GONE);
                     likeTxt.setVisibility(View.GONE);
