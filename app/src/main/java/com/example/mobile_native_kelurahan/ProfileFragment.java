@@ -81,10 +81,25 @@ public class ProfileFragment extends Fragment {
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Melakukan logout dari aplikasi
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
-                getActivity().finish();
+                String token = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE).getString("token", "");
+                AuthServices.logOut(getContext(), token, new AuthServices.LogoutResponseListener() {
+                    @Override
+                    public void onSuccess(String response) {
+                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                        startActivity(intent);
+                        getActivity().finish();
+                        SharedPreferences preferences = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.remove("isLogin");
+                        editor.apply();
+                    }
+
+                    @Override
+                    public void onError(String message) {
+                        Log.e("LogOut Error", message);
+                    }
+                });
+
             }
         });
         SharedPreferences preferences = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE);

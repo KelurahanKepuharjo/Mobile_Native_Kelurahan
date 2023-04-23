@@ -35,6 +35,11 @@ public class AuthServices {
         void onSuccess(JSONObject response);
         void onError(String message);
     }
+    public interface LogoutResponseListener {
+        void onSuccess(String message);
+        void onError(String message);
+    }
+
 
 
     public static void register(Context context, String nik, String pass, String no_tlp, RegisterResponseListener listener) {
@@ -189,6 +194,30 @@ public class AuthServices {
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
+    }
+
+    public static void logOut(Context context, String token, LogoutResponseListener listener) {
+        String url = URL + "logout";
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                listener.onSuccess(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                listener.onError(error.getMessage());
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer " + token);
+                return headers;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(request);
     }
 
 }
