@@ -8,10 +8,10 @@
     tools:context=".homeAdapter">
 
     <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/fragmentContainer"
-        android:layout_above="@+id/bottomBar"/>
+        android:layout_above="@+id/bottomBar" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
         
         <LinearLayout
             android:id="@+id/homeLayout"
-            android:background="@drawable/round_back_home_100"
+            android:background="@android:color/transparent"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:orientation="horizontal"
@@ -45,7 +45,7 @@
                 android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:src="@drawable/home_selected_icon"/>
+                android:src="@drawable/home_icon"/>
 
             <TextView
                 android:id="@+id/homeTxt"
@@ -55,7 +55,8 @@
                 android:textStyle="bold"
                 android:textColor="@color/home"
                 android:layout_marginStart="10dp"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:visibility="gone"/>
         </LinearLayout>
 
         <LinearLayout
@@ -90,32 +91,32 @@
 
         <LinearLayout
             android:id="@+id/notificationLayout"
-            android:background="@android:color/transparent"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_back_notification_100"
+            android:gravity="center"
             android:orientation="horizontal"
             android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            android:gravity="center"
-            android:layout_weight="1">
+            android:paddingEnd="5dp">
 
             <ImageView
                 android:id="@+id/notificationImage"
                 android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:src="@drawable/notification_icon"/>
+                android:src="@drawable/notification_selected_icon" />
 
             <TextView
                 android:id="@+id/notificationTxt"
-                android:visibility="gone"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Status"
-                android:textStyle="bold"
-                android:textColor="@color/notification"
                 android:layout_marginStart="10dp"
-                android:textSize="16sp"/>
+                android:text="Status"
+                android:textColor="@color/notification"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
