@@ -3,10 +3,13 @@ package com.example.mobile_native_kelurahan;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,20 +48,66 @@ public class NotificationFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
+    private TextView antrian, proses, selesai;
+    private int selectedTabNumber = 1;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+//        if (getArguments() != null) {
+//            mParam1 = getArguments().getString(ARG_PARAM1);
+//            mParam2 = getArguments().getString(ARG_PARAM2);
+//        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notification, container, false);
+        View view = inflater.inflate(R.layout.fragment_notification, container, false);
+
+        antrian = view.findViewById(R.id.antrian);
+        proses = view.findViewById(R.id.proses);
+        selesai = view.findViewById(R.id.selesai);
+
+//        getSupportFragmentManager().beginTransaction()
+//                .setReorderingAllowed(true)
+//                .replace(R.id.fragmentContainer, HomeFragment.class, null)
+//                .commit();
+
+        FragmentManager fragmentManager = getChildFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        NotificationFragment NotificationFragment = new NotificationFragment();
+        fragmentTransaction.add(R.id.fragmentContainer1, NotificationFragment);
+        fragmentTransaction.commit();
+
+        antrian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        antrian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        antrian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        return view;
     }
+
+    private void selectTab(int tabNumber){
+
+    }
+
 }
