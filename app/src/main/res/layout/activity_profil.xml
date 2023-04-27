@@ -118,7 +118,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="24dp"
-                            android:text="3509212504030000"
                             android:textColor="@color/black"
                             android:textSize="18sp"
                             app:layout_constraintStart_toEndOf="@+id/imageView7"

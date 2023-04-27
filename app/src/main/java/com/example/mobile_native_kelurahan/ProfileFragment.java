@@ -13,8 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.mobile_native_kelurahan.Auth.AuthServices;
+import com.example.mobile_native_kelurahan.Model.Masyarakat;
+import com.example.mobile_native_kelurahan.Model.User;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -106,13 +109,14 @@ public class ProfileFragment extends Fragment {
         String token = preferences.getString("token", "");
         AuthServices.getUserData(getContext(), token, new AuthServices.UserDataResponseListener() {
             @Override
-            public void onSuccess(JSONObject response) {
-                try {
-                    JSONObject data = response.getJSONObject("data");
-                    JSONObject masyarakat = data.getJSONObject("masyarakat");
-                }catch (JSONException e){
-                    e.printStackTrace();
-                }
+            public void onSuccess(User user) {
+                String nik = user.getMasyarakat().getNik();
+                String nohp = user.getPhoneNumber();
+                TextView textView4 = view.findViewById(R.id.textView4);
+                TextView txt_hohp = view.findViewById(R.id.txt_nohp);
+
+                textView4.setText(nik);
+                txt_hohp.setText(nohp);
             }
 
             @Override
