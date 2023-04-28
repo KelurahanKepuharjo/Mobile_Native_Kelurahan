@@ -74,11 +74,11 @@ public class NotificationFragment extends Fragment {
         proses = view.findViewById(R.id.proses);
         selesai = view.findViewById(R.id.selesai);
 
-        FragmentManager fragmentManager = getChildFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        NotificationFragment NotificationFragment = new NotificationFragment();
-        fragmentTransaction.add(R.id.fragmentContainer1, NotificationFragment);
-        fragmentTransaction.commit();
+//        FragmentManager fragmentManager = getChildFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        NotificationFragment NotificationFragment = new NotificationFragment();
+//        fragmentTransaction.add(R.id.fragmentContainer1, NotificationFragment);
+//        fragmentTransaction.commit();
 
         antrian.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +88,7 @@ public class NotificationFragment extends Fragment {
             }
         });
 
-        antrian.setOnClickListener(new View.OnClickListener() {
+        proses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -96,7 +96,7 @@ public class NotificationFragment extends Fragment {
             }
         });
 
-        antrian.setOnClickListener(new View.OnClickListener() {
+        selesai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -121,11 +121,11 @@ public class NotificationFragment extends Fragment {
             nonSelectedTextView1 = proses;
             nonSelectedTextView2 = selesai;
 
-            FragmentManager fragmentManager = getChildFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            antrianFragment antrianFragment = new antrianFragment();
-            fragmentTransaction.add(R.id.fragmentContainer1, antrianFragment);
-            fragmentTransaction.commit();
+//            FragmentManager fragmentManager = getChildFragmentManager();
+//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//            antrianFragment antrianFragment = new antrianFragment();
+//            fragmentTransaction.add(R.id.fragmentContainer1, antrianFragment);
+//            fragmentTransaction.commit();
         }
         else if (tabNumber == 2){
             selectedTextView = proses;
@@ -133,11 +133,11 @@ public class NotificationFragment extends Fragment {
             nonSelectedTextView1 = antrian;
             nonSelectedTextView2 = selesai;
 
-            FragmentManager fragmentManager = getChildFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            prosesFragment prosesFragment = new prosesFragment();
-            fragmentTransaction.add(R.id.fragmentContainer1, prosesFragment);
-            fragmentTransaction.commit();
+//            FragmentManager fragmentManager = getChildFragmentManager();
+//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//            prosesFragment prosesFragment = new prosesFragment();
+//            fragmentTransaction.add(R.id.fragmentContainer1, prosesFragment);
+//            fragmentTransaction.commit();
         }
         else {
             selectedTextView = selesai;
@@ -145,11 +145,11 @@ public class NotificationFragment extends Fragment {
             nonSelectedTextView1 = antrian;
             nonSelectedTextView2 = proses;
 
-            FragmentManager fragmentManager = getChildFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            selesaiFragment selesaiFragment = new selesaiFragment();
-            fragmentTransaction.add(R.id.fragmentContainer1, selesaiFragment);
-            fragmentTransaction.commit();
+//            FragmentManager fragmentManager = getChildFragmentManager();
+//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//            selesaiFragment selesaiFragment = new selesaiFragment();
+//            fragmentTransaction.add(R.id.fragmentContainer1, selesaiFragment);
+//            fragmentTransaction.commit();
         }
 
         float slideTo = (tabNumber - selectedTabNumber) * selectedTextView.getWidth();
