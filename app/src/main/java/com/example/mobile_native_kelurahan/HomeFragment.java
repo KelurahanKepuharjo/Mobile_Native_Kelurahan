@@ -1,7 +1,9 @@
 package com.example.mobile_native_kelurahan;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -54,11 +56,23 @@ public class HomeFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+    CardView cardTidakMampu;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        cardTidakMampu = view.findViewById(R.id.cardTidakMampu);
+
+        cardTidakMampu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), form_pengajuan.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
+                return view;
     }
 }

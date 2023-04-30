@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".form_pengajuan">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:id="@+id/btnBack"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_back" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:id="@+id/toolbar_title"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/white"
+                            android:layout_marginStart="16dp"
+                            android:textStyle="bold"
+                            android:paddingLeft="20dp"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Pengajuan Surat" />
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+
+        <androidx.cardview.widget.CardView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/custom_edittext"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="Nama Lengkap"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+                   <AutoCompleteTextView
+                       android:id="@+id/dropdown_menu1"
+                       android:layout_width="match_parent"
+                       android:layout_height="70dp"
+                       android:inputType="none"
+                       android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tempatLahir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Tempat Lahir"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tglLahir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Tanggal Lahir"
+                    android:inputType="number"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/jenisKelamin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Jenis Kelamin"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/kebangsaan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Kebangsaan"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/agama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Agama"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/statusPerkawinan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Status Perkawinan"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/pekerjaan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Pekerjaan"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/NIK"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Nomer Induk Keluarga"
+                    android:inputType="phone"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/alamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Alamat Sesuai KTP"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/RT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="RT"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/RW"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="RW"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/namaAyah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Nama Ayah"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/umurAyah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Umur Ayah"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/kebangsaanAyah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Kebangsaan Ayah"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/agamaAyah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Agama Ayah"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/pekerjaanAyah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Pekerjaan Ayah"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/alamatAyah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Alamat Ayah Sesuai KTP"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/namaIbu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Nama Ibu"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/umurIbu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Umur Ibu"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/kebangsaanIbu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Kebangsaan Ibu"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/agamaIbu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Agama Ibu"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/pekerjaanIbu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Pekerjaan Ibu"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/alamatIbu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Alamat Ibu Sesuai KTP"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/keperluan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Keperluan"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/uploadKK"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Upload Foto KK"
+                    android:inputType="none"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:textSize="16sp"
+                        android:background="@drawable/custom_edittext"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btnKirim"
+                    android:layout_width="120dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/purple"
+                    android:text="Kirim"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    app:cornerRadius="20dp" />
+
+
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>>
+
+    </LinearLayout>
+</ScrollView>
