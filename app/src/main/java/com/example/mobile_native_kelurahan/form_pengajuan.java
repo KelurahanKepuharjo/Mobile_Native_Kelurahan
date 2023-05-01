@@ -1,8 +1,14 @@
 package com.example.mobile_native_kelurahan;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,6 +24,8 @@ public class form_pengajuan extends AppCompatActivity {
     AutoCompleteTextView dropdown_menu1;
     ArrayAdapter<String> adapterItems;
     Button btnKirim;
+    ImageView uploadkk;
+    Uri uri;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +62,32 @@ public class form_pengajuan extends AppCompatActivity {
                 startActivity(intent);
                 finish();
 //                Toast.makeText(form_pengajuan.this, "anda kembali", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode() == Activity.RESULT_OK){
+                            Intent data = result.getData();
+                            uri = data.getData();
+                            uploadkk.setImageURI(uri);
+                        } else {
+                            Toast.makeText(form_pengajuan.this, "Tidak Ada Foto Yang Dipilih", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+        );
+
+        uploadkk = findViewById(R.id.uploadkk);
+        uploadkk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent photoPicker = new Intent(Intent.ACTION_PICK);
+                photoPicker.setType("image/*");
+                activityResultLauncher.launch(photoPicker);
             }
         });
     }
