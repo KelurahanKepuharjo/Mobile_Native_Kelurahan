@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -64,6 +65,7 @@ public class HomeFragment extends Fragment {
         }
     }
     CardView cardTidakMampu;
+    CardView cardlainnya;
     TextView Txtjudul,Txtsub;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,6 +74,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         cardTidakMampu = view.findViewById(R.id.cardTidakMampu);
+        cardlainnya = view.findViewById(R.id.cardLainnya);
 
         cardTidakMampu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +82,14 @@ public class HomeFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), form_pengajuan.class);
                 startActivity(intent);
                 getActivity().finish();
+            }
+        });
+        cardlainnya.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment suratfrag = new SuratFragment();
+                FragmentTransaction fn = getActivity().getSupportFragmentManager().beginTransaction();
+                fn.replace(R.id.fragmentContainer,suratfrag).commit();
             }
         });
         AuthServices.berita(getContext(), new AuthServices.BeritaResponseListener() {

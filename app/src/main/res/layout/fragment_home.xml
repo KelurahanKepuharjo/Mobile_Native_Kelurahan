@@ -159,7 +159,7 @@
 
                <LinearLayout
                    android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
+                   android:layout_height="90dp"
                    android:orientation="vertical"
                    android:padding="10dp">
 
@@ -174,8 +174,9 @@
                        android:layout_height="wrap_content"
                        android:fontFamily="@font/poppins_regular"
                        android:paddingTop="4dp"
-                       android:text="Surat Ket. Tidak Mampu"
-                       android:textAlignment="center"
+                       android:text="Tidak Mampu"
+                       android:gravity="center"
+                       android:layout_gravity="center_horizontal"
                        android:textColor="#000000"
                        android:textSize="11sp" />
 
@@ -195,7 +196,7 @@
 
                <LinearLayout
                    android:layout_width="match_parent"
-                   android:layout_height="110dp"
+                   android:layout_height="90dp"
                    android:orientation="vertical"
                    android:padding="10dp">
 
@@ -210,8 +211,9 @@
                        android:layout_height="wrap_content"
                        android:fontFamily="@font/poppins_regular"
                        android:paddingTop="4dp"
-                       android:text="Surat Ket. Usaha"
-                       android:textAlignment="center"
+                       android:text="Usaha"
+                       android:gravity="center"
+                       android:layout_gravity="center_horizontal"
                        android:textColor="#000000"
                        android:textSize="11sp" />
 
@@ -231,7 +233,7 @@
 
                <LinearLayout
                    android:layout_width="match_parent"
-                   android:layout_height="110dp"
+                   android:layout_height="90dp"
                    android:orientation="vertical"
                    android:padding="10dp">
 
@@ -246,7 +248,9 @@
                        android:layout_height="wrap_content"
                        android:fontFamily="@font/poppins_regular"
                        android:paddingTop="4dp"
-                       android:text="Surat Ket. Kematian"
+                       android:text="Kematian"
+                       android:gravity="center"
+                       android:layout_gravity="center_horizontal"
                        android:textAlignment="center"
                        android:textColor="#000000"
                        android:textSize="11sp" />
@@ -267,7 +271,7 @@
 
                <LinearLayout
                    android:layout_width="match_parent"
-                   android:layout_height="110dp"
+                   android:layout_height="90dp"
                    android:orientation="vertical"
                    android:padding="10dp">
 
@@ -282,8 +286,9 @@
                        android:layout_height="wrap_content"
                        android:fontFamily="@font/poppins_regular"
                        android:paddingTop="4dp"
-                       android:text="Surat Ket. Domisili"
-                       android:textAlignment="center"
+                       android:text="Domisili"
+                       android:gravity="center"
+                       android:layout_gravity="center_horizontal"
                        android:textColor="#000000"
                        android:textSize="11sp" />
 
@@ -345,7 +350,7 @@
 
                <LinearLayout
                    android:layout_width="match_parent"
-                   android:layout_height="110dp"
+                   android:layout_height="90dp"
                    android:orientation="vertical"
                    android:padding="10dp">
 
@@ -360,8 +365,9 @@
                        android:layout_height="wrap_content"
                        android:fontFamily="@font/poppins_regular"
                        android:paddingTop="4dp"
-                       android:text="Surat Ket. Belum Nikah"
-                       android:textAlignment="center"
+                       android:text="Belum Nikah"
+                       android:gravity="center"
+                       android:layout_gravity="center_horizontal"
                        android:textColor="#000000"
                        android:textSize="11sp" />
 
@@ -381,7 +387,7 @@
 
                <LinearLayout
                    android:layout_width="match_parent"
-                   android:layout_height="110dp"
+                   android:layout_height="90dp"
                    android:orientation="vertical"
                    android:padding="10dp">
 
@@ -396,8 +402,9 @@
                        android:layout_height="wrap_content"
                        android:fontFamily="@font/poppins_regular"
                        android:paddingTop="4dp"
-                       android:text="Surat Ket. Kenal Lahir"
-                       android:textAlignment="center"
+                       android:text="Kenal Lahir"
+                       android:gravity="center"
+                       android:layout_gravity="center_horizontal"
                        android:textColor="#000000"
                        android:textSize="11sp" />
 
@@ -417,7 +424,7 @@
 
                <LinearLayout
                    android:layout_width="match_parent"
-                   android:layout_height="110dp"
+                   android:layout_height="90dp"
                    android:orientation="vertical"
                    android:padding="10dp">
 
@@ -429,11 +436,12 @@
 
                    <TextView
                        android:layout_width="match_parent"
-                       android:layout_height="55dp"
+                       android:layout_height="wrap_content"
                        android:fontFamily="@font/poppins_regular"
                        android:paddingTop="4dp"
-                       android:text="Surat Ket. Perilaku Baik"
-                       android:textAlignment="center"
+                       android:text="Perilaku Baik"
+                       android:gravity="center"
+                       android:layout_gravity="center_horizontal"
                        android:textColor="#000000"
                        android:textSize="11sp" />
 
@@ -442,6 +450,7 @@
            </androidx.cardview.widget.CardView>
 
            <androidx.cardview.widget.CardView
+               android:id="@+id/cardLainnya"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:layout_weight="1"
@@ -453,7 +462,7 @@
 
                <LinearLayout
                    android:layout_width="match_parent"
-                   android:layout_height="110dp"
+                   android:layout_height="90dp"
                    android:orientation="vertical"
                    android:padding="10dp">
 
@@ -469,7 +478,8 @@
                        android:fontFamily="@font/poppins_regular"
                        android:paddingTop="4dp"
                        android:text="Lainnya"
-                       android:textAlignment="center"
+                       android:gravity="center"
+                       android:layout_gravity="center_horizontal"
                        android:textColor="#000000"
                        android:textSize="11sp" />
 

@@ -10,13 +10,13 @@
     <color name="purple">#FF2A2A72</color>
     <color name="lavender">#FF2A2A72</color>
 
-    <color name="home">#1194AA</color>
-    <color name="surat">#C9379D</color>
-    <color name="status">#AE7E0F</color>
-    <color name="profile">#5B3787</color>
+    <color name="home">#FF2A2A72</color>
+    <color name="surat">#FF2A2A72</color>
+    <color name="status">#FF2A2A72</color>
+    <color name="profile">#FF2A2A72</color>
 
-    <color name="home_20">#331194AA</color>
-    <color name="surat_20">#33C9379D</color>
-    <color name="status_20">#33AE7E0F</color>
-    <color name="profile_20">#335B37B7</color>
+    <color name="home_20">#33023DB1</color>
+    <color name="surat_20">#33023DB1</color>
+    <color name="status_20">#33023DB1</color>
+    <color name="profile_20">#33023DB1</color>
 </resources>

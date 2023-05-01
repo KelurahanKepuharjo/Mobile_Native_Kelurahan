@@ -12,10 +12,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:gravity="center"
+        android:gravity="center|center_vertical"
         android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="20sp"
+        android:textSize="18sp"
+        android:fontFamily="@font/poppins_semibold"
         android:background="@color/lavender"
         android:text="Jenis Surat" />
 
@@ -34,7 +34,9 @@
             android:layout_height="120dp"
             app:cardCornerRadius="15dp"
             app:cardElevation="12dp"
-            android:layout_marginLeft="20dp">
+            android:layout_marginLeft="20dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -50,12 +52,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SKTM"
-                    android:paddingTop="5dp"
-                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Tidak Mampu"
+                    android:paddingTop="7dp"
+                    android:fontFamily="@font/poppins_regular"
                     android:layout_gravity="center_horizontal"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textSize="12sp"
                     android:textColor="@color/black"/>
 
 
@@ -68,7 +70,9 @@
             android:layout_height="120dp"
             app:cardCornerRadius="15dp"
             app:cardElevation="12dp"
-            android:layout_marginLeft="30dp">
+            android:layout_marginLeft="30dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -84,12 +88,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SKTM"
-                    android:paddingTop="5dp"
-                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Usaha"
+                    android:paddingTop="7dp"
+                    android:fontFamily="@font/poppins_regular"
                     android:layout_gravity="center_horizontal"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:textSize="12sp"
                     android:textColor="@color/black"/>
 
 
@@ -103,7 +106,9 @@
             app:cardCornerRadius="15dp"
             app:cardElevation="12dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -119,12 +124,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SKTM"
-                    android:paddingTop="5dp"
-                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Kematian"
+                    android:paddingTop="7dp"
+                    android:fontFamily="@font/poppins_regular"
                     android:layout_gravity="center_horizontal"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:textSize="12sp"
                     android:textColor="@color/black"/>
 
 
@@ -138,7 +142,9 @@
             app:cardCornerRadius="15dp"
             app:cardElevation="12dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -154,12 +160,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SKTM"
-                    android:paddingTop="5dp"
-                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Domisili"
+                    android:paddingTop="7dp"
+                    android:fontFamily="@font/poppins_regular"
                     android:layout_gravity="center_horizontal"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:textSize="12sp"
                     android:textColor="@color/black"/>
             </LinearLayout>
 
@@ -170,7 +175,9 @@
             app:cardCornerRadius="15dp"
             app:cardElevation="12dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -186,12 +193,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SKTM"
-                    android:paddingTop="5dp"
-                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Belum Nikah"
+                    android:paddingTop="7dp"
+                    android:fontFamily="@font/poppins_regular"
                     android:layout_gravity="center_horizontal"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:textSize="12sp"
                     android:textColor="@color/black"/>
 
 
@@ -205,7 +211,9 @@
             app:cardCornerRadius="15dp"
             app:cardElevation="12dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -221,12 +229,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SKTM"
-                    android:paddingTop="5dp"
-                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Kenal Lahir"
+                    android:paddingTop="7dp"
+                    android:fontFamily="@font/poppins_regular"
                     android:layout_gravity="center_horizontal"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:textSize="12sp"
                     android:textColor="@color/black"/>
             </LinearLayout>
 
@@ -237,7 +244,9 @@
             app:cardCornerRadius="15dp"
             app:cardElevation="12dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -253,12 +262,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SKTM"
-                    android:paddingTop="5dp"
-                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Kelakuan Baik"
+                    android:paddingTop="7dp"
+                    android:fontFamily="@font/poppins_regular"
                     android:layout_gravity="center_horizontal"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textSize="12sp"
                     android:textColor="@color/black"/>
 
 
@@ -272,7 +281,9 @@
             app:cardCornerRadius="15dp"
             app:cardElevation="12dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -289,11 +300,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="SKTM"
-                    android:paddingTop="5dp"
-                    android:fontFamily="@font/poppins_semibold"
+                    android:paddingTop="7dp"
+                    android:fontFamily="@font/poppins_regular"
                     android:layout_gravity="center_horizontal"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:textSize="12sp"
                     android:textColor="@color/black"/>
             </LinearLayout>
 
