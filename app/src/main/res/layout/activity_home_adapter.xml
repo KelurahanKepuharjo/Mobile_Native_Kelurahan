@@ -59,7 +59,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/likeLayout"
+            android:id="@+id/suratLayout"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="1"
@@ -70,26 +70,26 @@
             android:paddingEnd="5dp">
 
             <ImageView
-                android:id="@+id/likeImage"
+                android:id="@+id/suratImage"
                 android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:src="@drawable/like_icon" />
+                android:src="@drawable/surat_icon" />
 
             <TextView
-                android:id="@+id/likeTxt"
+                android:id="@+id/suratTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Ajukan"
-                android:textColor="@color/like"
+                android:text="Surat"
+                android:textColor="@color/surat"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:visibility="gone" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/notificationLayout"
+            android:id="@+id/statusLayout"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="1"
@@ -100,20 +100,20 @@
             android:paddingEnd="5dp">
 
             <ImageView
-                android:id="@+id/notificationImage"
+                android:id="@+id/statusImage"
                 android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:src="@drawable/notification_icon" />
+                android:src="@drawable/status_icon" />
 
             <TextView
-                android:id="@+id/notificationTxt"
+                android:id="@+id/statusTxt"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="Status"
-                android:textColor="@color/notification"
+                android:textColor="@color/status"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:visibility="gone"/>

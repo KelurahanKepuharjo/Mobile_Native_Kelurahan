@@ -6,9 +6,16 @@ import android.os.Bundle;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.example.mobile_native_kelurahan.Auth.AuthServices;
+import com.example.mobile_native_kelurahan.Model.Berita;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -57,6 +64,7 @@ public class HomeFragment extends Fragment {
         }
     }
     CardView cardTidakMampu;
+    TextView Txtjudul,Txtsub;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -71,6 +79,25 @@ public class HomeFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), form_pengajuan.class);
                 startActivity(intent);
                 getActivity().finish();
+            }
+        });
+        AuthServices.berita(getContext(), new AuthServices.BeritaResponseListener() {
+            @Override
+            public void onSuccess(List<Berita> beritaList) {
+                String judul =  beritaList.get(1).getJudul();
+                String subtitle = beritaList.get(2).getSubTitle();
+//                String deskripsi = beritaList.get(3).getDeskripsi();
+
+                Txtjudul = view.findViewById(R.id.judulBerita);
+                Txtjudul.setText(judul);
+
+                Txtsub = view.findViewById(R.id.subtitle);
+                Txtsub.setText(subtitle);
+            }
+
+            @Override
+            public void onError(String message) {
+                Log.e("Berita Error",message);
             }
         });
                 return view;

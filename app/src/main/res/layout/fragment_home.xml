@@ -528,6 +528,7 @@
                        />
 
                    <TextView
+                       android:id="@+id/judulBerita"
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:fontFamily="@font/poppins_regular"
@@ -536,7 +537,9 @@
                        android:textColor="#000000"
                        android:textSize="11sp"
                        android:textStyle="bold"/>
+
                    <TextView
+                       android:id="@+id/subtitle"
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:fontFamily="@font/poppins_regular"
@@ -544,13 +547,14 @@
                        android:textColor="#000000"
                        android:textSize="8sp"/>
 
-                   <TextView
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:fontFamily="@font/poppins_semibold"
-                       android:text="Keluharan Kepuharjo berkerja-sama dalam hal membuat aplikasi yang memudahkan..."
-                       android:textColor="#000000"
-                       android:textSize="9sp" />
+<!--                   <TextView-->
+<!--                       android:id="@+id/deskripsi"-->
+<!--                       android:layout_width="match_parent"-->
+<!--                       android:layout_height="wrap_content"-->
+<!--                       android:fontFamily="@font/poppins_semibold"-->
+<!--                       android:text="Keluharan Kepuharjo berkerja-sama dalam hal membuat aplikasi yang memudahkan..."-->
+<!--                       android:textColor="#000000"-->
+<!--                       android:textSize="9sp" />-->
 
                </LinearLayout>
 
@@ -595,13 +599,13 @@
                        android:textColor="#000000"
                        android:textSize="8sp"/>
 
-                   <TextView
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:fontFamily="@font/poppins_semibold"
-                       android:text="Keluharan Kepuharjo berkerja-sama dalam hal membuat aplikasi yang memudahkan..."
-                       android:textColor="#000000"
-                       android:textSize="9sp" />
+<!--                   <TextView-->
+<!--                       android:layout_width="match_parent"-->
+<!--                       android:layout_height="wrap_content"-->
+<!--                       android:fontFamily="@font/poppins_semibold"-->
+<!--                       android:text="Keluharan Kepuharjo berkerja-sama dalam hal membuat aplikasi yang memudahkan..."-->
+<!--                       android:textColor="#000000"-->
+<!--                       android:textSize="9sp" />-->
 
                </LinearLayout>
 

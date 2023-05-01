@@ -2,8 +2,6 @@ package com.example.mobile_native_kelurahan;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -26,18 +24,18 @@ public class homeAdapter extends AppCompatActivity {
         setContentView(R.layout.activity_home_adapter);
 
         final LinearLayout homeLayout = findViewById(R.id.homeLayout);
-        final LinearLayout likeLayout = findViewById(R.id.likeLayout);
-        final LinearLayout notificationLayout = findViewById(R.id.notificationLayout);
+        final LinearLayout suratLayout = findViewById(R.id.suratLayout);
+        final LinearLayout statusLayout = findViewById(R.id.statusLayout);
         final LinearLayout profileLayout = findViewById(R.id.profileLayout);
 
         final ImageView homeImage = findViewById(R.id.homeImage);
-        final ImageView likeImage = findViewById(R.id.likeImage);
-        final ImageView notificationImage = findViewById(R.id.notificationImage);
+        final ImageView suratImage = findViewById(R.id.suratImage);
+        final ImageView statusImage = findViewById(R.id.statusImage);
         final ImageView profileImage = findViewById(R.id.profileImage);
 
         final TextView homeTxt = findViewById(R.id.homeTxt);
-        final TextView likeTxt = findViewById(R.id.likeTxt);
-        final TextView notificationTxt = findViewById(R.id.notificationTxt);
+        final TextView suratTxt = findViewById(R.id.suratTxt);
+        final TextView statusTxt = findViewById(R.id.statusTxt);
         final TextView profileTxt = findViewById(R.id.profileTxt);
 
         getSupportFragmentManager().beginTransaction()
@@ -56,16 +54,16 @@ public class homeAdapter extends AppCompatActivity {
                             .replace(R.id.fragmentContainer, HomeFragment.class, null)
                             .commit();
 
-                    likeTxt.setVisibility(View.GONE);
-                    notificationTxt.setVisibility(View.GONE);
+                    suratTxt.setVisibility(View.GONE);
+                    statusTxt.setVisibility(View.GONE);
                     profileTxt.setVisibility(View.GONE);
 
-                    likeImage.setImageResource(R.drawable.like_icon);
-                    notificationImage.setImageResource(R.drawable.notification_icon);
+                    suratImage.setImageResource(R.drawable.surat_icon);
+                    statusImage.setImageResource(R.drawable.status_icon);
                     profileImage.setImageResource(R.drawable.profile_icon);
 
-                    likeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    notificationLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                    suratLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                    statusLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
                     profileLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
 
                     //buat klo ngetab
@@ -83,74 +81,74 @@ public class homeAdapter extends AppCompatActivity {
                 }
             }
         });
-        likeLayout.setOnClickListener(new View.OnClickListener() {
+        suratLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (selectedTab != 2){
 
                     getSupportFragmentManager().beginTransaction()
                             .setReorderingAllowed(true)
-                            .replace(R.id.fragmentContainer, LikesFragment.class, null)
+                            .replace(R.id.fragmentContainer, SuratFragment.class, null)
                             .commit();
 
                     homeTxt.setVisibility(View.GONE);
-                    notificationTxt.setVisibility(View.GONE);
+                    statusTxt.setVisibility(View.GONE);
                     profileTxt.setVisibility(View.GONE);
 
                     homeImage.setImageResource(R.drawable.home_icon);
-                    notificationImage.setImageResource(R.drawable.notification_icon);
+                    statusImage.setImageResource(R.drawable.status_icon);
                     profileImage.setImageResource(R.drawable.profile_icon);
 
                     homeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    notificationLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                    statusLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
                     profileLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
 
                     //buat klo ngetab
-                    likeTxt.setVisibility(View.VISIBLE);
-                    likeImage.setImageResource(R.drawable.like_selected_icon);
-                    likeLayout.setBackgroundResource(R.drawable.round_back_like_100);
+                    suratTxt.setVisibility(View.VISIBLE);
+                    suratImage.setImageResource(R.drawable.surat_selected_icon);
+                    suratLayout.setBackgroundResource(R.drawable.round_back_surat_100);
 
                     ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f,1.0f,1f,1f, Animation.RELATIVE_TO_SELF,1.0f,Animation.RELATIVE_TO_SELF,0.0f);
                     scaleAnimation.setDuration(200);
                     scaleAnimation.setFillAfter(true);
-                    likeLayout.startAnimation(scaleAnimation);
+                    suratLayout.startAnimation(scaleAnimation);
 
                     selectedTab = 2;
 
                 }
             }
         });
-        notificationLayout.setOnClickListener(new View.OnClickListener() {
+        statusLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (selectedTab != 3){
 
                     getSupportFragmentManager().beginTransaction()
                             .setReorderingAllowed(true)
-                            .replace(R.id.fragmentContainer, NotificationFragment.class, null)
+                            .replace(R.id.fragmentContainer, StatusFragment.class, null)
                             .commit();
 
                     homeTxt.setVisibility(View.GONE);
-                    likeTxt.setVisibility(View.GONE);
+                    suratTxt.setVisibility(View.GONE);
                     profileTxt.setVisibility(View.GONE);
 
                     homeImage.setImageResource(R.drawable.home_icon);
-                    likeImage.setImageResource(R.drawable.like_icon);
+                    suratImage.setImageResource(R.drawable.surat_icon);
                     profileImage.setImageResource(R.drawable.profile_icon);
 
                     homeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    likeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                    suratLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
                     profileLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
 
                     //buat klo ngetab
-                    notificationTxt.setVisibility(View.VISIBLE);
-                    notificationImage.setImageResource(R.drawable.notification_selected_icon);
-                    notificationLayout.setBackgroundResource(R.drawable.round_back_notification_100);
+                    statusTxt.setVisibility(View.VISIBLE);
+                    statusImage.setImageResource(R.drawable.status_selected_icon);
+                    statusLayout.setBackgroundResource(R.drawable.round_back_status_100);
 
                     ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f,1.0f,1f,1f, Animation.RELATIVE_TO_SELF,1.0f,Animation.RELATIVE_TO_SELF,0.0f);
                     scaleAnimation.setDuration(200);
                     scaleAnimation.setFillAfter(true);
-                    notificationLayout.startAnimation(scaleAnimation);
+                    statusLayout.startAnimation(scaleAnimation);
 
                     selectedTab = 3;
 
@@ -171,16 +169,16 @@ public class homeAdapter extends AppCompatActivity {
                     String token = preferences.getString("token", "");
 
                     homeTxt.setVisibility(View.GONE);
-                    likeTxt.setVisibility(View.GONE);
-                    notificationTxt.setVisibility(View.GONE);
+                    suratTxt.setVisibility(View.GONE);
+                    statusTxt.setVisibility(View.GONE);
 
                     homeImage.setImageResource(R.drawable.home_icon);
-                    likeImage.setImageResource(R.drawable.like_icon);
-                    notificationImage.setImageResource(R.drawable.notification_icon);
+                    suratImage.setImageResource(R.drawable.surat_icon);
+                    statusImage.setImageResource(R.drawable.status_icon);
 
                     homeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    likeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    notificationLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                    suratLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                    statusLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
 
                     //buat klo ngetab
                     profileTxt.setVisibility(View.VISIBLE);
