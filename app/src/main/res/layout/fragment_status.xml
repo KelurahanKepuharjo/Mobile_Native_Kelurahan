@@ -15,7 +15,7 @@
         android:textStyle="bold"
         android:textSize="20sp"
         android:background="@color/lavender"
-        android:text="Status Surat" />
+        android:text="Jenis Surat" />
 
 
     <RelativeLayout
