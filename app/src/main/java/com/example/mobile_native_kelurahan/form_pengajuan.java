@@ -91,4 +91,8 @@ public class form_pengajuan extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+    }
 }

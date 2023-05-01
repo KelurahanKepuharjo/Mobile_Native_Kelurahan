@@ -196,4 +196,9 @@ public class homeAdapter extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+    }
 }
