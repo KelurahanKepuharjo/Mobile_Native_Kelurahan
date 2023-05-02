@@ -18,6 +18,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.mobile_native_kelurahan.Model.Surat;
+
 public class form_pengajuan extends AppCompatActivity {
 
     String[] item = {"faisal","okta","brian","FOS","ical"};
@@ -26,6 +28,7 @@ public class form_pengajuan extends AppCompatActivity {
     Button btnKirim;
     ImageView uploadkk;
     Uri uri;
+    Surat surat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,6 +93,13 @@ public class form_pengajuan extends AppCompatActivity {
                 activityResultLauncher.launch(photoPicker);
             }
         });
+
+        Intent intent = getIntent();
+        if (intent.getExtras() != null){
+            surat = (Surat) intent.getSerializableExtra("data");
+            String idSurat = surat.getIdSurat();
+        }
+
     }
     @Override
     public void onBackPressed() {

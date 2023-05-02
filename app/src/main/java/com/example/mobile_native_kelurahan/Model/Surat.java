@@ -1,6 +1,8 @@
 package com.example.mobile_native_kelurahan.Model;
 
-public class Surat {
+import java.io.Serializable;
+
+public class Surat implements Serializable {
     private String idSurat;
     private String namaSurat;
     private String image;

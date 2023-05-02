@@ -1,6 +1,7 @@
 package com.example.mobile_native_kelurahan;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,10 +10,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.mobile_native_kelurahan.Auth.AuthServices;
@@ -69,7 +72,7 @@ public class SuratFragment extends Fragment {
     }
 
     GridView gridview;
-    List<Surat> suratList = new ArrayList<>();
+    List<Surat> suratList1 = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -77,11 +80,23 @@ public class SuratFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_surat, container, false);
         gridview = view.findViewById(R.id.gridViewSurat);
+        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (suratList1.size() > position) {
+                    startActivity(new Intent(getActivity(), form_pengajuan.class).putExtra("data", suratList1.get(position)));
+                } else {
+                    Log.e("Errorbang", "List kosong");
+                    Toast.makeText(getActivity(), "List surat kosong atau tidak ada item pada posisi ini", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         AuthServices.surat(getContext(), new AuthServices.SuratResponseListener() {
             @Override
             public void onSuccess(List<Surat> suratList) {
                 CustomAdapter customAdapter = new CustomAdapter(suratList, getContext());
                 gridview.setAdapter(customAdapter);
+                suratList1 = suratList;
             }
 
             @Override
@@ -126,7 +141,7 @@ public class SuratFragment extends Fragment {
             ImageView image = convertView.findViewById(R.id.logoSurat);
             TextView textView = convertView.findViewById(R.id.namaSurat);
             textView.setText(suratList.get(position).getNamaSurat());
-            Glide.with(context).load("http://192.168.1.22:8000/images/"+suratList.get(position).getImage()).into(image);
+            Glide.with(context).load("http://192.168.43.199:8000/images/"+suratList.get(position).getImage()).into(image);
             return convertView;
         }
     }
