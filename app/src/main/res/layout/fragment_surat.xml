@@ -6,308 +6,322 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".SuratFragment"
+    android:layout_gravity="center"
     android:background="@color/white">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+<!--    <TextView-->
+<!--        android:id="@+id/app"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:gravity="center|center_vertical"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="18sp"-->
+<!--        android:fontFamily="@font/poppins_semibold"-->
+<!--        android:background="@color/lavender"-->
+<!--        android:text="Jenis Surat" />-->
+
+    <GridView
+        android:id="@+id/gridViewSurat"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:gravity="center|center_vertical"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:fontFamily="@font/poppins_semibold"
-        android:background="@color/lavender"
-        android:text="Jenis Surat" />
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="5dp"
+        android:layout_margin="15dp"
+        android:numColumns="2"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
+        android:verticalSpacing="10dp"/>
 
-    <GridLayout
-        android:layout_width="300dp"
-        android:layout_height="match_parent"
-        android:rowCount="4"
-        android:columnCount="2"
-        android:layout_marginTop="80dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="25dp">
+<!--    <GridLayout-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:rowCount="4"-->
+<!--        android:columnCount="2"-->
+<!--        android:layout_marginTop="80dp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginLeft="24dp"-->
+<!--        android:layout_marginRight="25dp">-->
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="12dp"
-            android:layout_marginLeft="20dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true">
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="120dp"-->
+<!--            app:cardCornerRadius="15dp"-->
+<!--            app:cardElevation="12dp"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:foreground="?android:attr/selectableItemBackground"-->
+<!--            android:clickable="true">-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical"-->
+<!--                android:gravity="center">-->
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/logosktm"
-                    android:layout_gravity="center_horizontal"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tidak Mampu"
-                    android:paddingTop="7dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center"
-                    android:textSize="12sp"
-                    android:textColor="@color/black"/>
-
-
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="12dp"
-            android:layout_marginLeft="30dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/logousaha"
-                    android:layout_gravity="center_horizontal"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Usaha"
-                    android:paddingTop="7dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="12sp"
-                    android:textColor="@color/black"/>
+<!--                <ImageView-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:src="@drawable/logosktm"-->
+<!--                    android:layout_gravity="center_horizontal"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Tidak Mampu"-->
+<!--                    android:paddingTop="7dp"-->
+<!--                    android:fontFamily="@font/poppins_regular"-->
+<!--                    android:layout_gravity="center_horizontal"-->
+<!--                    android:gravity="center"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:textColor="@color/black"/>-->
 
 
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="12dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true">
+<!--        </androidx.cardview.widget.CardView>-->
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="120dp"-->
+<!--            app:cardCornerRadius="15dp"-->
+<!--            app:cardElevation="12dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:foreground="?android:attr/selectableItemBackground"-->
+<!--            android:clickable="true">-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical"-->
+<!--                android:gravity="center">-->
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/logokematian"
-                    android:layout_gravity="center_horizontal"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kematian"
-                    android:paddingTop="7dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="12sp"
-                    android:textColor="@color/black"/>
-
-
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="12dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/logodomisili"
-                    android:layout_gravity="center_horizontal"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Domisili"
-                    android:paddingTop="7dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="12sp"
-                    android:textColor="@color/black"/>
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="12dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/logobelumnikah"
-                    android:layout_gravity="center_horizontal"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Belum Nikah"
-                    android:paddingTop="7dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="12sp"
-                    android:textColor="@color/black"/>
+<!--                <ImageView-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:src="@drawable/logousaha"-->
+<!--                    android:layout_gravity="center_horizontal"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Usaha"-->
+<!--                    android:paddingTop="7dp"-->
+<!--                    android:fontFamily="@font/poppins_regular"-->
+<!--                    android:layout_gravity="center_horizontal"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:textColor="@color/black"/>-->
 
 
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="12dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true">
+<!--        </androidx.cardview.widget.CardView>-->
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="120dp"-->
+<!--            app:cardCornerRadius="15dp"-->
+<!--            app:cardElevation="12dp"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:foreground="?android:attr/selectableItemBackground"-->
+<!--            android:clickable="true">-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical"-->
+<!--                android:gravity="center">-->
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/logokenallahir"
-                    android:layout_gravity="center_horizontal"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kenal Lahir"
-                    android:paddingTop="7dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="12sp"
-                    android:textColor="@color/black"/>
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="12dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/logokelakukanbaik"
-                    android:layout_gravity="center_horizontal"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kelakuan Baik"
-                    android:paddingTop="7dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center"
-                    android:textSize="12sp"
-                    android:textColor="@color/black"/>
+<!--                <ImageView-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:src="@drawable/logokematian"-->
+<!--                    android:layout_gravity="center_horizontal"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Kematian"-->
+<!--                    android:paddingTop="7dp"-->
+<!--                    android:fontFamily="@font/poppins_regular"-->
+<!--                    android:layout_gravity="center_horizontal"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:textColor="@color/black"/>-->
 
 
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="12dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true">
+<!--        </androidx.cardview.widget.CardView>-->
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="120dp"-->
+<!--            app:cardCornerRadius="15dp"-->
+<!--            app:cardElevation="12dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:foreground="?android:attr/selectableItemBackground"-->
+<!--            android:clickable="true">-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical"-->
+<!--                android:gravity="center">-->
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/logosktm"
-                    android:layout_gravity="center_horizontal"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SKTM"
-                    android:paddingTop="7dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="12sp"
-                    android:textColor="@color/black"/>
-            </LinearLayout>
+<!--                <ImageView-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:src="@drawable/logodomisili"-->
+<!--                    android:layout_gravity="center_horizontal"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Domisili"-->
+<!--                    android:paddingTop="7dp"-->
+<!--                    android:fontFamily="@font/poppins_regular"-->
+<!--                    android:layout_gravity="center_horizontal"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:textColor="@color/black"/>-->
+<!--            </LinearLayout>-->
 
-        </androidx.cardview.widget.CardView>
+<!--        </androidx.cardview.widget.CardView>-->
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="120dp"-->
+<!--            app:cardCornerRadius="15dp"-->
+<!--            app:cardElevation="12dp"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:foreground="?android:attr/selectableItemBackground"-->
+<!--            android:clickable="true">-->
 
-    </GridLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical"-->
+<!--                android:gravity="center">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:src="@drawable/logobelumnikah"-->
+<!--                    android:layout_gravity="center_horizontal"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Belum Nikah"-->
+<!--                    android:paddingTop="7dp"-->
+<!--                    android:fontFamily="@font/poppins_regular"-->
+<!--                    android:layout_gravity="center_horizontal"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:textColor="@color/black"/>-->
+
+
+
+<!--            </LinearLayout>-->
+
+<!--        </androidx.cardview.widget.CardView>-->
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="120dp"-->
+<!--            app:cardCornerRadius="15dp"-->
+<!--            app:cardElevation="12dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:foreground="?android:attr/selectableItemBackground"-->
+<!--            android:clickable="true">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical"-->
+<!--                android:gravity="center">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:src="@drawable/logokenallahir"-->
+<!--                    android:layout_gravity="center_horizontal"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Kenal Lahir"-->
+<!--                    android:paddingTop="7dp"-->
+<!--                    android:fontFamily="@font/poppins_regular"-->
+<!--                    android:layout_gravity="center_horizontal"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:textColor="@color/black"/>-->
+<!--            </LinearLayout>-->
+
+<!--        </androidx.cardview.widget.CardView>-->
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="120dp"-->
+<!--            app:cardCornerRadius="15dp"-->
+<!--            app:cardElevation="12dp"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:foreground="?android:attr/selectableItemBackground"-->
+<!--            android:clickable="true">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical"-->
+<!--                android:gravity="center">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:src="@drawable/logokelakukanbaik"-->
+<!--                    android:layout_gravity="center_horizontal"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Kelakuan Baik"-->
+<!--                    android:paddingTop="7dp"-->
+<!--                    android:fontFamily="@font/poppins_regular"-->
+<!--                    android:layout_gravity="center_horizontal"-->
+<!--                    android:gravity="center"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:textColor="@color/black"/>-->
+
+
+
+<!--            </LinearLayout>-->
+
+<!--        </androidx.cardview.widget.CardView>-->
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="120dp"-->
+<!--            app:cardCornerRadius="15dp"-->
+<!--            app:cardElevation="12dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:foreground="?android:attr/selectableItemBackground"-->
+<!--            android:clickable="true">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical"-->
+<!--                android:gravity="center">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:src="@drawable/logosktm"-->
+<!--                    android:layout_gravity="center_horizontal"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="SKTM"-->
+<!--                    android:paddingTop="7dp"-->
+<!--                    android:fontFamily="@font/poppins_regular"-->
+<!--                    android:layout_gravity="center_horizontal"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:textColor="@color/black"/>-->
+<!--            </LinearLayout>-->
+
+<!--        </androidx.cardview.widget.CardView>-->
+
+<!--    </GridLayout>-->
 </FrameLayout>

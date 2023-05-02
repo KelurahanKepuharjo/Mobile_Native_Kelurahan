@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AuthServices {
-    private static String URL = "http://192.168.0.117:8000/api/auth";
+    private static String URL = "http://192.168.1.22:8000/api/";
 
     public interface RegisterResponseListener {
         void onSuccess(JSONObject response);
@@ -60,7 +60,7 @@ public class AuthServices {
 
     public static void register(Context context, String nik, String pass, String no_tlp, RegisterResponseListener listener) {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL + "/register", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL + "auth/register", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -113,7 +113,7 @@ public class AuthServices {
 
     public static void login(Context context, String nik, String pass, LoginResponseListener listener) {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL + "/login", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL + "auth/login", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -166,7 +166,7 @@ public class AuthServices {
     }
 
     public static void getUserData(Context context, String token, final UserDataResponseListener listener) {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "/me",
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "auth/me",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -240,7 +240,7 @@ public class AuthServices {
     }
 
     public static void logOut(Context context, String token, LogoutResponseListener listener) {
-        StringRequest request = new StringRequest(Request.Method.POST, URL + "/logout", new Response.Listener<String>() {
+        StringRequest request = new StringRequest(Request.Method.POST, URL + "auth/logout", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 listener.onSuccess(response);
@@ -263,7 +263,7 @@ public class AuthServices {
     }
 
     public static void berita(Context context, final BeritaResponseListener listener) {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "/berita",
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "berita",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -313,7 +313,7 @@ public class AuthServices {
     }
 
     public static void surat(Context context, final SuratResponseListener listener) {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "/surat",
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "surat",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

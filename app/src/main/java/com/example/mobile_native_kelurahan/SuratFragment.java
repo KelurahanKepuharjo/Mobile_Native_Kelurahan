@@ -1,12 +1,25 @@
 package com.example.mobile_native_kelurahan;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.example.mobile_native_kelurahan.Auth.AuthServices;
+import com.example.mobile_native_kelurahan.Model.Surat;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,10 +68,66 @@ public class SuratFragment extends Fragment {
         }
     }
 
+    GridView gridview;
+    List<Surat> suratList = new ArrayList<>();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_surat, container, false);
+        View view = inflater.inflate(R.layout.fragment_surat, container, false);
+        gridview = view.findViewById(R.id.gridViewSurat);
+        AuthServices.surat(getContext(), new AuthServices.SuratResponseListener() {
+            @Override
+            public void onSuccess(List<Surat> suratList) {
+                CustomAdapter customAdapter = new CustomAdapter(suratList, getContext());
+                gridview.setAdapter(customAdapter);
+            }
+
+            @Override
+            public void onError(String message) {
+                Log.e("Failed load" , message);
+            }
+        });
+        return view;
+    }
+    public static class CustomAdapter extends BaseAdapter{
+
+        private List<Surat> suratList;
+        private Context context;
+        private LayoutInflater layoutInflater;
+
+        public CustomAdapter(List<Surat> suratList, Context context) {
+            this.suratList = suratList;
+            this.context = context;
+            this.layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) ;
+        }
+
+        @Override
+        public int getCount() {
+            return suratList.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null){
+                convertView = layoutInflater.inflate(R.layout.row_grid_items,parent,false);
+            }
+            ImageView image = convertView.findViewById(R.id.logoSurat);
+            TextView textView = convertView.findViewById(R.id.namaSurat);
+            textView.setText(suratList.get(position).getNamaSurat());
+            Glide.with(context).load("http://192.168.1.22:8000/images/"+suratList.get(position).getImage()).into(image);
+            return convertView;
+        }
     }
 }
