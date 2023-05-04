@@ -84,7 +84,7 @@ public class SuratFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (suratList1.size() > position) {
-                    startActivity(new Intent(getActivity(), form_pengajuan.class).putExtra("data", suratList1.get(position)));
+                    startActivity(new Intent(getActivity(), DaftarKeluarga.class).putExtra("data", suratList1.get(position)));
                 } else {
                     Log.e("Errorbang", "List kosong");
                     Toast.makeText(getActivity(), "List surat kosong atau tidak ada item pada posisi ini", Toast.LENGTH_SHORT).show();

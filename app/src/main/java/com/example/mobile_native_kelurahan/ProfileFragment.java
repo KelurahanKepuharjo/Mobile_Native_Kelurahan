@@ -94,6 +94,7 @@ public class ProfileFragment extends Fragment {
                         SharedPreferences preferences = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();
                         editor.remove("isLogin");
+                        editor.remove("token");
                         editor.apply();
                     }
 
