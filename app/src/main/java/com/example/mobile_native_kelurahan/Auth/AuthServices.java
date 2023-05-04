@@ -21,15 +21,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class AuthServices {
-    private static String URL = "http://192.168.43.199:8000/api/";
+    private static String URL = "http://192.168.0.117:8000/api/";
 
     public interface RegisterResponseListener {
         void onSuccess(JSONObject response);
@@ -54,6 +52,10 @@ public class AuthServices {
     }
     public interface SuratResponseListener {
         void onSuccess(List<Surat> suratList);
+        void onError(String message);
+    }
+    public interface PengajuanResponseListener {
+        void onSuccess(JSONObject response);
         void onError(String message);
     }
 
@@ -352,7 +354,7 @@ public class AuthServices {
                                 listener.onError("Gagal mendapatkan berita: " + e.getMessage());
                             }
                         } else {
-                            listener.onError("Gagal mendapatkan berita: network response is null");
+                            listener.onError("Gagal mendapatkan surat: network response is null");
                         }
                     }
                 });
@@ -360,4 +362,60 @@ public class AuthServices {
         requestQueue.add(stringRequest);
     }
 
+    public static void pengajuan(Context context, String status, String keterangan, String id_surat, PengajuanResponseListener listener) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "");
+
+        JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.POST, URL + "pengajuan",null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    String message = response.getString("message");
+                    if (message.equals("Berhasil mengajukan surat")){
+                        JSONObject dataObj = response.getJSONObject("data");
+                        listener.onSuccess(dataObj);
+                    }
+                } catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        },
+                new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        if (error.networkResponse != null && error.networkResponse.data != null) {
+                            try {
+                                String responseBody = new String(error.networkResponse.data, "utf-8");
+                                JSONObject jsonObject = new JSONObject(responseBody);
+                                String message = jsonObject.getString("message");
+                                listener.onError(message);
+                            } catch (JSONException | UnsupportedEncodingException e) {
+                                e.printStackTrace();
+                                listener.onError("Gagal mengajukan surat: " + e.getMessage());
+                            }
+                        }else{
+                            listener.onError("Gagal mengajukan surat: network response is null");
+                        }
+                    }
+                })
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer " + token);
+                return headers;
+            }
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError{
+                Map<String, String> params = new HashMap<>();
+                params.put("status", status);
+                params.put("keterangan", keterangan);
+                params.put("id_surat", id_surat);
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(stringRequest);
+    }
 }

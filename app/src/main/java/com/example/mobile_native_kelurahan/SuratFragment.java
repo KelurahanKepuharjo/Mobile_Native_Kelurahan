@@ -141,7 +141,7 @@ public class SuratFragment extends Fragment {
             ImageView image = convertView.findViewById(R.id.logoSurat);
             TextView textView = convertView.findViewById(R.id.namaSurat);
             textView.setText(suratList.get(position).getNamaSurat());
-            Glide.with(context).load("http://192.168.43.199:8000/images/"+suratList.get(position).getImage()).into(image);
+            Glide.with(context).load("http://192.168.0.117:8000/images/"+suratList.get(position).getImage()).into(image);
             return convertView;
         }
     }

@@ -1,21 +1,30 @@
 package com.example.mobile_native_kelurahan;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.mobile_native_kelurahan.Auth.AuthServices;
 import com.example.mobile_native_kelurahan.Model.Berita;
+import com.example.mobile_native_kelurahan.Model.Surat;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -67,12 +76,14 @@ public class HomeFragment extends Fragment {
     CardView cardTidakMampu;
     CardView cardlainnya;
     TextView Txtjudul,Txtsub;
+    RecyclerView ryView;
+    List<Berita> beritaList1 = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
+        ryView = view.findViewById(R.id.rycycleBerita);
         cardTidakMampu = view.findViewById(R.id.cardTidakMampu);
         cardlainnya = view.findViewById(R.id.cardLainnya);
 
@@ -92,18 +103,14 @@ public class HomeFragment extends Fragment {
                 fn.replace(R.id.fragmentContainer,suratfrag).commit();
             }
         });
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        ryView.setLayoutManager(layoutManager);
         AuthServices.berita(getContext(), new AuthServices.BeritaResponseListener() {
             @Override
             public void onSuccess(List<Berita> beritaList) {
-                String judul =  beritaList.get(1).getJudul();
-                String subtitle = beritaList.get(2).getSubTitle();
-//                String deskripsi = beritaList.get(3).getDeskripsi();
-
-                Txtjudul = view.findViewById(R.id.judulBerita);
-                Txtjudul.setText(judul);
-
-                Txtsub = view.findViewById(R.id.subtitle);
-                Txtsub.setText(subtitle);
+                CustomAdapterBerita customAdapter = new CustomAdapterBerita(beritaList, getContext());
+                ryView.setAdapter(customAdapter);
+                beritaList1 = beritaList;
             }
 
             @Override
@@ -113,4 +120,57 @@ public class HomeFragment extends Fragment {
         });
                 return view;
     }
+    public static class CustomAdapterBerita extends RecyclerView.Adapter<CustomAdapterBerita.ViewHolder> {
+        private List<Berita> beritaList;
+        private Context context;
+        private LayoutInflater layoutInflater;
+
+        public CustomAdapterBerita(List<Berita> beritaList, Context context) {
+            this.beritaList = beritaList;
+            this.context = context;
+            this.layoutInflater = LayoutInflater.from(context);
+        }
+
+        @NonNull
+        @Override
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = layoutInflater.inflate(R.layout.row_list_item_berita, parent, false);
+            return new ViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+            holder.judulTextView.setText(beritaList.get(position).getJudul());
+            holder.subtitleTextView.setText(beritaList.get(position).getSubTitle());
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = holder.getAdapterPosition();
+                    if (pos != RecyclerView.NO_POSITION) {
+                        Intent intent = new Intent(context, DetailBerita.class);
+                        intent.putExtra("judulBerita", beritaList.get(pos).getJudul());
+                        intent.putExtra("subtitle", beritaList.get(pos).getSubTitle());
+                        intent.putExtra("deskripsi", beritaList.get(pos).getDeskripsi());
+                        context.startActivity(intent);
+                    }
+                }
+            });
+        }
+
+        @Override
+        public int getItemCount() {
+            return beritaList.size();
+        }
+
+        public static class ViewHolder extends RecyclerView.ViewHolder {
+            TextView judulTextView,subtitleTextView;
+
+            public ViewHolder(View itemView) {
+                super(itemView);
+                judulTextView = itemView.findViewById(R.id.judulBerita);
+                subtitleTextView = itemView.findViewById(R.id.subtitleBerita);
+            }
+        }
+    }
+
 }
