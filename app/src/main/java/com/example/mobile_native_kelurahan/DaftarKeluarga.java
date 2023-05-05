@@ -30,7 +30,7 @@ public class DaftarKeluarga extends AppCompatActivity {
     Surat surat;
     RecyclerView recyclerView;
     List<Masyarakat> masyarakatList1 = new ArrayList<>();
-
+    static String idSurat = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,12 +42,10 @@ public class DaftarKeluarga extends AppCompatActivity {
 
         if (intent.getExtras() != null){
             surat = (Surat) intent.getSerializableExtra("data");
-            String idSurat = surat.getIdSurat();
+            idSurat = surat.getIdSurat();
         }
-        String tokkken = intent.getStringExtra("token");
         SharedPreferences preferences = getSharedPreferences("myPrefs", MODE_PRIVATE);
         String token = preferences.getString("token", "");
-//        String token = DaftarKeluarga.this.getSharedPreferences("myPrefs", MODE_PRIVATE).getString("token", "");
         AuthServices.keluarga(DaftarKeluarga.this,token, new AuthServices.KeluargaResponseListener() {
             @Override
             public void onSuccess(List<Masyarakat> masyarakatList) {
@@ -82,6 +80,36 @@ public class DaftarKeluarga extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull DaftarKeluarga.AdapterKeluarga.Viewholder holder, int position) {
             holder.nama.setText(masyarakatList.get(position).getNamaLengkap());
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = holder.getAdapterPosition();
+                    if (pos != RecyclerView.NO_POSITION) {
+                        Intent intent = new Intent(context, form_pengajuan.class);
+                        intent.putExtra("idSurat", idSurat);
+                        intent.putExtra("id_masyarakat", masyarakatList.get(pos).getIdMasyarakat());
+                        intent.putExtra("nik", masyarakatList.get(pos).getNik());
+                        intent.putExtra("namaLengkap", masyarakatList.get(pos).getNamaLengkap());
+                        intent.putExtra("jenisKelamin", masyarakatList.get(pos).getJenisKelamin());
+                        intent.putExtra("tempatLahir", masyarakatList.get(pos).getTempatLahir());
+                        intent.putExtra("tanggalLahir", masyarakatList.get(pos).getTglLahir());
+                        intent.putExtra("agama", masyarakatList.get(pos).getAgama());
+                        intent.putExtra("pendidikan", masyarakatList.get(pos).getPendidikan());
+                        intent.putExtra("pekerjaan", masyarakatList.get(pos).getPekerjaan());
+                        intent.putExtra("golonganDarah", masyarakatList.get(pos).getGolonganDarah());
+                        intent.putExtra("statusPerkawinan", masyarakatList.get(pos).getStatusPerkawinan());
+                        intent.putExtra("tglPerkawinan", masyarakatList.get(pos).getTglPerkawinan());
+                        intent.putExtra("statusKeluarga", masyarakatList.get(pos).getStatusKeluarga());
+                        intent.putExtra("kewarganegaraan", masyarakatList.get(pos).getKewarganegaraan());
+                        intent.putExtra("noPaspor", masyarakatList.get(pos).getNoPaspor());
+                        intent.putExtra("noKitap", masyarakatList.get(pos).getNoKitap());
+                        intent.putExtra("namaAyah", masyarakatList.get(pos).getNamaAyah());
+                        intent.putExtra("namaIbu", masyarakatList.get(pos).getNamaIbu());
+                        intent.putExtra("id", masyarakatList.get(pos).getId());
+                        context.startActivity(intent);
+                    }
+                }
+            });
         }
 
         @Override

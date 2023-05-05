@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AuthServices {
-    private static String URL = "http://192.168.1.15:8000/api/";
+    private static String URL = "http://192.168.137.1:8000/api/";
 
     public interface RegisterResponseListener {
         void onSuccess(JSONObject response);
@@ -439,17 +439,16 @@ public class AuthServices {
         requestQueue.add(stringRequest);
     }
 
-    public static void pengajuan(Context context, String status, String keterangan, String id_surat, PengajuanResponseListener listener) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
-        String token = sharedPreferences.getString("token", "");
+    public static void pengajuan(Context context, String nik,String keterangan, String id_surat, PengajuanResponseListener listener) {
 
-        JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.POST, URL + "pengajuan",null, new Response.Listener<JSONObject>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL + "pengajuan", new Response.Listener<String>() {
             @Override
-            public void onResponse(JSONObject response) {
+            public void onResponse(String response) {
                 try {
-                    String message = response.getString("message");
+                    JSONObject jsonObject = new JSONObject(response);
+                    String message = jsonObject.getString("message");
                     if (message.equals("Berhasil mengajukan surat")){
-                        JSONObject dataObj = response.getJSONObject("data");
+                        JSONObject dataObj = jsonObject.getJSONObject("data");
                         listener.onSuccess(dataObj);
                     }
                 } catch (JSONException e){
@@ -465,10 +464,14 @@ public class AuthServices {
                                 String responseBody = new String(error.networkResponse.data, "utf-8");
                                 JSONObject jsonObject = new JSONObject(responseBody);
                                 String message = jsonObject.getString("message");
-                                listener.onError(message);
+                                if (message.equals("Surat sebelumnya belum selesai")) {
+                                    listener.onError("Gagal mengajukan surat , karena surat sebelumnya belum selesai, Silahkan pilih surat yang lainnya");
+                                } else if (message.equals("Password Anda Salah")) {
+                                    listener.onError("Password Anda Salah");
+                                }
                             } catch (JSONException | UnsupportedEncodingException e) {
                                 e.printStackTrace();
-                                listener.onError("Gagal mengajukan surat: " + e.getMessage());
+                                listener.onError("Gagal mengajukan: " + e.getMessage());
                             }
                         }else{
                             listener.onError("Gagal mengajukan surat: network response is null");
@@ -476,17 +479,11 @@ public class AuthServices {
                     }
                 })
         {
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + token);
-                return headers;
-            }
 
             @Override
             protected Map<String, String> getParams() throws AuthFailureError{
                 Map<String, String> params = new HashMap<>();
-                params.put("status", status);
+                params.put("nik", nik);
                 params.put("keterangan", keterangan);
                 params.put("id_surat", id_surat);
                 return params;

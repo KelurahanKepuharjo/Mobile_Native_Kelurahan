@@ -18,36 +18,27 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.mobile_native_kelurahan.Auth.AuthServices;
 import com.example.mobile_native_kelurahan.Model.Surat;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
+import org.json.JSONObject;
 
 public class form_pengajuan extends AppCompatActivity {
-
-    String[] item = {"faisal","okta","brian","FOS","ical"};
-    AutoCompleteTextView dropdown_menu1;
-    ArrayAdapter<String> adapterItems;
     Button btnKirim;
     ImageView uploadkk;
     Uri uri;
     Surat surat;
+    TextInputLayout til_nama, til_nik, til_ket;
+    TextInputEditText tiet_nama, tiet_nik, tiet_ket;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_pengajuan);
 
-        dropdown_menu1 = findViewById(R.id.dropdown_menu1);
-        adapterItems = new ArrayAdapter<String>(this,R.layout.list_dropdown, item);
-        dropdown_menu1.setAdapter(adapterItems);
-        dropdown_menu1.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-              String item = adapterView.getItemAtPosition(position).toString();
-              Toast.makeText(form_pengajuan.this, "Data " + item, Toast.LENGTH_SHORT).show();
-            }
-        });
-
         btnKirim = findViewById(R.id.btnKirim);
         ImageView btnBack = findViewById(R.id.btnBack);
-//        TextView toolbar_title = findViewById(R.id.toolbar_title);
 
         btnKirim.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,15 +47,6 @@ public class form_pengajuan extends AppCompatActivity {
                 startActivity(intent);
                 finish();
                 Toast.makeText(form_pengajuan.this, "Pengajuan Anda Telah Dikirim", Toast.LENGTH_SHORT).show();
-            }
-        });
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(form_pengajuan.this, homeAdapter.class);
-                startActivity(intent);
-                finish();
-//                Toast.makeText(form_pengajuan.this, "anda kembali", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -94,11 +76,41 @@ public class form_pengajuan extends AppCompatActivity {
             }
         });
 
+        til_nik = findViewById(R.id.tx_NIK);
+        til_nama = findViewById(R.id.tx_nama);
+        til_ket = findViewById(R.id.tx_keperluan);
+
         Intent intent = getIntent();
-        if (intent.getExtras() != null){
-            surat = (Surat) intent.getSerializableExtra("data");
-            String idSurat = surat.getIdSurat();
-        }
+        String id_surat = intent.getStringExtra("idSurat");
+        String nama = intent.getStringExtra("namaLengkap");
+        String nik = intent.getStringExtra("nik");
+        String keterangan = til_ket.getEditText().getText().toString().trim();
+        til_nik.getEditText().setText(nik);
+        til_nama.getEditText().setText(nama);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!(keterangan.isEmpty() && keterangan.equals(""))){
+                    Toast.makeText(form_pengajuan.this, "Silahkan Isi keperluan anda", Toast.LENGTH_LONG).show();
+                }else {
+                    AuthServices.pengajuan(form_pengajuan.this, nik, keterangan, id_surat, new AuthServices.PengajuanResponseListener() {
+                        @Override
+                        public void onSuccess(JSONObject response) {
+                            Toast.makeText(form_pengajuan.this, response.toString(), Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(form_pengajuan.this, homeAdapter.class);
+                            startActivity(intent);
+                            finish();
+                        }
+
+                        @Override
+                        public void onError(String message) {
+                            Toast.makeText(form_pengajuan.this, message, Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
+            }
+        });
 
     }
     @Override
