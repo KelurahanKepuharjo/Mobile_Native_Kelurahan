@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AuthServices {
-    private static String URL = "http://192.168.1.11:8000/api/";
+    private static String URL = "http://192.168.1.15:8000/api/";
 
     public interface RegisterResponseListener {
         void onSuccess(JSONObject response);

@@ -23,7 +23,7 @@
                         <ImageView
                             android:layout_width="30dp"
                             android:id="@+id/btnBack"
-                            android:layout_height="40dp"
+                            android:layout_height="20dp"
                             android:src="@drawable/ic_back" />
 
                         <TextView
@@ -60,29 +60,29 @@
                 android:orientation="vertical"
                 android:padding="15dp">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:hint="Nama Lengkap"
-                    app:hintTextColor="@color/lavender"
-                    android:textColorHint="@color/lavender"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-                   <AutoCompleteTextView
-                       android:id="@+id/dropdown_menu1"
-                       android:layout_width="match_parent"
-                       android:layout_height="70dp"
-                       android:inputType="none"
-                       android:background="@drawable/custom_edittext"/>
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:hint="Nama Lengkap"-->
+<!--                    app:hintTextColor="@color/lavender"-->
+<!--                    android:textColorHint="@color/lavender"-->
+<!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">-->
+<!--                   <AutoCompleteTextView-->
+<!--                       android:id="@+id/dropdown_menu1"-->
+<!--                       android:layout_width="match_parent"-->
+<!--                       android:layout_height="70dp"-->
+<!--                       android:inputType="none"-->
+<!--                       android:background="@drawable/custom_edittext"/>-->
 
-                </com.google.android.material.textfield.TextInputLayout>
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tempatLahir"
+                    android:id="@+id/tx_nama"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:drawablePadding="6dp"
-                    android:hint="Tempat Lahir"
+                    android:hint="Nama Lengkap"
                     android:inputType="text"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
@@ -90,18 +90,20 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tglLahir"
+                    android:id="@+id/tx_NIK"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:drawablePadding="6dp"
-                    android:hint="Tanggal Lahir"
+                    android:hint="Nomer Induk Keluarga"
                     android:inputType="number"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
@@ -109,13 +111,36 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/jenisKelamin"
+                    android:id="@+id/tx_ttl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Tempat Tanggal Lahir"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tx_jenisKelamin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -128,18 +153,20 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/kebangsaan"
+                    android:id="@+id/tx_kewarganegaraan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:drawablePadding="6dp"
-                    android:hint="Kebangsaan"
+                    android:hint="Kewarganegaraan"
                     android:inputType="text"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
@@ -147,13 +174,15 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/agama"
+                    android:id="@+id/tx_agama"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -166,13 +195,15 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/statusPerkawinan"
+                    android:id="@+id/tx_statusPerkawinan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -185,13 +216,36 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/pekerjaan"
+                    android:id="@+id/tx_statusKeluarga"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawablePadding="6dp"
+                    android:hint="Status Keluarga"
+                    android:inputType="text"
+                    app:hintTextColor="@color/lavender"
+                    android:textColorHint="@color/lavender"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tx_pekerjaan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -204,32 +258,36 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/NIK"
+                    android:id="@+id/tx_pendidikan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:drawablePadding="6dp"
-                    android:hint="Nomer Induk Keluarga"
-                    android:inputType="phone"
+                    android:hint="Pendidikan"
+                    android:inputType="text"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/alamat"
+                    android:id="@+id/tx_alamat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -242,13 +300,15 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/RT"
+                    android:id="@+id/tx_RT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -261,13 +321,15 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/RW"
+                    android:id="@+id/tx_RW"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -280,13 +342,15 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/namaAyah"
+                    android:id="@+id/tx_namaAyah"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -299,13 +363,15 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/umurAyah"
+                    android:id="@+id/tx_umurAyah"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -318,13 +384,15 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/kebangsaanAyah"
+                    android:id="@+id/tx_kebangsaanAyah"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -337,13 +405,15 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/agamaAyah"
+                    android:id="@+id/tx_agamaAyah"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -356,13 +426,15 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/pekerjaanAyah"
+                    android:id="@+id/tx_pekerjaanAyah"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -375,13 +447,15 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/alamatAyah"
+                    android:id="@+id/tx_alamatAyah"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -394,14 +468,16 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/namaIbu"
+                    android:id="@+id/tx_namaIbu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -414,13 +490,15 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/umurIbu"
+                    android:id="@+id/tx_umurIbu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -433,13 +511,15 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/kebangsaanIbu"
+                    android:id="@+id/tx_kebangsaanIbu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -458,7 +538,7 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/agamaIbu"
+                    android:id="@+id/tx_agamaIbu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -471,13 +551,15 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/pekerjaanIbu"
+                    android:id="@+id/tx_pekerjaanIbu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -490,13 +572,15 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/alamatIbu"
+                    android:id="@+id/tx_alamatIbu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -509,14 +593,16 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/keperluan"
+                    android:id="@+id/tx_keperluan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -529,9 +615,11 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -548,8 +636,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Upload KK"
-                        android:textSize="30sp"
+                        android:textSize="25sp"
                         android:textAlignment="center"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/lavender"/>
                     <ImageView
                         android:layout_width="match_parent"
@@ -570,8 +659,9 @@
                     android:layout_marginTop="20dp"
                     android:backgroundTint="@color/purple"
                     android:text="Kirim"
+                    android:fontFamily="@font/poppins_regular"
                     android:textAllCaps="false"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     app:cornerRadius="20dp" />
 
 

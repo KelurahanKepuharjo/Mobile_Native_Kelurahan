@@ -4,7 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".DaftarKeluarga">
+
+    <TextView
+        android:id="@+id/app"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:gravity="center|center_vertical"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:fontFamily="@font/poppins_semibold"
+        android:background="@color/lavender"
+        android:text="Daftar Keluarga" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rKeluarga"
