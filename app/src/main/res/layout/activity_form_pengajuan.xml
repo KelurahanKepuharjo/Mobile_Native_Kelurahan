@@ -93,8 +93,8 @@
                         android:layout_height="50dp"
                         android:fontFamily="@font/poppins_regular"
                         android:textSize="14sp"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true"/>
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
@@ -532,9 +532,11 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:textSize="16sp"
-                        android:background="@drawable/custom_edittext"/>
+                        android:layout_height="50dp"
+                        android:focusableInTouchMode="false"
+                        android:focusable="false"
+                        android:textSize="14sp"
+              />
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
@@ -597,6 +599,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:textSize="14sp"
                         android:focusable="true"
+                        android:imeOptions="actionDone"
                         android:focusableInTouchMode="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -614,6 +617,7 @@
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_keperluan"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:fontFamily="@font/poppins_regular"

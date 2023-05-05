@@ -13,6 +13,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.mobile_native_kelurahan.Model.Berita;
 import com.example.mobile_native_kelurahan.Model.Masyarakat;
+import com.example.mobile_native_kelurahan.Model.Status;
 import com.example.mobile_native_kelurahan.Model.Surat;
 import com.example.mobile_native_kelurahan.Model.User;
 
@@ -27,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AuthServices {
-    private static String URL = "http://192.168.137.1:8000/api/";
+    private static String URL = "http://192.168.43.199:8000/api/";
 
     public interface RegisterResponseListener {
         void onSuccess(JSONObject response);
@@ -62,7 +63,10 @@ public class AuthServices {
         void onSuccess(JSONObject response);
         void onError(String message);
     }
-
+    public interface StatusResponseListener {
+        void onSuccess(List<Status> statusList);
+        void onError(String message);
+    }
 
     public static void register(Context context, String nik, String pass, String no_tlp, RegisterResponseListener listener) {
 
@@ -171,7 +175,6 @@ public class AuthServices {
         requestQueue.add(stringRequest);
     }
 
-
     public static void getUserData(Context context, String token, final UserDataResponseListener listener) {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "auth/me",
                 new Response.Listener<String>() {
@@ -245,6 +248,7 @@ public class AuthServices {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
     }
+
     public static void keluarga(Context context, String token, final KeluargaResponseListener listener ) {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "keluarga",
                 new Response.Listener<String>() {
@@ -466,8 +470,6 @@ public class AuthServices {
                                 String message = jsonObject.getString("message");
                                 if (message.equals("Surat sebelumnya belum selesai")) {
                                     listener.onError("Gagal mengajukan surat , karena surat sebelumnya belum selesai, Silahkan pilih surat yang lainnya");
-                                } else if (message.equals("Password Anda Salah")) {
-                                    listener.onError("Password Anda Salah");
                                 }
                             } catch (JSONException | UnsupportedEncodingException e) {
                                 e.printStackTrace();
@@ -489,6 +491,243 @@ public class AuthServices {
                 return params;
             }
         };
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(stringRequest);
+    }
+
+    public static void diajukan(Context context, String token, final StatusResponseListener listener ) {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "statusdiajukan",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String message = jsonObject.getString("message");
+                            if (message.equals("success")){
+                                JSONArray jsonArray = jsonObject.getJSONArray("data");
+                                List<Status> statusList = new ArrayList<>();
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject statusObj = jsonArray.getJSONObject(i);
+                                    String uuid = statusObj.getString("uuid");
+                                    String status = statusObj.getString("status");
+                                    String keterangan = statusObj.getString("keterangan");
+                                    String created_at = statusObj.getString("created_at");
+                                    String idMasyarakat = statusObj.getString("id_masyarakat");
+                                    String idSurat = statusObj.getString("id_surat");
+                                    String nik = statusObj.getString("nik");
+                                    String namaLengkap = statusObj.getString("nama_lengkap");
+                                    String jenisKelamin = statusObj.getString("jenis_kelamin");
+                                    String tempatLahir = statusObj.getString("tempat_lahir");
+                                    String tanggalLahir = statusObj.getString("tgl_lahir");
+                                    String agama = statusObj.getString("agama");
+                                    String pendidikan = statusObj.getString("pendidikan");
+                                    String pekerjaan = statusObj.getString("pekerjaan");
+                                    String golonganDarah = statusObj.getString("golongan_darah");
+                                    String statusPerkawinan = statusObj.getString("status_perkawinan");
+                                    String tglPerkawinan = statusObj.getString("tgl_perkawinan");
+                                    String statusKeluarga = statusObj.getString("status_keluarga");
+                                    String kewarganegaraan = statusObj.getString("kewarganegaraan");
+                                    String nopaspor = statusObj.getString("no_paspor");
+                                    String nokitap = statusObj.getString("no_kitap");
+                                    String nama_ayah = statusObj.getString("nama_ayah");
+                                    String nama_ibu = statusObj.getString("nama_ibu");
+                                    String id = statusObj.getString("id");
+                                    String namaSurat = statusObj.getString("nama_surat");
+                                    String image = statusObj.getString("image");
+                                    Status status1 = new Status(uuid,status,keterangan,created_at,idMasyarakat,idSurat,nik,namaLengkap,jenisKelamin,tempatLahir,tanggalLahir,agama,pendidikan,pekerjaan,golonganDarah,statusPerkawinan,tglPerkawinan,statusKeluarga,kewarganegaraan,nopaspor,nokitap,nama_ayah,nama_ibu,id,namaSurat,image);
+                                    statusList.add(status1);
+                                }
+                                listener.onSuccess(statusList);
+                            }
+                        } catch (JSONException e){
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        if (error.networkResponse != null && error.networkResponse.data != null) {
+                            try {
+                                String responseBody = new String(error.networkResponse.data, "utf-8");
+                                JSONObject jsonObject = new JSONObject(responseBody);
+                                String message = jsonObject.getString("message");
+                                listener.onError(message);
+                            } catch (JSONException | UnsupportedEncodingException e) {
+                                e.printStackTrace();
+                                listener.onError("Gagal mendapatkan data Keluarga: " + e.getMessage());
+                            }
+                        } else {
+                            listener.onError("Gagal mendapatkan data keluarga: network response is null");
+                        }
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer " + token);
+                return headers;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(stringRequest);
+    }
+
+    public static void selesai(Context context, String token, final StatusResponseListener listener ) {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "statusselesai",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String message = jsonObject.getString("message");
+                            if (message.equals("success")){
+                                JSONArray jsonArray = jsonObject.getJSONArray("data");
+                                List<Status> statusList = new ArrayList<>();
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject statusObj = jsonArray.getJSONObject(i);
+                                    String uuid = statusObj.getString("uuid");
+                                    String status = statusObj.getString("status");
+                                    String keterangan = statusObj.getString("keterangan");
+                                    String created_at = statusObj.getString("created_at");
+                                    String idMasyarakat = statusObj.getString("id_masyarakat");
+                                    String idSurat = statusObj.getString("id_surat");
+                                    String nik = statusObj.getString("nik");
+                                    String namaLengkap = statusObj.getString("nama_lengkap");
+                                    String jenisKelamin = statusObj.getString("jenis_kelamin");
+                                    String tempatLahir = statusObj.getString("tempat_lahir");
+                                    String tanggalLahir = statusObj.getString("tgl_lahir");
+                                    String agama = statusObj.getString("agama");
+                                    String pendidikan = statusObj.getString("pendidikan");
+                                    String pekerjaan = statusObj.getString("pekerjaan");
+                                    String golonganDarah = statusObj.getString("golongan_darah");
+                                    String statusPerkawinan = statusObj.getString("status_perkawinan");
+                                    String tglPerkawinan = statusObj.getString("tgl_perkawinan");
+                                    String statusKeluarga = statusObj.getString("status_keluarga");
+                                    String kewarganegaraan = statusObj.getString("kewarganegaraan");
+                                    String nopaspor = statusObj.getString("no_paspor");
+                                    String nokitap = statusObj.getString("no_kitap");
+                                    String nama_ayah = statusObj.getString("nama_ayah");
+                                    String nama_ibu = statusObj.getString("nama_ibu");
+                                    String id = statusObj.getString("id");
+                                    String namaSurat = statusObj.getString("nama_surat");
+                                    String image = statusObj.getString("image");
+                                    Status status1 = new Status(uuid,status,keterangan,created_at,idMasyarakat,idSurat,nik,namaLengkap,jenisKelamin,tempatLahir,tanggalLahir,agama,pendidikan,pekerjaan,golonganDarah,statusPerkawinan,tglPerkawinan,statusKeluarga,kewarganegaraan,nopaspor,nokitap,nama_ayah,nama_ibu,id,namaSurat,image);
+                                    statusList.add(status1);
+                                }
+                                listener.onSuccess(statusList);
+                            }
+                        } catch (JSONException e){
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        if (error.networkResponse != null && error.networkResponse.data != null) {
+                            try {
+                                String responseBody = new String(error.networkResponse.data, "utf-8");
+                                JSONObject jsonObject = new JSONObject(responseBody);
+                                String message = jsonObject.getString("message");
+                                listener.onError(message);
+                            } catch (JSONException | UnsupportedEncodingException e) {
+                                e.printStackTrace();
+                                listener.onError("Gagal mendapatkan data Keluarga: " + e.getMessage());
+                            }
+                        } else {
+                            listener.onError("Gagal mendapatkan data keluarga: network response is null");
+                        }
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer " + token);
+                return headers;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(stringRequest);
+    }
+
+    public static void proses(Context context, String token, final StatusResponseListener listener ) {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "statusproses",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String message = jsonObject.getString("message");
+                            if (message.equals("success")){
+                                JSONArray jsonArray = jsonObject.getJSONArray("data");
+                                List<Status> statusList = new ArrayList<>();
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject statusObj = jsonArray.getJSONObject(i);
+                                    String uuid = statusObj.getString("uuid");
+                                    String status = statusObj.getString("status");
+                                    String keterangan = statusObj.getString("keterangan");
+                                    String created_at = statusObj.getString("created_at");
+                                    String idMasyarakat = statusObj.getString("id_masyarakat");
+                                    String idSurat = statusObj.getString("id_surat");
+                                    String nik = statusObj.getString("nik");
+                                    String namaLengkap = statusObj.getString("nama_lengkap");
+                                    String jenisKelamin = statusObj.getString("jenis_kelamin");
+                                    String tempatLahir = statusObj.getString("tempat_lahir");
+                                    String tanggalLahir = statusObj.getString("tgl_lahir");
+                                    String agama = statusObj.getString("agama");
+                                    String pendidikan = statusObj.getString("pendidikan");
+                                    String pekerjaan = statusObj.getString("pekerjaan");
+                                    String golonganDarah = statusObj.getString("golongan_darah");
+                                    String statusPerkawinan = statusObj.getString("status_perkawinan");
+                                    String tglPerkawinan = statusObj.getString("tgl_perkawinan");
+                                    String statusKeluarga = statusObj.getString("status_keluarga");
+                                    String kewarganegaraan = statusObj.getString("kewarganegaraan");
+                                    String nopaspor = statusObj.getString("no_paspor");
+                                    String nokitap = statusObj.getString("no_kitap");
+                                    String nama_ayah = statusObj.getString("nama_ayah");
+                                    String nama_ibu = statusObj.getString("nama_ibu");
+                                    String id = statusObj.getString("id");
+                                    String namaSurat = statusObj.getString("nama_surat");
+                                    String image = statusObj.getString("image");
+                                    Status status1 = new Status(uuid,status,keterangan,created_at,idMasyarakat,idSurat,nik,namaLengkap,jenisKelamin,tempatLahir,tanggalLahir,agama,pendidikan,pekerjaan,golonganDarah,statusPerkawinan,tglPerkawinan,statusKeluarga,kewarganegaraan,nopaspor,nokitap,nama_ayah,nama_ibu,id,namaSurat,image);
+                                    statusList.add(status1);
+                                }
+                                listener.onSuccess(statusList);
+                            }
+                        } catch (JSONException e){
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        if (error.networkResponse != null && error.networkResponse.data != null) {
+                            try {
+                                String responseBody = new String(error.networkResponse.data, "utf-8");
+                                JSONObject jsonObject = new JSONObject(responseBody);
+                                String message = jsonObject.getString("message");
+                                listener.onError(message);
+                            } catch (JSONException | UnsupportedEncodingException e) {
+                                e.printStackTrace();
+                                listener.onError("Gagal mendapatkan data Keluarga: " + e.getMessage());
+                            }
+                        } else {
+                            listener.onError("Gagal mendapatkan data keluarga: network response is null");
+                        }
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer " + token);
+                return headers;
+            }
+        };
+
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
     }

@@ -43,6 +43,7 @@ public class DaftarKeluarga extends AppCompatActivity {
         if (intent.getExtras() != null){
             surat = (Surat) intent.getSerializableExtra("data");
             idSurat = surat.getIdSurat();
+            Log.e("gatau", idSurat);
         }
         SharedPreferences preferences = getSharedPreferences("myPrefs", MODE_PRIVATE);
         String token = preferences.getString("token", "");
@@ -86,7 +87,7 @@ public class DaftarKeluarga extends AppCompatActivity {
                     int pos = holder.getAdapterPosition();
                     if (pos != RecyclerView.NO_POSITION) {
                         Intent intent = new Intent(context, form_pengajuan.class);
-                        intent.putExtra("idSurat", idSurat);
+                        intent.putExtra("id_surat", idSurat);
                         intent.putExtra("id_masyarakat", masyarakatList.get(pos).getIdMasyarakat());
                         intent.putExtra("nik", masyarakatList.get(pos).getNik());
                         intent.putExtra("namaLengkap", masyarakatList.get(pos).getNamaLengkap());
