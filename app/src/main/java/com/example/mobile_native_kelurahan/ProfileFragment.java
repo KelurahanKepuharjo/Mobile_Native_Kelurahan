@@ -21,6 +21,7 @@ import com.example.mobile_native_kelurahan.Model.User;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -111,13 +112,17 @@ public class ProfileFragment extends Fragment {
         AuthServices.getUserData(getContext(), token, new AuthServices.UserDataResponseListener() {
             @Override
             public void onSuccess(User user) {
+                String nama = user.getMasyarakat().getNamaLengkap();
                 String nik = user.getMasyarakat().getNik();
                 String nohp = user.getPhoneNumber();
-                TextView textView4 = view.findViewById(R.id.textView4);
-                TextView txt_hohp = view.findViewById(R.id.txt_nohp);
-
-                textView4.setText(nik);
-                txt_hohp.setText(nohp);
+                TextView txt_namat = view.findViewById(R.id.tx_namaTop);
+                TextView txt_nama = view.findViewById(R.id.tx_nama_user);
+                TextView txt_nik = view.findViewById(R.id.tx_nik_user);
+                TextView txt_telp = view.findViewById(R.id.tx_nohp_user);
+                txt_nama.setText(nama);
+                txt_namat.setText(nama);
+                txt_nik.setText(nik);
+                txt_telp.setText(nohp);
             }
 
             @Override

@@ -7,7 +7,7 @@
     android:background="@color/home"
     tools:context=".homeAdapter">
 
-    <androidx.fragment.app.FragmentContainerView
+    <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,8 +20,8 @@
         android:weightSum="4"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:elevation="10dp"
         android:gravity="center"
         android:background="#FFFFFF"
@@ -33,11 +33,12 @@
             android:id="@+id/homeLayout"
             android:background="@drawable/round_back_home_100"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:orientation="horizontal"
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
             android:gravity="center"
+            android:layout_gravity="center"
             android:layout_weight="1">
 
             <ImageView
@@ -51,20 +52,23 @@
                 android:id="@+id/homeTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:text="Home"
-                android:textStyle="bold"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginTop="2dp"
                 android:textColor="@color/home"
-                android:layout_marginStart="10dp"
-                android:textSize="16sp" />
+                android:textSize="14sp"
+                android:textStyle="normal" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/suratLayout"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:gravity="center"
+            android:layout_gravity="center"
             android:orientation="horizontal"
             android:paddingStart="5dp"
             android:paddingEnd="5dp">
@@ -80,18 +84,20 @@
                 android:id="@+id/suratTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="8dp"
                 android:text="Surat"
                 android:textColor="@color/surat"
-                android:textSize="16sp"
-                android:textStyle="bold"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginTop="2dp"
+                android:textSize="14sp"
+                android:textStyle="normal"
                 android:visibility="gone" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/statusLayout"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:gravity="center"
@@ -108,21 +114,22 @@
 
             <TextView
                 android:id="@+id/statusTxt"
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="8dp"
                 android:text="Status"
                 android:textColor="@color/status"
-                android:textSize="16sp"
-                android:textStyle="bold"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginTop="2dp"
+                android:textSize="14sp"
+                android:textStyle="normal"
                 android:visibility="gone"/>
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/profileLayout"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:gravity="center"
@@ -141,11 +148,13 @@
                 android:id="@+id/profileTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="8dp"
                 android:text="Profile"
                 android:textColor="@color/profile"
-                android:textSize="16sp"
-                android:textStyle="bold"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginTop="2dp"
+                android:textSize="14sp"
+                android:textStyle="normal"
                 android:visibility="gone" />
         </LinearLayout>
     </LinearLayout>

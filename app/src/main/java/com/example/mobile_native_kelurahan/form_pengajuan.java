@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -93,17 +94,18 @@ public class form_pengajuan extends AppCompatActivity {
         String nama = intent.getStringExtra("namaLengkap");
         String nik = intent.getStringExtra("nik");
         Log.e("nik", nik);
-        String keterangan = tiet_ket.getText().toString().trim();
+        Editable keterangan = til_ket.getEditText().getText();
+        String keperluan = keterangan.toString().trim();
         til_nik.getEditText().setText(nik);
         til_nama.getEditText().setText(nama);
 
         btnKirim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (keterangan.trim().isEmpty()){
+                if (keperluan.isEmpty()){
                     til_ket.setError("Keperluan Harus diisi");
                 } else {
-                    AuthServices.pengajuan(form_pengajuan.this, nik, keterangan, id_surat, new AuthServices.PengajuanResponseListener() {
+                    AuthServices.pengajuan(form_pengajuan.this, nik, keperluan, id_surat, new AuthServices.PengajuanResponseListener() {
                         @Override
                         public void onSuccess(JSONObject response) {
                             Toast.makeText(form_pengajuan.this, response.toString(), Toast.LENGTH_LONG).show();

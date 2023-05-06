@@ -1,74 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".StatusFragment"
-    android:background="@color/white">
+    tools:context=".StatusFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-<!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="55dp"-->
-<!--        android:gravity="center"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:textStyle="bold"-->
-<!--        android:textSize="20sp"-->
-<!--        android:background="@color/lavender"-->
-<!--        android:text="Jenis Surat" />-->
-
-
-    <RelativeLayout
+    <TextView
+        android:id="@+id/app"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/lavender">
+        android:layout_height="55dp"
+        android:gravity="center|center_vertical"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:fontFamily="@font/poppins_semibold"
+        android:background="@color/lavender"
+        android:text="Status Surat" />
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        app:tabTextAppearance="@style/MyTabTextAppearance"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
+        app:tabIndicatorColor="@color/white"
+        app:tabSelectedTextColor="@color/white"
+        app:tabBackground="@color/lavender"
+        app:tabTextColor="#CDCDCD"
+        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            android:background="@drawable/bkg_putih_100"
-            android:layout_margin="20dp">
+            android:text="Diajukan"/>
 
-            <TextView
-                android:id="@+id/antrian"
-                android:background="@drawable/bkg_putih_status"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:text="Antrian"
-                android:textSize="14sp"
-                android:fontFamily="@font/poppins_regular"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Proses"/>
 
-            <TextView
-                android:id="@+id/proses"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:text="Proses"
-                android:gravity="center"
-                android:textColor="@color/white"/>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selesai"/>
 
-            <TextView
-                android:id="@+id/selesai"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:text="Selesai"
-                android:gravity="center"
-                android:textColor="@color/white"/>
-
-        </LinearLayout>
-    </RelativeLayout>
-
-    <androidx.fragment.app.FragmentContainerView
+    </com.google.android.material.tabs.TabLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/fragmentContainer1"/>
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

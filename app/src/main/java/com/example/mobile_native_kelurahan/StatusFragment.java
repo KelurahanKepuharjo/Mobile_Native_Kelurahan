@@ -5,20 +5,27 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import com.google.android.material.tabs.TabLayout;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link StatusFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class StatusFragment extends Fragment {
+public class StatusFragment extends Fragment{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -63,137 +70,22 @@ public class StatusFragment extends Fragment {
     }
     private TextView antrian, proses, selesai;
     private int selectedTabNumber = 1;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_status, container, false);
+        tabLayout = view.findViewById(R.id.tabLayout);
+        viewPager = view.findViewById(R.id.viewpager);
 
-        antrian = view.findViewById(R.id.antrian);
-        proses = view.findViewById(R.id.proses);
-        selesai = view.findViewById(R.id.selesai);
-
-//        FragmentManager fragmentManager = getChildFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        NotificationFragment NotificationFragment = new NotificationFragment();
-//        fragmentTransaction.add(R.id.fragmentContainer1, NotificationFragment);
-//        fragmentTransaction.commit();
-
-        antrian.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                selectTab(1);
-            }
-        });
-
-        proses.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                selectTab(2);
-            }
-        });
-
-        selesai.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                selectTab(3);
-            }
-        });
-
+        tabLayout.setupWithViewPager(viewPager);
+        AdapterFragment adapterFragment = new AdapterFragment(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        adapterFragment.addFragment(new antrianFragment(), "Diajukan");
+        adapterFragment.addFragment(new prosesFragment(), "Proses");
+        adapterFragment.addFragment(new selesaiFragment(), "Selesai");
+        viewPager.setAdapter(adapterFragment);
         return view;
-    }
-
-    private void selectTab(int tabNumber){
-
-        TextView selectedTextView;
-
-        TextView nonSelectedTextView1;
-        TextView nonSelectedTextView2;
-
-        if (tabNumber == 1){
-
-            selectedTextView = antrian;
-
-            nonSelectedTextView1 = proses;
-            nonSelectedTextView2 = selesai;
-
-//            FragmentManager fragmentManager = getChildFragmentManager();
-//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//            antrianFragment antrianFragment = new antrianFragment();
-//            fragmentTransaction.add(R.id.fragmentContainer1, antrianFragment);
-//            fragmentTransaction.commit();
-        }
-        else if (tabNumber == 2){
-            selectedTextView = proses;
-
-            nonSelectedTextView1 = antrian;
-            nonSelectedTextView2 = selesai;
-
-//            FragmentManager fragmentManager = getChildFragmentManager();
-//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//            prosesFragment prosesFragment = new prosesFragment();
-//            fragmentTransaction.add(R.id.fragmentContainer1, prosesFragment);
-//            fragmentTransaction.commit();
-        }
-        else {
-            selectedTextView = selesai;
-
-            nonSelectedTextView1 = antrian;
-            nonSelectedTextView2 = proses;
-
-//            FragmentManager fragmentManager = getChildFragmentManager();
-//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//            selesaiFragment selesaiFragment = new selesaiFragment();
-//            fragmentTransaction.add(R.id.fragmentContainer1, selesaiFragment);
-//            fragmentTransaction.commit();
-        }
-
-        float slideTo = (tabNumber - selectedTabNumber) * selectedTextView.getWidth();
-
-        TranslateAnimation translateAnimation = new TranslateAnimation(0, slideTo, 0,0);
-        translateAnimation.setDuration(100);
-
-        if (selectedTabNumber == 1){
-            antrian.startAnimation(translateAnimation);
-        }
-        else if (selectedTabNumber == 2){
-            proses.startAnimation(translateAnimation);
-        }
-        else {
-            selesai.startAnimation(translateAnimation);
-        }
-
-        translateAnimation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-
-                selectedTextView.setBackgroundResource(R.drawable.bkg_putih_100);
-                selectedTextView.setTypeface(null, Typeface.BOLD);
-                selectedTextView.setTextColor(Color.BLACK);
-
-                nonSelectedTextView1.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                nonSelectedTextView1.setTextColor(Color.parseColor("#FF2A2A72"));
-                nonSelectedTextView1.setTypeface(null, Typeface.NORMAL);
-
-                nonSelectedTextView2.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                nonSelectedTextView2.setTextColor(Color.parseColor("#FF2A2A72"));
-                nonSelectedTextView2.setTypeface(null, Typeface.NORMAL);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-
-        selectedTabNumber = tabNumber;
     }
 
 }

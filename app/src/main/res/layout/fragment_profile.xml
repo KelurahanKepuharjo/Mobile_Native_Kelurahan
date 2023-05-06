@@ -7,8 +7,6 @@
     android:background="#ececec"
     tools:context=".ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -48,26 +46,31 @@
                         app:srcCompat="@drawable/foto" />
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/tx_namaTop"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Faisal Okta"
                         android:textColor="@color/black"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="bold"
+                        android:fontFamily="@font/poppins_regular"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="wrap_content"
+                    <Button
+                        android:id="@+id/btnDetail"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:text="3509212504030000"
-                        android:textSize="20sp"
+                        android:text="Detail Profile"
+                        android:paddingTop="7dp"
+                        android:textAllCaps="false"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14sp"
+                        android:background="@drawable/custom_edittext"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView" />
+                        app:layout_constraintTop_toBottomOf="@+id/tx_namaTop" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -78,9 +81,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView2">
-
-
+                        app:layout_constraintTop_toBottomOf="@+id/btnDetail">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -102,29 +103,80 @@
                                 app:srcCompat="@drawable/icon_nik" />
 
                             <TextView
-                                android:id="@+id/textView3"
+                                android:id="@+id/tx_kk"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="24dp"
                                 android:layout_marginBottom="16dp"
-                                android:text="NIK"
+                                android:text="No. KK"
+                                android:layout_marginTop="7dp"
+                                android:fontFamily="@font/poppins_regular"
                                 android:textColor="@color/black"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="@+id/imageView7"
                                 app:layout_constraintStart_toEndOf="@+id/imageView7"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
-                                android:id="@+id/textView4"
+                                android:id="@+id/tx_kk_user"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="24dp"
                                 android:text="3509212504030000"
+                                android:fontFamily="@font/poppins_regular"
                                 android:textColor="@color/black"
-                                android:textSize="18sp"
+                                android:textSize="14sp"
                                 app:layout_constraintStart_toEndOf="@+id/imageView7"
-                                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                                app:layout_constraintTop_toBottomOf="@+id/tx_kk" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="7dp"
+                            android:layout_marginBottom="0dp"
+                            android:background="@drawable/bkg_btn_putih">
+
+                            <ImageView
+                                android:id="@+id/imageView7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/icon_nik" />
+
+                            <TextView
+                                android:id="@+id/tx_nama"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginBottom="16dp"
+                                android:text="NIK"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:textStyle="bold"
+                                android:layout_marginTop="7dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+                                app:layout_constraintStart_toEndOf="@+id/imageView7"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/tx_nik_user"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="24dp"
+                                android:text="Faisal Okta"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/poppins_regular"
+                                app:layout_constraintStart_toEndOf="@+id/imageView7"
+                                app:layout_constraintTop_toBottomOf="@+id/tx_nama" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -154,20 +206,23 @@
                                 android:layout_marginBottom="16dp"
                                 android:text="Nama Lengkap"
                                 android:textColor="@color/black"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:layout_marginTop="7dp"
                                 android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="@+id/imageView7"
                                 app:layout_constraintStart_toEndOf="@+id/imageView7"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
-                                android:id="@+id/textView4"
+                                android:id="@+id/tx_nama_user"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="24dp"
-                                android:text="Faisal Okta"
+                                android:text="nama"
                                 android:textColor="@color/black"
-                                android:textSize="18sp"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/poppins_regular"
                                 app:layout_constraintStart_toEndOf="@+id/imageView7"
                                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -199,112 +254,73 @@
                                 android:layout_marginBottom="16dp"
                                 android:text="No. Telepon"
                                 android:textColor="@color/black"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:layout_marginTop="7dp"
                                 android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="@+id/imageView7"
                                 app:layout_constraintStart_toEndOf="@+id/imageView7"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
-                                android:id="@+id/txt_nohp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="24dp"
-                                android:text="081332499295"
-                                android:textColor="@color/black"
-                                android:textSize="18sp"
-                                app:layout_constraintStart_toEndOf="@+id/imageView7"
-                                app:layout_constraintTop_toBottomOf="@+id/textView3" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="7dp"
-                            android:layout_marginBottom="0dp"
-                            android:background="@drawable/bkg_btn_putih">
-
-                            <ImageView
-                                android:id="@+id/imageView7"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginBottom="8dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/icon_rtrw" />
-
-                            <TextView
-                                android:id="@+id/textView3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="24dp"
-                                android:layout_marginBottom="16dp"
-                                android:text="RT"
-                                android:textColor="@color/black"
-                                android:textSize="18sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-                                app:layout_constraintStart_toEndOf="@+id/imageView7"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:id="@+id/textView4"
+                                android:id="@+id/tx_nohp_user"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="24dp"
                                 android:text="001"
                                 android:textColor="@color/black"
-                                android:textSize="18sp"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/poppins_regular"
                                 app:layout_constraintStart_toEndOf="@+id/imageView7"
                                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="7dp"
-                            android:layout_marginBottom="0dp"
-                            android:background="@drawable/bkg_btn_putih">
+<!--                        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_marginTop="7dp"-->
+<!--                            android:layout_marginBottom="0dp"-->
+<!--                            android:background="@drawable/bkg_btn_putih">-->
 
-                            <ImageView
-                                android:id="@+id/imageView7"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginBottom="8dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/icon_rtrw" />
+<!--                            <ImageView-->
+<!--                                android:id="@+id/imageView7"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="16dp"-->
+<!--                                android:layout_marginTop="8dp"-->
+<!--                                android:layout_marginBottom="8dp"-->
+<!--                                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                                app:layout_constraintStart_toStartOf="parent"-->
+<!--                                app:layout_constraintTop_toTopOf="parent"-->
+<!--                                app:srcCompat="@drawable/icon_rtrw" />-->
 
-                            <TextView
-                                android:id="@+id/textView3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="24dp"
-                                android:layout_marginBottom="16dp"
-                                android:text="RW"
-                                android:textColor="@color/black"
-                                android:textSize="18sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-                                app:layout_constraintStart_toEndOf="@+id/imageView7"
-                                app:layout_constraintTop_toTopOf="parent" />
+<!--                            <TextView-->
+<!--                                android:id="@+id/textView3"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="24dp"-->
+<!--                                android:layout_marginBottom="16dp"-->
+<!--                                android:text="RW"-->
+<!--                                android:textColor="@color/black"-->
+<!--                                android:textSize="16sp"-->
+<!--                                android:fontFamily="@font/poppins_regular"-->
+<!--                                android:layout_marginTop="7dp"-->
+<!--                                android:textStyle="bold"-->
+<!--                                app:layout_constraintBottom_toBottomOf="@+id/imageView7"-->
+<!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+<!--                                app:layout_constraintTop_toTopOf="parent" />-->
 
-                            <TextView
-                                android:id="@+id/textView4"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="24dp"
-                                android:text="001"
-                                android:textColor="@color/black"
-                                android:textSize="18sp"
-                                app:layout_constraintStart_toEndOf="@+id/imageView7"
-                                app:layout_constraintTop_toBottomOf="@+id/textView3" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                            <TextView-->
+<!--                                android:id="@+id/textView4"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="24dp"-->
+<!--                                android:text="001"-->
+<!--                                android:textColor="@color/black"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:fontFamily="@font/poppins_regular"-->
+<!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+<!--                                app:layout_constraintTop_toBottomOf="@+id/textView3" />-->
+<!--                        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
                         <Button
                             android:id="@+id/btn_logout"
@@ -312,8 +328,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:background="@drawable/custom_edittext"
+                            android:fontFamily="@font/poppins_semibold"
                             android:text="LogOut"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             android:textAllCaps="false"/>
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:nestedScrollingEnabled="true"
     tools:context=".HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -13,9 +12,9 @@
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:orientation="vertical"
-       android:padding="10dp">
+       >
        <LinearLayout
-           android:layout_marginBottom="10dp"
+           android:layout_margin="10dp"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:orientation="horizontal">
@@ -30,72 +29,80 @@
                android:layout_height="wrap_content"
                android:layout_gravity="center"
                android:layout_marginLeft="10dp"
-               android:fontFamily="@font/poppins_semibold"
+               android:layout_marginTop="2dp"
+               android:fontFamily="@font/poppins_regular"
                android:text="S-Kepuharjo"
+               android:textStyle="bold"
                android:textColor="#000000"
                android:textSize="14dp" />
 
        </LinearLayout>
 
-       <androidx.cardview.widget.CardView
-
+       <ImageView
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:clickable="true"
-           android:foreground="?android:attr/selectableItemBackground"
-           app:cardElevation="10dp"
-           app:cardCornerRadius="5dp"
-           android:layout_margin="5dp"
-           android:backgroundTint="#0F2286">
+           android:layout_height="150dp"
+           android:scaleType="fitXY"
+           android:src="@drawable/kab"/>
 
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="horizontal"
-           android:padding="15dp"
-           android:layout_marginHorizontal="20dp"
-           >
-           <ImageView
-               android:layout_width="75dp"
-               android:layout_height="75dp"
-               android:src="@drawable/logohome"/>
+<!--       <androidx.cardview.widget.CardView-->
+
+<!--           android:layout_width="match_parent"-->
+<!--           android:layout_height="wrap_content"-->
+<!--           android:clickable="true"-->
+<!--           android:foreground="?android:attr/selectableItemBackground"-->
+<!--           app:cardElevation="10dp"-->
+<!--           app:cardCornerRadius="5dp"-->
+<!--           android:layout_margin="5dp"-->
+<!--           android:backgroundTint="#0F2286">-->
+
+<!--       <LinearLayout-->
+<!--           android:layout_width="match_parent"-->
+<!--           android:layout_height="wrap_content"-->
+<!--           android:orientation="horizontal"-->
+<!--           android:padding="15dp"-->
+<!--           android:layout_marginHorizontal="20dp"-->
+<!--           >-->
+<!--           <ImageView-->
+<!--               android:layout_width="75dp"-->
+<!--               android:layout_height="75dp"-->
+<!--               android:src="@drawable/logohome"/>-->
 
 
-           <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="match_parent">
-               
-               <LinearLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:orientation="vertical"
-                   android:layout_centerInParent="true"
-                   android:layout_alignParentLeft="true">
+<!--           <RelativeLayout-->
+<!--               android:layout_width="match_parent"-->
+<!--               android:layout_height="match_parent">-->
+<!--               -->
+<!--               <LinearLayout-->
+<!--                   android:layout_width="match_parent"-->
+<!--                   android:layout_height="wrap_content"-->
+<!--                   android:orientation="vertical"-->
+<!--                   android:layout_centerInParent="true"-->
+<!--                   android:layout_alignParentLeft="true">-->
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="Smart App "
-                       android:textColor="#ffffff"
-                       android:fontFamily="@font/poppins_semibold"
-                       android:textSize="18dp"
-                       android:layout_marginLeft="18dp"/>
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="Kelurahan Kepuharjo"
-                       android:textColor="#ffffff"
-                       android:fontFamily="@font/poppins_semibold"
-                       android:textSize="15dp"
-                       android:layout_marginLeft="18dp"/>
+<!--                   <TextView-->
+<!--                       android:layout_width="wrap_content"-->
+<!--                       android:layout_height="wrap_content"-->
+<!--                       android:text="Smart App "-->
+<!--                       android:textColor="#ffffff"-->
+<!--                       android:fontFamily="@font/poppins_semibold"-->
+<!--                       android:textSize="18dp"-->
+<!--                       android:layout_marginLeft="18dp"/>-->
+<!--                   <TextView-->
+<!--                       android:layout_width="wrap_content"-->
+<!--                       android:layout_height="wrap_content"-->
+<!--                       android:text="Kelurahan Kepuharjo"-->
+<!--                       android:textColor="#ffffff"-->
+<!--                       android:fontFamily="@font/poppins_semibold"-->
+<!--                       android:textSize="15dp"-->
+<!--                       android:layout_marginLeft="18dp"/>-->
 
-               </LinearLayout>
-               
-           </RelativeLayout>
+<!--               </LinearLayout>-->
+<!--               -->
+<!--           </RelativeLayout>-->
 
-       </LinearLayout>
+<!--       </LinearLayout>-->
 
-       </androidx.cardview.widget.CardView>
+<!--       </androidx.cardview.widget.CardView>-->
 
        <TextView
            android:layout_width="match_parent"
@@ -103,14 +110,23 @@
            android:text="Layanan Pengajuan Surat Keterangan"
            android:layout_marginTop="10dp"
            android:textSize="14sp"
-           android:layout_marginHorizontal="5dp"
+           android:layout_marginHorizontal="15dp"
            android:textColor="@color/black"
            android:fontFamily="@font/poppins_semibold"/>
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Berbagai jenis layanan pengajuan surat Kelurahan Kepuharjo"
+           android:textSize="10dp"
+           android:layout_marginHorizontal="15dp"
+           android:textColor="@color/black"
+           android:fontFamily="@font/poppins_regular"/>
        
        <LinearLayout
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:weightSum="4"
+           android:layout_marginHorizontal="10dp"
            android:orientation="horizontal">
 
 <!--           <androidx.cardview.widget.CardView-->
@@ -303,6 +319,7 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:weightSum="4"
+           android:layout_marginHorizontal="10dp"
            android:orientation="horizontal">
 
            <!--           <androidx.cardview.widget.CardView-->
@@ -496,16 +513,17 @@
            android:layout_height="wrap_content"
            android:text="Berita Terkini"
            android:layout_marginTop="10dp"
+
            android:textSize="14sp"
-           android:layout_marginHorizontal="5dp"
+           android:layout_marginHorizontal="15dp"
            android:textColor="@color/black"
            android:fontFamily="@font/poppins_semibold"/>
         <TextView
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:text="Berita Terkini Kelurahan Lumajang"
+           android:text="Berita terkini terkait Kelurahan Kepuharjo"
            android:textSize="10dp"
-           android:layout_marginHorizontal="5dp"
+           android:layout_marginHorizontal="15dp"
            android:textColor="@color/black"
            android:fontFamily="@font/poppins_regular"/>
        <androidx.recyclerview.widget.RecyclerView
