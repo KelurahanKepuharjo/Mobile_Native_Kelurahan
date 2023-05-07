@@ -16,8 +16,7 @@
             android:textColor="@color/black"
             android:textSize="12sp"
             android:paddingLeft="10dp"
-
-            android:layout_weight="4"
+            android:layout_weight="8"
             android:fontFamily="@font/poppins_regular"
             android:text="Nama Anggota"/>
         <TextView
@@ -26,6 +25,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textStyle="bold"
+            android:gravity="center"
             android:textSize="12sp"
             android:fontFamily="@font/poppins_regular"
             android:text=">"/>

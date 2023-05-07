@@ -58,222 +58,392 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-                    <Button
-                        android:id="@+id/btnDetail"
-                        android:layout_width="200dp"
+<!--                    <Button-->
+<!--                        android:id="@+id/btnDetail"-->
+<!--                        android:layout_width="150dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Detail Profile"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_marginBottom="10dp"-->
+<!--                        android:paddingTop="7dp"-->
+<!--                        android:textAllCaps="false"-->
+<!--                        android:fontFamily="@font/poppins_regular"-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:background="@drawable/round_back_profile_100"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/tx_namaTop" />-->
+
+                    <TextView
+                        android:id="@+id/akun"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Detail Profile"
-                        android:paddingTop="7dp"
-                        android:textAllCaps="false"
-                        android:fontFamily="@font/poppins_regular"
-                        android:textSize="14sp"
-                        android:background="@drawable/custom_edittext"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:text="Informasi Akun"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="20dp"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_semibold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tx_namaTop" />
 
                     <LinearLayout
+                        android:id="@+id/kotakAkun"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginEnd="32dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
                         android:orientation="vertical"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:padding="15dp"
+                        android:background="@drawable/bkg_btn_putih"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/btnDetail">
+                        app:layout_constraintTop_toBottomOf="@+id/akun">
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="0dp"
-                            android:background="@drawable/bkg_btn_putih">
+                            android:layout_height="wrap_content">
 
                             <ImageView
-                                android:id="@+id/imageView7"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginBottom="8dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/icon_nik" />
+                                android:id="@+id/logoKeluarga"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/niks" />
 
                             <TextView
                                 android:id="@+id/tx_kk"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="24dp"
-                                android:layout_marginBottom="16dp"
-                                android:text="No. KK"
-                                android:layout_marginTop="7dp"
-                                android:fontFamily="@font/poppins_regular"
+                                android:layout_marginStart="20dp"
+                                android:layout_toEndOf="@+id/logoKeluarga"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Nomer Kartu Keluarga"
                                 android:textColor="@color/black"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-                                app:layout_constraintStart_toEndOf="@+id/imageView7"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/tx_kk_user"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="24dp"
-                                android:text="3509212504030000"
+                                android:layout_below="@+id/tx_kk"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginStart="20dp"
+                                android:layout_toEndOf="@+id/logoKeluarga"
                                 android:fontFamily="@font/poppins_regular"
+                                android:text="3000000000000000"
                                 android:textColor="@color/black"
-                                android:textSize="14sp"
-                                app:layout_constraintStart_toEndOf="@+id/imageView7"
-                                app:layout_constraintTop_toBottomOf="@+id/tx_kk" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                                android:textSize="12sp" />
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_marginTop="18dp"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="7dp"
-                            android:layout_marginBottom="0dp"
-                            android:background="@drawable/bkg_btn_putih">
+                            android:layout_height="wrap_content">
 
                             <ImageView
-                                android:id="@+id/imageView7"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginBottom="8dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/icon_nik" />
+                                android:id="@+id/logoNiks"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/niks"
+                                android:layout_centerVertical="true"/>
 
                             <TextView
-                                android:id="@+id/tx_nama"
+                                android:id="@+id/tx_niks"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="24dp"
-                                android:layout_marginBottom="16dp"
-                                android:text="NIK"
+                                android:layout_marginStart="20dp"
+                                android:layout_toEndOf="@+id/logoNiks"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Nomer Induk Kependudukan"
                                 android:textColor="@color/black"
-                                android:textSize="16sp"
-                                android:fontFamily="@font/poppins_regular"
-                                android:textStyle="bold"
-                                android:layout_marginTop="7dp"
-                                app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-                                app:layout_constraintStart_toEndOf="@+id/imageView7"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/tx_nik_user"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="24dp"
-                                android:text="Faisal Okta"
-                                android:textColor="@color/black"
-                                android:textSize="14sp"
+                                android:layout_below="@+id/tx_niks"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginStart="20dp"
+                                android:layout_toEndOf="@+id/logoNiks"
                                 android:fontFamily="@font/poppins_regular"
-                                app:layout_constraintStart_toEndOf="@+id/imageView7"
-                                app:layout_constraintTop_toBottomOf="@+id/tx_nama" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                                android:text="3000000000000000"
+                                android:textColor="@color/black"
+                                android:textSize="12sp" />
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_marginTop="18dp"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="7dp"
-                            android:layout_marginBottom="0dp"
-                            android:background="@drawable/bkg_btn_putih">
+                            android:layout_height="wrap_content">
 
                             <ImageView
-                                android:id="@+id/imageView7"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginBottom="8dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/icon_nama" />
+                                android:id="@+id/logoNames"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/names"
+                                android:layout_centerVertical="true"/>
 
                             <TextView
-                                android:id="@+id/textView3"
+                                android:id="@+id/tx_names"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="24dp"
-                                android:layout_marginBottom="16dp"
+                                android:layout_marginStart="20dp"
+                                android:layout_toEndOf="@+id/logoNames"
+                                android:fontFamily="@font/poppins_semibold"
                                 android:text="Nama Lengkap"
                                 android:textColor="@color/black"
-                                android:textSize="16sp"
-                                android:fontFamily="@font/poppins_regular"
-                                android:layout_marginTop="7dp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-                                app:layout_constraintStart_toEndOf="@+id/imageView7"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/tx_nama_user"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="24dp"
-                                android:text="nama"
-                                android:textColor="@color/black"
-                                android:textSize="14sp"
+                                android:layout_below="@+id/tx_names"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginStart="20dp"
+                                android:layout_toEndOf="@+id/logoNames"
                                 android:fontFamily="@font/poppins_regular"
-                                app:layout_constraintStart_toEndOf="@+id/imageView7"
-                                app:layout_constraintTop_toBottomOf="@+id/textView3" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                                android:text="Faisal Okta"
+                                android:textColor="@color/black"
+                                android:textSize="12sp" />
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_marginTop="18dp"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="7dp"
-                            android:layout_marginBottom="0dp"
-                            android:background="@drawable/bkg_btn_putih">
+                            android:layout_height="wrap_content">
 
                             <ImageView
-                                android:id="@+id/imageView7"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginBottom="8dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/icon_telp" />
+                                android:id="@+id/logotelp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/telps"
+                                android:layout_centerVertical="true"/>
 
                             <TextView
-                                android:id="@+id/textView3"
+                                android:id="@+id/tx_telps"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="24dp"
-                                android:layout_marginBottom="16dp"
-                                android:text="No. Telepon"
+                                android:layout_marginStart="20dp"
+                                android:layout_toEndOf="@+id/logotelp"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Nomor Telepon"
                                 android:textColor="@color/black"
-                                android:textSize="16sp"
-                                android:fontFamily="@font/poppins_regular"
-                                android:layout_marginTop="7dp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-                                app:layout_constraintStart_toEndOf="@+id/imageView7"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/tx_nohp_user"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="24dp"
-                                android:text="001"
-                                android:textColor="@color/black"
-                                android:textSize="14sp"
+                                android:layout_below="@+id/tx_telps"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginStart="20dp"
+                                android:layout_toEndOf="@+id/logotelp"
                                 android:fontFamily="@font/poppins_regular"
-                                app:layout_constraintStart_toEndOf="@+id/imageView7"
-                                app:layout_constraintTop_toBottomOf="@+id/textView3" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                                android:text="083234678323"
+                                android:textColor="@color/black"
+                                android:textSize="12sp" />
+
+                        </RelativeLayout>
+
+<!--                        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_marginTop="10dp"-->
+<!--                            android:layout_marginBottom="0dp"-->
+<!--                            android:background="@drawable/bkg_btn_putih">-->
+
+<!--                            <ImageView-->
+<!--                                android:id="@+id/imageView7"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="16dp"-->
+<!--                                android:layout_marginTop="8dp"-->
+<!--                                android:layout_marginBottom="8dp"-->
+<!--                                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                                app:layout_constraintStart_toStartOf="parent"-->
+<!--                                app:layout_constraintTop_toTopOf="parent"-->
+<!--                                app:srcCompat="@drawable/icon_nik" />-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/tx_kk"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="24dp"-->
+<!--                                android:layout_marginBottom="16dp"-->
+<!--                                android:text="No. KK"-->
+<!--                                android:layout_marginTop="7dp"-->
+<!--                                android:fontFamily="@font/poppins_regular"-->
+<!--                                android:textColor="@color/black"-->
+<!--                                android:textSize="16sp"-->
+<!--                                android:textStyle="bold"-->
+<!--                                app:layout_constraintBottom_toBottomOf="@+id/imageView7"-->
+<!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+<!--                                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/tx_kk_user"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="24dp"-->
+<!--                                android:text="3509212504030000"-->
+<!--                                android:fontFamily="@font/poppins_regular"-->
+<!--                                android:textColor="@color/black"-->
+<!--                                android:textSize="14sp"-->
+<!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+<!--                                app:layout_constraintTop_toBottomOf="@+id/tx_kk" />-->
+<!--                        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--                        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_marginTop="7dp"-->
+<!--                            android:layout_marginBottom="0dp"-->
+<!--                            android:background="@drawable/bkg_btn_putih">-->
+
+<!--                            <ImageView-->
+<!--                                android:id="@+id/imageView7"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="16dp"-->
+<!--                                android:layout_marginTop="8dp"-->
+<!--                                android:layout_marginBottom="8dp"-->
+<!--                                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                                app:layout_constraintStart_toStartOf="parent"-->
+<!--                                app:layout_constraintTop_toTopOf="parent"-->
+<!--                                app:srcCompat="@drawable/icon_nik" />-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/tx_nama"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="24dp"-->
+<!--                                android:layout_marginBottom="16dp"-->
+<!--                                android:text="NIK"-->
+<!--                                android:textColor="@color/black"-->
+<!--                                android:textSize="16sp"-->
+<!--                                android:fontFamily="@font/poppins_regular"-->
+<!--                                android:textStyle="bold"-->
+<!--                                android:layout_marginTop="7dp"-->
+<!--                                app:layout_constraintBottom_toBottomOf="@+id/imageView7"-->
+<!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+<!--                                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/tx_nik_user"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="24dp"-->
+<!--                                android:text="Faisal Okta"-->
+<!--                                android:textColor="@color/black"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:fontFamily="@font/poppins_regular"-->
+<!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+<!--                                app:layout_constraintTop_toBottomOf="@+id/tx_nama" />-->
+<!--                        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--                        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_marginTop="7dp"-->
+<!--                            android:layout_marginBottom="0dp"-->
+<!--                            android:background="@drawable/bkg_btn_putih">-->
+
+<!--                            <ImageView-->
+<!--                                android:id="@+id/imageView7"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="16dp"-->
+<!--                                android:layout_marginTop="8dp"-->
+<!--                                android:layout_marginBottom="8dp"-->
+<!--                                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                                app:layout_constraintStart_toStartOf="parent"-->
+<!--                                app:layout_constraintTop_toTopOf="parent"-->
+<!--                                app:srcCompat="@drawable/icon_nama" />-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/textView3"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="24dp"-->
+<!--                                android:layout_marginBottom="16dp"-->
+<!--                                android:text="Nama Lengkap"-->
+<!--                                android:textColor="@color/black"-->
+<!--                                android:textSize="16sp"-->
+<!--                                android:fontFamily="@font/poppins_regular"-->
+<!--                                android:layout_marginTop="7dp"-->
+<!--                                android:textStyle="bold"-->
+<!--                                app:layout_constraintBottom_toBottomOf="@+id/imageView7"-->
+<!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+<!--                                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/tx_nama_user"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="24dp"-->
+<!--                                android:text="nama"-->
+<!--                                android:textColor="@color/black"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:fontFamily="@font/poppins_regular"-->
+<!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+<!--                                app:layout_constraintTop_toBottomOf="@+id/textView3" />-->
+<!--                        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--                        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_marginTop="7dp"-->
+<!--                            android:layout_marginBottom="0dp"-->
+<!--                            android:background="@drawable/bkg_btn_putih">-->
+
+<!--                            <ImageView-->
+<!--                                android:id="@+id/imageView7"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="16dp"-->
+<!--                                android:layout_marginTop="8dp"-->
+<!--                                android:layout_marginBottom="8dp"-->
+<!--                                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                                app:layout_constraintStart_toStartOf="parent"-->
+<!--                                app:layout_constraintTop_toTopOf="parent"-->
+<!--                                app:srcCompat="@drawable/icon_telp" />-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/textView3"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="24dp"-->
+<!--                                android:layout_marginBottom="16dp"-->
+<!--                                android:text="No. Telepon"-->
+<!--                                android:textColor="@color/black"-->
+<!--                                android:textSize="16sp"-->
+<!--                                android:fontFamily="@font/poppins_regular"-->
+<!--                                android:layout_marginTop="7dp"-->
+<!--                                android:textStyle="bold"-->
+<!--                                app:layout_constraintBottom_toBottomOf="@+id/imageView7"-->
+<!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+<!--                                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/tx_nohp_user"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="24dp"-->
+<!--                                android:text="001"-->
+<!--                                android:textColor="@color/black"-->
+<!--                                android:textSize="14sp"-->
+<!--                                android:fontFamily="@font/poppins_regular"-->
+<!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+<!--                                app:layout_constraintTop_toBottomOf="@+id/textView3" />-->
+<!--                        </androidx.constraintlayout.widget.ConstraintLayout>-->
 <!--                        <androidx.constraintlayout.widget.ConstraintLayout-->
 <!--                            android:layout_width="match_parent"-->
 <!--                            android:layout_height="match_parent"-->
@@ -322,18 +492,427 @@
 <!--                                app:layout_constraintTop_toBottomOf="@+id/textView3" />-->
 <!--                        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-                        <Button
-                            android:id="@+id/btn_logout"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/custom_edittext"
-                            android:fontFamily="@font/poppins_semibold"
-                            android:text="LogOut"
-                            android:textSize="18sp"
-                            android:textAllCaps="false"/>
+<!--                        <Button-->
+<!--                            android:id="@+id/btn_logout"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="10dp"-->
+<!--                            android:background="@drawable/custom_edittext"-->
+<!--                            android:fontFamily="@font/poppins_semibold"-->
+<!--                            android:text="LogOut"-->
+<!--                            android:textSize="18sp"-->
+<!--                            android:textAllCaps="false"/>-->
                     </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/informasi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Informasi Umum"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="20dp"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_semibold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/kotakAkun" />
+
+                    <LinearLayout
+                        android:id="@+id/kotakInformasi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="vertical"
+                        android:padding="15dp"
+                        android:background="@drawable/bkg_btn_putih"
+                        app:layout_constraintTop_toBottomOf="@+id/informasi">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/logoKeluarga"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/profil" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="20dp"
+                                android:layout_toEndOf="@+id/logoKeluarga"
+                                android:text="Profil Tertaut"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"/>
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_marginTop="18dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/logoKeluarga"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/tentang" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="20dp"
+                                android:layout_toEndOf="@+id/logoKeluarga"
+                                android:text="Tentang"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"/>
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_marginTop="18dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <Button
+                                android:id="@+id/btn_logout"
+                                android:layout_width="350dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="20dp"
+                                android:background="@drawable/custom_edittext"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="LogOut"
+                                android:textAllCaps="false"
+                                android:textSize="18sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/kotakInformasi" />
+                        </RelativeLayout>
+<!--                        <Button-->
+<!--                                                android:id="@+id/btn_logout"-->
+<!--                                                android:layout_width="350dp"-->
+<!--                                                android:layout_height="wrap_content"-->
+<!--                                                android:layout_gravity="center"-->
+<!--                                                android:layout_marginTop="20dp"-->
+<!--                                                android:background="@drawable/custom_edittext"-->
+<!--                                                android:fontFamily="@font/poppins_semibold"-->
+<!--                                                android:text="LogOut"-->
+<!--                                                android:textAllCaps="false"-->
+<!--                                                android:textSize="18sp"-->
+<!--                                                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                                                app:layout_constraintStart_toStartOf="parent"-->
+<!--                                                app:layout_constraintTop_toBottomOf="@+id/kotakInformasi" />-->
+
+                        <!--                        <androidx.constraintlayout.widget.ConstraintLayout-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="match_parent"-->
+                        <!--                            android:layout_marginTop="10dp"-->
+                        <!--                            android:layout_marginBottom="0dp"-->
+                        <!--                            android:background="@drawable/bkg_btn_putih">-->
+
+                        <!--                            <ImageView-->
+                        <!--                                android:id="@+id/imageView7"-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_marginStart="16dp"-->
+                        <!--                                android:layout_marginTop="8dp"-->
+                        <!--                                android:layout_marginBottom="8dp"-->
+                        <!--                                app:layout_constraintBottom_toBottomOf="parent"-->
+                        <!--                                app:layout_constraintStart_toStartOf="parent"-->
+                        <!--                                app:layout_constraintTop_toTopOf="parent"-->
+                        <!--                                app:srcCompat="@drawable/icon_nik" />-->
+
+                        <!--                            <TextView-->
+                        <!--                                android:id="@+id/tx_kk"-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_marginStart="24dp"-->
+                        <!--                                android:layout_marginBottom="16dp"-->
+                        <!--                                android:text="No. KK"-->
+                        <!--                                android:layout_marginTop="7dp"-->
+                        <!--                                android:fontFamily="@font/poppins_regular"-->
+                        <!--                                android:textColor="@color/black"-->
+                        <!--                                android:textSize="16sp"-->
+                        <!--                                android:textStyle="bold"-->
+                        <!--                                app:layout_constraintBottom_toBottomOf="@+id/imageView7"-->
+                        <!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+                        <!--                                app:layout_constraintTop_toTopOf="parent" />-->
+
+                        <!--                            <TextView-->
+                        <!--                                android:id="@+id/tx_kk_user"-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_marginStart="24dp"-->
+                        <!--                                android:text="3509212504030000"-->
+                        <!--                                android:fontFamily="@font/poppins_regular"-->
+                        <!--                                android:textColor="@color/black"-->
+                        <!--                                android:textSize="14sp"-->
+                        <!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+                        <!--                                app:layout_constraintTop_toBottomOf="@+id/tx_kk" />-->
+                        <!--                        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+                        <!--                        <androidx.constraintlayout.widget.ConstraintLayout-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="match_parent"-->
+                        <!--                            android:layout_marginTop="7dp"-->
+                        <!--                            android:layout_marginBottom="0dp"-->
+                        <!--                            android:background="@drawable/bkg_btn_putih">-->
+
+                        <!--                            <ImageView-->
+                        <!--                                android:id="@+id/imageView7"-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_marginStart="16dp"-->
+                        <!--                                android:layout_marginTop="8dp"-->
+                        <!--                                android:layout_marginBottom="8dp"-->
+                        <!--                                app:layout_constraintBottom_toBottomOf="parent"-->
+                        <!--                                app:layout_constraintStart_toStartOf="parent"-->
+                        <!--                                app:layout_constraintTop_toTopOf="parent"-->
+                        <!--                                app:srcCompat="@drawable/icon_nik" />-->
+
+                        <!--                            <TextView-->
+                        <!--                                android:id="@+id/tx_nama"-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_marginStart="24dp"-->
+                        <!--                                android:layout_marginBottom="16dp"-->
+                        <!--                                android:text="NIK"-->
+                        <!--                                android:textColor="@color/black"-->
+                        <!--                                android:textSize="16sp"-->
+                        <!--                                android:fontFamily="@font/poppins_regular"-->
+                        <!--                                android:textStyle="bold"-->
+                        <!--                                android:layout_marginTop="7dp"-->
+                        <!--                                app:layout_constraintBottom_toBottomOf="@+id/imageView7"-->
+                        <!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+                        <!--                                app:layout_constraintTop_toTopOf="parent" />-->
+
+                        <!--                            <TextView-->
+                        <!--                                android:id="@+id/tx_nik_user"-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_marginStart="24dp"-->
+                        <!--                                android:text="Faisal Okta"-->
+                        <!--                                android:textColor="@color/black"-->
+                        <!--                                android:textSize="14sp"-->
+                        <!--                                android:fontFamily="@font/poppins_regular"-->
+                        <!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+                        <!--                                app:layout_constraintTop_toBottomOf="@+id/tx_nama" />-->
+                        <!--                        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+                        <!--                        <androidx.constraintlayout.widget.ConstraintLayout-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="match_parent"-->
+                        <!--                            android:layout_marginTop="7dp"-->
+                        <!--                            android:layout_marginBottom="0dp"-->
+                        <!--                            android:background="@drawable/bkg_btn_putih">-->
+
+                        <!--                            <ImageView-->
+                        <!--                                android:id="@+id/imageView7"-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_marginStart="16dp"-->
+                        <!--                                android:layout_marginTop="8dp"-->
+                        <!--                                android:layout_marginBottom="8dp"-->
+                        <!--                                app:layout_constraintBottom_toBottomOf="parent"-->
+                        <!--                                app:layout_constraintStart_toStartOf="parent"-->
+                        <!--                                app:layout_constraintTop_toTopOf="parent"-->
+                        <!--                                app:srcCompat="@drawable/icon_nama" />-->
+
+                        <!--                            <TextView-->
+                        <!--                                android:id="@+id/textView3"-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_marginStart="24dp"-->
+                        <!--                                android:layout_marginBottom="16dp"-->
+                        <!--                                android:text="Nama Lengkap"-->
+                        <!--                                android:textColor="@color/black"-->
+                        <!--                                android:textSize="16sp"-->
+                        <!--                                android:fontFamily="@font/poppins_regular"-->
+                        <!--                                android:layout_marginTop="7dp"-->
+                        <!--                                android:textStyle="bold"-->
+                        <!--                                app:layout_constraintBottom_toBottomOf="@+id/imageView7"-->
+                        <!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+                        <!--                                app:layout_constraintTop_toTopOf="parent" />-->
+
+                        <!--                            <TextView-->
+                        <!--                                android:id="@+id/tx_nama_user"-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_marginStart="24dp"-->
+                        <!--                                android:text="nama"-->
+                        <!--                                android:textColor="@color/black"-->
+                        <!--                                android:textSize="14sp"-->
+                        <!--                                android:fontFamily="@font/poppins_regular"-->
+                        <!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+                        <!--                                app:layout_constraintTop_toBottomOf="@+id/textView3" />-->
+                        <!--                        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+                        <!--                        <androidx.constraintlayout.widget.ConstraintLayout-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="match_parent"-->
+                        <!--                            android:layout_marginTop="7dp"-->
+                        <!--                            android:layout_marginBottom="0dp"-->
+                        <!--                            android:background="@drawable/bkg_btn_putih">-->
+
+                        <!--                            <ImageView-->
+                        <!--                                android:id="@+id/imageView7"-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_marginStart="16dp"-->
+                        <!--                                android:layout_marginTop="8dp"-->
+                        <!--                                android:layout_marginBottom="8dp"-->
+                        <!--                                app:layout_constraintBottom_toBottomOf="parent"-->
+                        <!--                                app:layout_constraintStart_toStartOf="parent"-->
+                        <!--                                app:layout_constraintTop_toTopOf="parent"-->
+                        <!--                                app:srcCompat="@drawable/icon_telp" />-->
+
+                        <!--                            <TextView-->
+                        <!--                                android:id="@+id/textView3"-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_marginStart="24dp"-->
+                        <!--                                android:layout_marginBottom="16dp"-->
+                        <!--                                android:text="No. Telepon"-->
+                        <!--                                android:textColor="@color/black"-->
+                        <!--                                android:textSize="16sp"-->
+                        <!--                                android:fontFamily="@font/poppins_regular"-->
+                        <!--                                android:layout_marginTop="7dp"-->
+                        <!--                                android:textStyle="bold"-->
+                        <!--                                app:layout_constraintBottom_toBottomOf="@+id/imageView7"-->
+                        <!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+                        <!--                                app:layout_constraintTop_toTopOf="parent" />-->
+
+                        <!--                            <TextView-->
+                        <!--                                android:id="@+id/tx_nohp_user"-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_marginStart="24dp"-->
+                        <!--                                android:text="001"-->
+                        <!--                                android:textColor="@color/black"-->
+                        <!--                                android:textSize="14sp"-->
+                        <!--                                android:fontFamily="@font/poppins_regular"-->
+                        <!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+                        <!--                                app:layout_constraintTop_toBottomOf="@+id/textView3" />-->
+                        <!--                        </androidx.constraintlayout.widget.ConstraintLayout>-->
+                        <!--                        <androidx.constraintlayout.widget.ConstraintLayout-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="match_parent"-->
+                        <!--                            android:layout_marginTop="7dp"-->
+                        <!--                            android:layout_marginBottom="0dp"-->
+                        <!--                            android:background="@drawable/bkg_btn_putih">-->
+
+                        <!--                            <ImageView-->
+                        <!--                                android:id="@+id/imageView7"-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_marginStart="16dp"-->
+                        <!--                                android:layout_marginTop="8dp"-->
+                        <!--                                android:layout_marginBottom="8dp"-->
+                        <!--                                app:layout_constraintBottom_toBottomOf="parent"-->
+                        <!--                                app:layout_constraintStart_toStartOf="parent"-->
+                        <!--                                app:layout_constraintTop_toTopOf="parent"-->
+                        <!--                                app:srcCompat="@drawable/icon_rtrw" />-->
+
+                        <!--                            <TextView-->
+                        <!--                                android:id="@+id/textView3"-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_marginStart="24dp"-->
+                        <!--                                android:layout_marginBottom="16dp"-->
+                        <!--                                android:text="RW"-->
+                        <!--                                android:textColor="@color/black"-->
+                        <!--                                android:textSize="16sp"-->
+                        <!--                                android:fontFamily="@font/poppins_regular"-->
+                        <!--                                android:layout_marginTop="7dp"-->
+                        <!--                                android:textStyle="bold"-->
+                        <!--                                app:layout_constraintBottom_toBottomOf="@+id/imageView7"-->
+                        <!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+                        <!--                                app:layout_constraintTop_toTopOf="parent" />-->
+
+                        <!--                            <TextView-->
+                        <!--                                android:id="@+id/textView4"-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_marginStart="24dp"-->
+                        <!--                                android:text="001"-->
+                        <!--                                android:textColor="@color/black"-->
+                        <!--                                android:textSize="14sp"-->
+                        <!--                                android:fontFamily="@font/poppins_regular"-->
+                        <!--                                app:layout_constraintStart_toEndOf="@+id/imageView7"-->
+                        <!--                                app:layout_constraintTop_toBottomOf="@+id/textView3" />-->
+                        <!--                        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--                                                <Button-->
+<!--                                                    android:id="@+id/btn_logout"-->
+<!--                                                    android:layout_width="match_parent"-->
+<!--                                                    android:layout_height="wrap_content"-->
+<!--                                                    android:layout_marginTop="10dp"-->
+<!--                                                    android:background="@drawable/custom_edittext"-->
+<!--                                                    android:fontFamily="@font/poppins_semibold"-->
+<!--                                                    android:text="LogOut"-->
+<!--                                                    android:textSize="18sp"-->
+<!--                                                    android:textAllCaps="false"/>-->
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/coba"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:textColor="@color/black"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="20dp"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_semibold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/kotakInformasi" />
+
+                    <LinearLayout
+                        android:id="@+id/kotakcoba"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="vertical"
+                        android:padding="50dp"
+                        app:layout_constraintTop_toBottomOf="@+id/coba">
+
+                    </LinearLayout>
+
+<!--                    <Button-->
+<!--                        android:id="@+id/btn_logout"-->
+<!--                        android:layout_width="350dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginTop="20dp"-->
+<!--                        android:background="@drawable/custom_edittext"-->
+<!--                        android:fontFamily="@font/poppins_semibold"-->
+<!--                        android:text="LogOut"-->
+<!--                        android:textAllCaps="false"-->
+<!--                        android:textSize="18sp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/kotakInformasi" />-->
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
             </LinearLayout>
         </ScrollView>
 

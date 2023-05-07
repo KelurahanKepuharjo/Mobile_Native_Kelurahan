@@ -25,13 +25,13 @@
     <GridView
         android:id="@+id/gridViewSurat"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
+        android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:layout_marginTop="20dp"
-        android:horizontalSpacing="5dp"
+        android:gravity="center_horizontal"
+        android:horizontalSpacing="10dp"
         android:numColumns="3"
-        android:verticalSpacing="10dp" />
+        android:verticalSpacing="15dp" />
 
 <!--    <GridLayout-->
 <!--        android:layout_width="300dp"-->

@@ -183,7 +183,7 @@ public class homeAdapter extends AppCompatActivity {
                     //buat klo ngetab
                     profileTxt.setVisibility(View.VISIBLE);
                     profileImage.setImageResource(R.drawable.profile_selected_icon);
-                    profileLayout.setBackgroundResource(R.drawable.round_back_profile_100);
+                    profileLayout.setBackgroundResource(R.drawable.round_back_status_100);
 
                     ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f,1.0f,1f,1f, Animation.RELATIVE_TO_SELF,1.0f,Animation.RELATIVE_TO_SELF,0.0f);
                     scaleAnimation.setDuration(200);
@@ -197,8 +197,8 @@ public class homeAdapter extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onBackPressed() {
-//        super.onBackPressed();
-    }
+//    @Override
+//    public void onBackPressed() {
+////        super.onBackPressed();
+//    }
 }

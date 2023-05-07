@@ -53,7 +53,8 @@
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:maxLength="16"/>
 
             <EditText
                 android:id="@+id/NoKK"
@@ -68,7 +69,8 @@
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:maxLength="16"/>
 
             <EditText
                 android:id="@+id/notelp"

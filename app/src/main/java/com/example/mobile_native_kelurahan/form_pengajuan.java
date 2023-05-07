@@ -51,7 +51,7 @@ public class form_pengajuan extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(form_pengajuan.this, homeAdapter.class);
+                Intent intent = new Intent(form_pengajuan.this, DaftarKeluarga.class);
                 startActivity(intent);
                 finish();
             }
@@ -124,8 +124,8 @@ public class form_pengajuan extends AppCompatActivity {
         });
 
     }
-    @Override
-    public void onBackPressed() {
-//        super.onBackPressed();
-    }
+//    @Override
+//    public void onBackPressed() {
+////        super.onBackPressed();
+//    }
 }
