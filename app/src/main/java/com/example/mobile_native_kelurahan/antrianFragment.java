@@ -86,7 +86,6 @@ public class antrianFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         SharedPreferences preferences = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE);
         String token = preferences.getString("token", "");
-        Log.e("token", token);
         AuthServices.diajukan(getContext(), token, new AuthServices.StatusResponseListener() {
             @Override
             public void onSuccess(List<Status> statusList) {
@@ -126,7 +125,7 @@ public class antrianFragment extends Fragment {
             holder.namaLengkap.setText(statusList.get(position).getNamaLengkap());
             holder.nik.setText(statusList.get(position).getNik());
             holder.status.setText(statusList.get(position).getStatus());
-            Glide.with(context).load("http://192.168.1.116:8000/images/" + statusList.get(position).getImage()).into(holder.imageView);
+            Glide.with(context).load("http://192.168.0.118:8000/images/" + statusList.get(position).getImage()).into(holder.imageView);
         }
 
         @Override

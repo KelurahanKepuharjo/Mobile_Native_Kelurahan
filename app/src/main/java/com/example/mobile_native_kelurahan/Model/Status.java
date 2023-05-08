@@ -5,6 +5,7 @@ public class Status {
     private String status;
     private String keterangan;
     private String createdAt;
+    private String filePdf;
     private String IdMasyarakat;
     private String IdSurat;
     private String nik;
@@ -28,11 +29,12 @@ public class Status {
     private String namaSurat;
     private String image;
 
-    public Status(String uuid, String status, String keterangan, String createdAt, String idMasyarakat, String idSurat, String nik, String namaLengkap, String jenisKelamin, String tempatLahir, String tglLahir, String agama, String pendidikan, String pekerjaan, String golonganDarah, String statusPerkawinan, String tglPerkawinan, String statusKeluarga, String kewarganegaraan, String noPaspor, String noKitap, String namaAyah, String namaIbu, String id, String namaSurat, String image) {
+    public Status(String uuid, String status, String keterangan, String createdAt, String filePdf, String idMasyarakat, String idSurat, String nik, String namaLengkap, String jenisKelamin, String tempatLahir, String tglLahir, String agama, String pendidikan, String pekerjaan, String golonganDarah, String statusPerkawinan, String tglPerkawinan, String statusKeluarga, String kewarganegaraan, String noPaspor, String noKitap, String namaAyah, String namaIbu, String id, String namaSurat, String image) {
         this.uuid = uuid;
         this.status = status;
         this.keterangan = keterangan;
         this.createdAt = createdAt;
+        this.filePdf = filePdf;
         this.IdMasyarakat = idMasyarakat;
         this.IdSurat = idSurat;
         this.nik = nik;
@@ -83,6 +85,10 @@ public class Status {
 
     public String getNik() {
         return nik;
+    }
+
+    public String getFilePdf() {
+        return filePdf;
     }
 
     public String getNamaLengkap() {

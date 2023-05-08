@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.mobile_native_kelurahan.Auth.AuthServices;
 import com.example.mobile_native_kelurahan.Model.Status;
 
@@ -125,6 +126,7 @@ public class prosesFragment extends Fragment {
             holder.namaLengkap.setText(statusList.get(position).getNamaLengkap());
             holder.nik.setText(statusList.get(position).getNik());
             holder.status.setText(statusList.get(position).getStatus());
+            Glide.with(context).load("http://192.168.0.118:8000/images/" + statusList.get(position).getImage()).into(holder.imageView);
         }
 
         @Override

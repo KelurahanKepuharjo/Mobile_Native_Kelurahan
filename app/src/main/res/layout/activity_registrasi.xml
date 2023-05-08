@@ -33,17 +33,18 @@
                 android:id="@+id/regisText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="Registrasi"
-                android:textAlignment="center"
-                android:textColor="@color/purple"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Daftar Akun"
                 android:textSize="30sp"
-                android:textStyle="bold" />
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textColor="@color/purple"
+                android:gravity="center_horizontal"  />
 
             <EditText
                 android:id="@+id/NIK"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
@@ -53,24 +54,25 @@
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
-                android:textSize="16sp"
-                android:maxLength="16"/>
+                android:textSize="12sp"
+                android:maxLength="16"
+                android:fontFamily="@font/poppins_regular"/>
 
-            <EditText
-                android:id="@+id/NoKK"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/ic_baseline_person_24"
-                android:drawablePadding="8dp"
-                android:hint="No. Kartu Keluarga"
-                android:inputType="number"
-                android:padding="8dp"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background"
-                android:textSize="16sp"
-                android:maxLength="16"/>
+<!--            <EditText-->
+<!--                android:id="@+id/NoKK"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:background="@drawable/custom_edittext"-->
+<!--                android:drawableLeft="@drawable/ic_baseline_person_24"-->
+<!--                android:drawablePadding="8dp"-->
+<!--                android:hint="No. Kartu Keluarga"-->
+<!--                android:inputType="number"-->
+<!--                android:padding="8dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textColorHighlight="@color/cardview_dark_background"-->
+<!--                android:textSize="16sp"-->
+<!--                android:maxLength="16"/>-->
 
             <EditText
                 android:id="@+id/notelp"
@@ -82,6 +84,8 @@
                 android:drawablePadding="8dp"
                 android:hint="No. Telephone"
                 android:inputType="number"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="12sp"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background" />
@@ -89,12 +93,14 @@
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/ic_baseline_lock_24"
                 android:drawablePadding="8dp"
                 android:hint="Kata Sandi"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="12sp"
                 android:inputType="textPassword"
                 android:padding="8dp"
                 android:textColor="@color/black"
@@ -111,32 +117,35 @@
                 android:hint="Konfirmasi Kata Sandi"
                 android:inputType="textPassword"
                 android:padding="8dp"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="12sp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background" />
 
             <Button
                 android:id="@+id/btnDaftar"
-                android:layout_width="108dp"
-                android:layout_height="60dp"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="@color/purple"
-                android:text="Daftar"
+                android:background="@drawable/bg_button"
+                android:text="Daftar Akun"
                 android:textAllCaps="false"
-                android:textSize="18sp"
-                app:cornerRadius="20dp" />
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins_regular" />
 
             <TextView
                 android:id="@+id/signupText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginBottom="0dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
                 android:text="Sudah memiliki akun? Login"
                 android:textAlignment="center"
                 android:textColor="@color/purple"
-                android:textSize="14sp" />
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="12sp" />
 
 
         </LinearLayout>
@@ -148,10 +157,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
         android:padding="8dp"
         android:text="S-Kepuharjo Versi 1.2"
         android:textAlignment="center"
+        android:fontFamily="@font/poppins_regular"
         android:textColor="@color/purple"
-        android:textSize="14sp" />
+        android:textSize="12sp" />
 </LinearLayout>

@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText nik_log,pass_log;
     Button loginButton;
     TextView signinText;
-    private static String LOGIN_URL = "http://192.168.0.117:8000/api/auth/login";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +63,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(MainActivity.this, registrasi.class);
                 startActivity(intent);
                 finish();
-        }else if (v == loginButton){
+        } else if (v == loginButton){
             String nik = nik_log.getText().toString().trim();
             String password = pass_log.getText().toString().trim();
-            if (nik.isEmpty() && password.isEmpty()) {
-                Toast.makeText(this, "Nik atau Password tidak bole kosong", Toast.LENGTH_SHORT).show();
+            if (nik.isEmpty()) {
+                nik_log.setError("Silahkan masukan NIK anda");
+            } else if(password.isEmpty()){
+                pass_log.setError("Silahkan masukan Password anda");
+            } else if (nik.length() < 16) {
+                nik_log.setError("NIK harus terdiri dari 16 digit");
+            } else if (password.length() < 8) {
+                pass_log.setError("Password harus terdiri dari 8 digit atau lebih");
             }else {
                 AuthServices.login(MainActivity.this, nik, password, new AuthServices.LoginResponseListener() {
                     @Override

@@ -5,18 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".selesaiFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <RelativeLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerSelesai"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Halaman selesai"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:layout_centerInParent="true"/>
-    </RelativeLayout>
+        android:layout_height="match_parent"/>
 
 </FrameLayout>

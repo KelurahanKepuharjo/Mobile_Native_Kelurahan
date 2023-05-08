@@ -81,6 +81,7 @@ public class DaftarKeluarga extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull DaftarKeluarga.AdapterKeluarga.Viewholder holder, int position) {
             holder.nama.setText(masyarakatList.get(position).getNamaLengkap());
+            holder.nik.setText(masyarakatList.get(position).getNik());
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -119,10 +120,11 @@ public class DaftarKeluarga extends AppCompatActivity {
         }
 
         public static class Viewholder extends RecyclerView.ViewHolder{
-            TextView nama;
+            TextView nama,nik;
             public Viewholder(@NonNull View itemView) {
                 super(itemView);
                 nama = itemView.findViewById(R.id.namaKeluarga);
+                nik = itemView.findViewById(R.id.nikKeluarga);
             }
         }
     }

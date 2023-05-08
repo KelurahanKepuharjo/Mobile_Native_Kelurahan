@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AuthServices {
-    private static String URL = "http://192.168.1.116:8000/api/";
+    private static String URL = "http://192.168.0.118:8000/api/";
 
     public interface RegisterResponseListener {
         void onSuccess(JSONObject response);
@@ -512,6 +512,7 @@ public class AuthServices {
                                     String status = statusObj.getString("status");
                                     String keterangan = statusObj.getString("keterangan");
                                     String created_at = statusObj.getString("created_at");
+                                    String filepdf = statusObj.getString("file_pdf");
                                     String idMasyarakat = statusObj.getString("id_masyarakat");
                                     String idSurat = statusObj.getString("id_surat");
                                     String nik = statusObj.getString("nik");
@@ -534,7 +535,7 @@ public class AuthServices {
                                     String id = statusObj.getString("id");
                                     String namaSurat = statusObj.getString("nama_surat");
                                     String image = statusObj.getString("image");
-                                    Status status1 = new Status(uuid,status,keterangan,created_at,idMasyarakat,idSurat,nik,namaLengkap,jenisKelamin,tempatLahir,tanggalLahir,agama,pendidikan,pekerjaan,golonganDarah,statusPerkawinan,tglPerkawinan,statusKeluarga,kewarganegaraan,nopaspor,nokitap,nama_ayah,nama_ibu,id,namaSurat,image);
+                                    Status status1 = new Status(uuid,status,keterangan,created_at,filepdf,idMasyarakat,idSurat,nik,namaLengkap,jenisKelamin,tempatLahir,tanggalLahir,agama,pendidikan,pekerjaan,golonganDarah,statusPerkawinan,tglPerkawinan,statusKeluarga,kewarganegaraan,nopaspor,nokitap,nama_ayah,nama_ibu,id,namaSurat,image);
                                     statusList.add(status1);
                                 }
                                 listener.onSuccess(statusList);
@@ -591,6 +592,7 @@ public class AuthServices {
                                     String status = statusObj.getString("status");
                                     String keterangan = statusObj.getString("keterangan");
                                     String created_at = statusObj.getString("created_at");
+                                    String filepdf = statusObj.getString("file_pdf");
                                     String idMasyarakat = statusObj.getString("id_masyarakat");
                                     String idSurat = statusObj.getString("id_surat");
                                     String nik = statusObj.getString("nik");
@@ -613,7 +615,7 @@ public class AuthServices {
                                     String id = statusObj.getString("id");
                                     String namaSurat = statusObj.getString("nama_surat");
                                     String image = statusObj.getString("image");
-                                    Status status1 = new Status(uuid,status,keterangan,created_at,idMasyarakat,idSurat,nik,namaLengkap,jenisKelamin,tempatLahir,tanggalLahir,agama,pendidikan,pekerjaan,golonganDarah,statusPerkawinan,tglPerkawinan,statusKeluarga,kewarganegaraan,nopaspor,nokitap,nama_ayah,nama_ibu,id,namaSurat,image);
+                                    Status status1 = new Status(uuid,status,keterangan,created_at,filepdf,idMasyarakat,idSurat,nik,namaLengkap,jenisKelamin,tempatLahir,tanggalLahir,agama,pendidikan,pekerjaan,golonganDarah,statusPerkawinan,tglPerkawinan,statusKeluarga,kewarganegaraan,nopaspor,nokitap,nama_ayah,nama_ibu,id,namaSurat,image);
                                     statusList.add(status1);
                                 }
                                 listener.onSuccess(statusList);
@@ -670,6 +672,7 @@ public class AuthServices {
                                     String status = statusObj.getString("status");
                                     String keterangan = statusObj.getString("keterangan");
                                     String created_at = statusObj.getString("created_at");
+                                    String filepdf = statusObj.getString("file_pdf");
                                     String idMasyarakat = statusObj.getString("id_masyarakat");
                                     String idSurat = statusObj.getString("id_surat");
                                     String nik = statusObj.getString("nik");
@@ -692,7 +695,7 @@ public class AuthServices {
                                     String id = statusObj.getString("id");
                                     String namaSurat = statusObj.getString("nama_surat");
                                     String image = statusObj.getString("image");
-                                    Status status1 = new Status(uuid,status,keterangan,created_at,idMasyarakat,idSurat,nik,namaLengkap,jenisKelamin,tempatLahir,tanggalLahir,agama,pendidikan,pekerjaan,golonganDarah,statusPerkawinan,tglPerkawinan,statusKeluarga,kewarganegaraan,nopaspor,nokitap,nama_ayah,nama_ibu,id,namaSurat,image);
+                                    Status status1 = new Status(uuid,status,keterangan,created_at,filepdf,idMasyarakat,idSurat,nik,namaLengkap,jenisKelamin,tempatLahir,tanggalLahir,agama,pendidikan,pekerjaan,golonganDarah,statusPerkawinan,tglPerkawinan,statusKeluarga,kewarganegaraan,nopaspor,nokitap,nama_ayah,nama_ibu,id,namaSurat,image);
                                     statusList.add(status1);
                                 }
                                 listener.onSuccess(statusList);

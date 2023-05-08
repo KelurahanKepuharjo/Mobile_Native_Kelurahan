@@ -54,22 +54,6 @@ public class registrasi extends AppCompatActivity implements View.OnClickListene
 
         btnDaftar.setOnClickListener(this);
         signupText.setOnClickListener(this);
-
-//        btnDaftar.setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(registrasi.this, MainActivity.class));
-//            }
-//        });
-
-//        signupText.setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(registrasi.this, MainActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
     }
 
     @Override
@@ -78,33 +62,38 @@ public class registrasi extends AppCompatActivity implements View.OnClickListene
             Intent intent = new Intent(registrasi.this, MainActivity.class);
             startActivity(intent);
             finish();
-        }else if(v == btnDaftar){
+        } else if(v == btnDaftar){
             String nik = nik_reg.getText().toString().trim();
             String no_tlp = notelp_reg.getText().toString().trim();
             String pass = pass_reg.getText().toString().trim();
             String cpass = cpass_reg.getText().toString().trim();
 
             if (!nik.isEmpty() && !no_tlp.isEmpty() && !pass.isEmpty() && !cpass.isEmpty() && !no_tlp.isEmpty()) {
-                if (pass.equals(cpass)) {
-                    AuthServices.register(this, nik, pass, no_tlp, new AuthServices.RegisterResponseListener() {
-                        @Override
-                        public void onSuccess(JSONObject response) {
-                            Toast.makeText(registrasi.this, "Berhasil Mengaktifkan Akun Anda", Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(registrasi.this, MainActivity.class);
-                            startActivity(intent);
-                            finish();
-                        }
+                 if (nik.length() < 16) {
+                    nik_reg.setError("NIK harus terdiri dari 16 digit");
+                } else if (pass.length() < 8) {
+                    pass_reg.setError("Password harus terdiri dari 8 digit atau lebih");
+                } else if(!pass.equals(cpass)){
+                     pass_reg.setError("Password harus sama");
+                     cpass_reg.setError("Password harus sama");
+                 } else {
+                     AuthServices.register(this, nik, pass, no_tlp, new AuthServices.RegisterResponseListener() {
+                         @Override
+                         public void onSuccess(JSONObject response) {
+                             Toast.makeText(registrasi.this, "Berhasil Mengaktifkan Akun Anda", Toast.LENGTH_LONG).show();
+                             Intent intent = new Intent(registrasi.this, MainActivity.class);
+                             startActivity(intent);
+                             finish();
+                         }
 
-                        @Override
-                        public void onError(String message) {
-                            nik_reg.setError(message);
-                            Toast.makeText(registrasi.this, message, Toast.LENGTH_LONG).show();
-                        }
-                    });
-                }else {
-                    Toast.makeText(this, "Kata sandi harus sama", Toast.LENGTH_SHORT).show();
-                }
-            }else{
+                         @Override
+                         public void onError(String message) {
+                             nik_reg.setError(message);
+                             Toast.makeText(registrasi.this, message, Toast.LENGTH_LONG).show();
+                         }
+                     });
+                 }
+            } else {
                 nik_reg.setError("Silahkan masukan nik anda");
                 notelp_reg.setError("Silahkan masukan nomor telepon anda");
                 pass_reg.setError("Silahkan masukan kata sandi anda");
@@ -112,5 +101,4 @@ public class registrasi extends AppCompatActivity implements View.OnClickListene
             }
         }
     }
-
 }
