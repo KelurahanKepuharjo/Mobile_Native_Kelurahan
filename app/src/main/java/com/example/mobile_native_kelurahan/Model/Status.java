@@ -56,4 +56,108 @@ public class Status {
         this.namaSurat = namaSurat;
         this.image = image;
     }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getKeterangan() {
+        return keterangan;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public String getIdMasyarakat() {
+        return IdMasyarakat;
+    }
+
+    public String getIdSurat() {
+        return IdSurat;
+    }
+
+    public String getNik() {
+        return nik;
+    }
+
+    public String getNamaLengkap() {
+        return namaLengkap;
+    }
+
+    public String getJenisKelamin() {
+        return jenisKelamin;
+    }
+
+    public String getTempatLahir() {
+        return tempatLahir;
+    }
+
+    public String getTglLahir() {
+        return tglLahir;
+    }
+
+    public String getAgama() {
+        return agama;
+    }
+
+    public String getPendidikan() {
+        return pendidikan;
+    }
+
+    public String getPekerjaan() {
+        return pekerjaan;
+    }
+
+    public String getGolonganDarah() {
+        return golonganDarah;
+    }
+
+    public String getStatusPerkawinan() {
+        return statusPerkawinan;
+    }
+
+    public String getTglPerkawinan() {
+        return tglPerkawinan;
+    }
+
+    public String getStatusKeluarga() {
+        return statusKeluarga;
+    }
+
+    public String getKewarganegaraan() {
+        return kewarganegaraan;
+    }
+
+    public String getNoPaspor() {
+        return noPaspor;
+    }
+
+    public String getNoKitap() {
+        return noKitap;
+    }
+
+    public String getNamaAyah() {
+        return namaAyah;
+    }
+
+    public String getNamaIbu() {
+        return namaIbu;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getNamaSurat() {
+        return namaSurat;
+    }
+
+    public String getImage() {
+        return image;
+    }
 }

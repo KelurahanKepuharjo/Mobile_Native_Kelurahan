@@ -94,6 +94,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="20dp"
+                        android:layout_marginTop="20dp"
                         android:orientation="vertical"
                         android:padding="15dp"
                         android:background="@drawable/bkg_btn_putih"
@@ -510,7 +511,7 @@
                         android:layout_height="wrap_content"
                         android:text="Informasi Umum"
                         android:textColor="@color/black"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="20dp"
                         android:layout_marginStart="20dp"
                         android:textSize="15sp"
                         android:textStyle="bold"
@@ -524,6 +525,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="20dp"
+                        android:layout_marginTop="20dp"
                         android:orientation="vertical"
                         android:padding="15dp"
                         android:background="@drawable/bkg_btn_putih"
@@ -546,6 +548,8 @@
                                 android:layout_marginStart="20dp"
                                 android:layout_toEndOf="@+id/logoKeluarga"
                                 android:text="Profil Tertaut"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/poppins_semibold"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
 
@@ -575,6 +579,8 @@
                                 android:layout_marginStart="20dp"
                                 android:layout_toEndOf="@+id/logoKeluarga"
                                 android:text="Tentang"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textSize="12sp"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
 
@@ -601,7 +607,7 @@
                                 android:fontFamily="@font/poppins_semibold"
                                 android:text="LogOut"
                                 android:textAllCaps="false"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/kotakInformasi" />

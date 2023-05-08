@@ -1,12 +1,32 @@
 package com.example.mobile_native_kelurahan;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.example.mobile_native_kelurahan.Auth.AuthServices;
+import com.example.mobile_native_kelurahan.Model.Berita;
+import com.example.mobile_native_kelurahan.Model.Status;
+import com.example.mobile_native_kelurahan.Model.Surat;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,11 +74,77 @@ public class antrianFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+    RecyclerView recyclerView;
+    List<Status> statusList1 = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_antrian, container, false);
+        View view = inflater.inflate(R.layout.fragment_antrian, container, false);
+        recyclerView = view.findViewById(R.id.rycyclerDiajukan);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+        SharedPreferences preferences = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE);
+        String token = preferences.getString("token", "");
+        Log.e("token", token);
+        AuthServices.diajukan(getContext(), token, new AuthServices.StatusResponseListener() {
+            @Override
+            public void onSuccess(List<Status> statusList) {
+                CustomAdapterStatus customAdapterStatus = new CustomAdapterStatus(statusList, getContext());
+                recyclerView.setAdapter(customAdapterStatus);
+                statusList1 = statusList;
+            }
+
+            @Override
+            public void onError(String message) {
+                Log.e("Load data error status" , message);
+            }
+        });
+
+        return view;
+    }
+    public static class CustomAdapterStatus extends RecyclerView.Adapter<antrianFragment.CustomAdapterStatus.ViewHolder> {
+        private List<Status> statusList;
+        private Context context;
+        private LayoutInflater layoutInflater;
+
+        public CustomAdapterStatus(List<Status> statusList, Context context) {
+            this.statusList = statusList;
+            this.context = context;
+            this.layoutInflater = LayoutInflater.from(context);
+        }
+
+        @NonNull
+        @Override
+        public antrianFragment.CustomAdapterStatus.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = layoutInflater.inflate(R.layout.item_status_diajukan, parent, false);
+            return new ViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull antrianFragment.CustomAdapterStatus.ViewHolder holder, int position) {
+            holder.namaLengkap.setText(statusList.get(position).getNamaLengkap());
+            holder.nik.setText(statusList.get(position).getNik());
+            holder.status.setText(statusList.get(position).getStatus());
+            Glide.with(context).load("http://192.168.1.116:8000/images/" + statusList.get(position).getImage()).into(holder.imageView);
+        }
+
+        @Override
+        public int getItemCount() {
+            return statusList.size();
+        }
+
+        public static class ViewHolder extends RecyclerView.ViewHolder {
+            TextView namaLengkap,nik,status;
+            ImageView imageView;
+
+            public ViewHolder(View itemView) {
+                super(itemView);
+                namaLengkap = itemView.findViewById(R.id.tx_namaLengkap);
+                nik = itemView.findViewById(R.id.tx_NIK);
+                status = itemView.findViewById(R.id.statusSurat);
+                imageView= itemView.findViewById(R.id.logoSurat);
+            }
+        }
     }
 }

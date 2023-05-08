@@ -95,20 +95,19 @@ public class form_pengajuan extends AppCompatActivity {
         String nik = intent.getStringExtra("nik");
         Log.e("nik", nik);
         Editable keterangan = til_ket.getEditText().getText();
-        String keperluan = keterangan.toString().trim();
         til_nik.getEditText().setText(nik);
         til_nama.getEditText().setText(nama);
 
         btnKirim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (keperluan.isEmpty()){
+                if (String.valueOf(keterangan).isEmpty()){
                     til_ket.setError("Keperluan Harus diisi");
                 } else {
-                    AuthServices.pengajuan(form_pengajuan.this, nik, keperluan, id_surat, new AuthServices.PengajuanResponseListener() {
+                    AuthServices.pengajuan(form_pengajuan.this, nik, String.valueOf(keterangan), id_surat, new AuthServices.PengajuanResponseListener() {
                         @Override
                         public void onSuccess(JSONObject response) {
-                            Toast.makeText(form_pengajuan.this, response.toString(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(form_pengajuan.this, "Pengajuan Surat Anda Berhasil", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(form_pengajuan.this, homeAdapter.class);
                             startActivity(intent);
                             finish();

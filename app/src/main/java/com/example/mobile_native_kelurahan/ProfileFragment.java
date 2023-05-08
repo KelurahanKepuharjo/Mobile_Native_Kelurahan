@@ -107,8 +107,8 @@ public class ProfileFragment extends Fragment {
 
             }
         });
-        SharedPreferences preferences = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE);
-        String token = preferences.getString("token", "");
+            SharedPreferences preferences = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE);
+            String token = preferences.getString("token", "");
         AuthServices.getUserData(getContext(), token, new AuthServices.UserDataResponseListener() {
             @Override
             public void onSuccess(User user) {

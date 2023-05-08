@@ -1,12 +1,29 @@
 package com.example.mobile_native_kelurahan;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.mobile_native_kelurahan.Auth.AuthServices;
+import com.example.mobile_native_kelurahan.Model.Status;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,10 +72,77 @@ public class prosesFragment extends Fragment {
         }
     }
 
+    RecyclerView recyclerView;
+    List<Status> statusList1 = new ArrayList<>();
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_proses, container, false);
+        View view = inflater.inflate(R.layout.fragment_proses, container, false);
+        recyclerView = view.findViewById(R.id.recyclerProses);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+        SharedPreferences preferences = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE);
+        String token = preferences.getString("token", "");
+        AuthServices.proses(getContext(), token, new AuthServices.StatusResponseListener() {
+            @Override
+            public void onSuccess(List<Status> statusList) {
+                prosesFragment.CustomAdapterStatus customAdapterStatus = new prosesFragment.CustomAdapterStatus(statusList, getContext());
+                recyclerView.setAdapter(customAdapterStatus);
+                statusList1 = statusList;
+            }
+
+            @Override
+            public void onError(String message) {
+                Log.e("load error", message);
+            }
+        });
+        return view;
+
+    }
+    public static class CustomAdapterStatus extends RecyclerView.Adapter<prosesFragment.CustomAdapterStatus.ViewHolder> {
+        private List<Status> statusList;
+        private Context context;
+        private LayoutInflater layoutInflater;
+
+        public CustomAdapterStatus(List<Status> statusList, Context context) {
+            this.statusList = statusList;
+            this.context = context;
+            this.layoutInflater = LayoutInflater.from(context);
+        }
+
+        @NonNull
+        @Override
+        public prosesFragment.CustomAdapterStatus.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = layoutInflater.inflate(R.layout.item_status_proses, parent, false);
+            return new prosesFragment.CustomAdapterStatus.ViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull prosesFragment.CustomAdapterStatus.ViewHolder holder, int position) {
+            holder.namaLengkap.setText(statusList.get(position).getNamaLengkap());
+            holder.nik.setText(statusList.get(position).getNik());
+            holder.status.setText(statusList.get(position).getStatus());
+        }
+
+        @Override
+        public int getItemCount() {
+            return statusList.size();
+        }
+
+        public static class ViewHolder extends RecyclerView.ViewHolder {
+            TextView namaLengkap,nik,status;
+            ImageView imageView;
+
+            public ViewHolder(View itemView) {
+                super(itemView);
+                namaLengkap = itemView.findViewById(R.id.tx_namaLengkap);
+                nik = itemView.findViewById(R.id.tx_NIK);
+                status = itemView.findViewById(R.id.statusSurat);
+                imageView= itemView.findViewById(R.id.logoSurat);
+            }
+        }
     }
 }
