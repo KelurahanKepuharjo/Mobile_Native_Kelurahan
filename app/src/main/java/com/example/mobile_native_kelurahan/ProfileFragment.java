@@ -2,6 +2,7 @@ package com.example.mobile_native_kelurahan;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.mobile_native_kelurahan.Auth.AuthServices;
@@ -62,6 +64,9 @@ public class ProfileFragment extends Fragment {
     }
 
     Button btn_logout;
+    TextView btnprofileTertaut;
+    RelativeLayout btnprof;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +78,7 @@ public class ProfileFragment extends Fragment {
     }
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -80,6 +86,8 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         btn_logout = view.findViewById(R.id.btn_logout);
+        btnprofileTertaut = view.findViewById(R.id.profileTertaut);
+        btnprof = view.findViewById(R.id.rlProfile);
 
         // Memberikan listener pada button untuk menangani event klik
         btn_logout.setOnClickListener(new View.OnClickListener() {
@@ -115,11 +123,15 @@ public class ProfileFragment extends Fragment {
                 String nama = user.getMasyarakat().getNamaLengkap();
                 String nik = user.getMasyarakat().getNik();
                 String nohp = user.getPhoneNumber();
+                String nokk = user.getNoKK();
+                Log.e("nokk", nokk);
                 TextView txt_namat = view.findViewById(R.id.tx_namaTop);
                 TextView txt_nama = view.findViewById(R.id.tx_nama_user);
+                TextView tct_nokk = view.findViewById(R.id.tx_kk_user);
                 TextView txt_nik = view.findViewById(R.id.tx_nik_user);
                 TextView txt_telp = view.findViewById(R.id.tx_nohp_user);
                 txt_nama.setText(nama);
+                tct_nokk.setText(nokk);
                 txt_namat.setText(nama);
                 txt_nik.setText(nik);
                 txt_telp.setText(nohp);
@@ -128,6 +140,13 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onError(String message) {
                 Log.e("getUserData Error", message);
+            }
+        });
+        btnprof.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ProfileTertaut.class);
+                startActivity(intent);
             }
         });
         return view;

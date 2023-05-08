@@ -5,13 +5,15 @@ public class User {
     private String password;
     private String phoneNumber;
     private String role;
+    private String noKK;
     private Masyarakat masyarakat;
 
-    public User(String id, String password, String phoneNumber, String role, Masyarakat masyarakat) {
+    public User(String id, String password, String phoneNumber, String role, String noKK, Masyarakat masyarakat) {
         this.id = id;
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.role = role;
+        this.noKK = noKK;
         this.masyarakat = masyarakat;
     }
 
@@ -46,6 +48,8 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public  String getNoKK(){return noKK;}
 
     public Masyarakat getMasyarakat() {
         return masyarakat;

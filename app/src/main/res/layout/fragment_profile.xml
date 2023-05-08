@@ -532,6 +532,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/informasi">
 
                         <RelativeLayout
+                            android:id="@+id/rlProfile"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
@@ -542,6 +543,7 @@
                                 android:src="@drawable/profil" />
 
                             <TextView
+                                android:id="@+id/profileTertaut"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"

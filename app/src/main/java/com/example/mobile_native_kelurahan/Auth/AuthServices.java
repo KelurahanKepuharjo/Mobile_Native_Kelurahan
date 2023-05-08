@@ -190,6 +190,8 @@ public class AuthServices {
                                 String phoneNumber = userObj.getString("no_hp");
                                 String role = userObj.getString("role");
                                 JSONObject masyarakatObj = userObj.getJSONObject("masyarakat");
+                                JSONObject kksObj = masyarakatObj.getJSONObject("kks");
+                                String no_kk = kksObj.getString("no_kk");
                                 Masyarakat masyarakat = new Masyarakat(
                                         masyarakatObj.getString("id_masyarakat"),
                                         masyarakatObj.getString("nik"),
@@ -211,7 +213,7 @@ public class AuthServices {
                                         masyarakatObj.getString("nama_ibu"),
                                         masyarakatObj.getString("id")
                                 );
-                                User user = new User(id, password, phoneNumber, role, masyarakat);
+                                User user = new User(id, password, phoneNumber, role,no_kk, masyarakat);
                                 listener.onSuccess(user);
                             }
                         } catch (JSONException e){
