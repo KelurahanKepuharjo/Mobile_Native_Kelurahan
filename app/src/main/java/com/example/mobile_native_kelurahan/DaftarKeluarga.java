@@ -85,7 +85,7 @@ public class DaftarKeluarga extends AppCompatActivity {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int pos = holder.getAdapterPosition();
+                        int pos = holder.getAdapterPosition();
                     if (pos != RecyclerView.NO_POSITION) {
                         Intent intent = new Intent(context, form_pengajuan.class);
                         intent.putExtra("id_surat", idSurat);

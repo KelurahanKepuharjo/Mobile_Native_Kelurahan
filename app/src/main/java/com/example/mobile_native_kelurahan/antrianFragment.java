@@ -125,7 +125,20 @@ public class antrianFragment extends Fragment {
             holder.namaLengkap.setText(statusList.get(position).getNamaLengkap());
             holder.nik.setText(statusList.get(position).getNik());
             holder.status.setText(statusList.get(position).getStatus());
-            Glide.with(context).load("http://192.168.0.118:8000/images/" + statusList.get(position).getImage()).into(holder.imageView);
+            Glide.with(context).load("http://192.168.1.52:8000/images/" + statusList.get(position).getImage()).into(holder.imageView);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = holder.getAdapterPosition();
+                    if (pos != RecyclerView.NO_POSITION) {
+                        Intent intent = new Intent(context, PembatalanSurat.class);
+                        intent.putExtra("nama", statusList.get(pos).getNamaLengkap());
+                        intent.putExtra("nik", statusList.get(pos).getNik());
+                        intent.putExtra("idsurat", statusList.get(pos).getIdSurat());
+                        context.startActivity(intent);
+                    }
+                }
+            });
         }
 
         @Override

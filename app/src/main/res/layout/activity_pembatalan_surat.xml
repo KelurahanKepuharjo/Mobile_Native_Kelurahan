@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".PembatalanSurat">
+
+    <Button
+        android:id="@+id/btnbatal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="12sp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Pembatalan Surat"
+        android:textAllCaps="false"
+        />
+    <TextView
+        android:id="@+id/tx_namaUser"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_gravity="center|center_horizontal"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="nama user"/>
+    <TextView
+        android:id="@+id/tx_nikUser"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_gravity="center|center_horizontal"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="nik user"/>
+
+</LinearLayout>
