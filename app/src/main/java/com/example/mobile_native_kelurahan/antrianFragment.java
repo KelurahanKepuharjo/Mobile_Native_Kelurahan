@@ -66,6 +66,7 @@ public class antrianFragment extends Fragment {
         return fragment;
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,7 +126,7 @@ public class antrianFragment extends Fragment {
             holder.namaLengkap.setText(statusList.get(position).getNamaLengkap());
             holder.nik.setText(statusList.get(position).getNik());
             holder.status.setText(statusList.get(position).getStatus());
-            Glide.with(context).load("http://192.168.1.52:8000/images/" + statusList.get(position).getImage()).into(holder.imageView);
+            Glide.with(context).load(AuthServices.getIMAGE() + statusList.get(position).getImage()).into(holder.imageView);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

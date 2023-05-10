@@ -28,7 +28,18 @@ import java.util.List;
 import java.util.Map;
 
 public class AuthServices {
-    private static String URL = "http://192.168.1.52:8000/api/";
+    private static String HOST = "http://10.10.4.195:8000/";
+    private static String URL = HOST + "api/";
+    private static String IMAGE = HOST + "images/";
+    private static String PDF = HOST + "pdf/";
+
+    public static String getIMAGE() {
+        return IMAGE;
+    }
+
+    public static String getPDF() {
+        return PDF;
+    }
 
     public interface RegisterResponseListener {
         void onSuccess(JSONObject response);

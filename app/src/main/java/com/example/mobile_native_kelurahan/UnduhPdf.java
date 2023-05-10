@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.mobile_native_kelurahan.Auth.AuthServices;
 import com.github.barteksc.pdfviewer.PDFView;
 
 import java.io.BufferedInputStream;
@@ -33,7 +34,7 @@ public class UnduhPdf extends AppCompatActivity {
     PDFView pdfView;
     ImageView pdfdownload;
     private static final int PERMISSION_STORAGE_CODE = 1000;
-    String url = "http://192.168.0.118:8000/pdf/";
+    String url = AuthServices.getPDF();
     String pdf = "";
 
     @Override

@@ -216,6 +216,7 @@
 
                         </RelativeLayout>
                         <RelativeLayout
+                            android:id="@+id/editTelp"
                             android:layout_marginTop="18dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
@@ -251,6 +252,14 @@
                                 android:text="083234678323"
                                 android:textColor="@color/black"
                                 android:textSize="12sp" />
+
+                            <ImageView
+                                android:id="@+id/logoeditTelp"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/icon_edit" />
 
                         </RelativeLayout>
 
