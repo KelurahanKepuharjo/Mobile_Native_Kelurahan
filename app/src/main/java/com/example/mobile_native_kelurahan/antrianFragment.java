@@ -87,6 +87,7 @@ public class antrianFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         SharedPreferences preferences = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE);
         String token = preferences.getString("token", "");
+        Log.e("token", token);
         AuthServices.diajukan(getContext(), token, new AuthServices.StatusResponseListener() {
             @Override
             public void onSuccess(List<Status> statusList) {
