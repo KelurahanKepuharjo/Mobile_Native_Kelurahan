@@ -38,7 +38,6 @@ public class registrasi extends AppCompatActivity implements View.OnClickListene
     EditText nik_reg,notelp_reg,pass_reg,cpass_reg;
     Button btnDaftar;
     TextView signupText;
-    private static String REGISTER_URL = "http://192.168.0.117:8000/api/auth/register";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

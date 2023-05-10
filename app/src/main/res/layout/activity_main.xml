@@ -9,7 +9,6 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/loginbkg"
-
     tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
@@ -66,7 +65,9 @@
                 android:drawableLeft="@drawable/ic_baseline_lock_24"
                 android:drawablePadding="8dp"
                 android:hint="Password"
+                android:drawableRight="@drawable/ic_baseline_visibility_off_24"
                 android:padding="8dp"
+                android:longClickable="false"
                 android:fontFamily="@font/poppins_regular"
                 android:textSize="12sp"
                 android:inputType="textPassword"

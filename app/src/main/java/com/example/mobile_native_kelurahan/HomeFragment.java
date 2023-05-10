@@ -1,5 +1,6 @@
 package com.example.mobile_native_kelurahan;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -73,36 +74,20 @@ public class HomeFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    CardView cardTidakMampu;
-    CardView cardlainnya;
-    TextView Txtjudul,Txtsub;
-    RecyclerView ryView;
+    RecyclerView ryView, recyclerView;
     List<Berita> beritaList1 = new ArrayList<>();
+    List<Surat> suratList1 = new ArrayList<>();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         ryView = view.findViewById(R.id.rycycleBerita);
-        cardTidakMampu = view.findViewById(R.id.cardTidakMampu);
-        cardlainnya = view.findViewById(R.id.cardLainnya);
-
-        cardTidakMampu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), form_pengajuan.class);
-                startActivity(intent);
-            }
-        });
-        cardlainnya.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Fragment suratfrag = new SuratFragment();
-                FragmentTransaction fn = getActivity().getSupportFragmentManager().beginTransaction();
-                fn.replace(R.id.fragmentContainer,suratfrag).commit();
-            }
-        });
+        recyclerView = view.findViewById(R.id.recyclerSuratHome);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(linearLayoutManager);
         ryView.setLayoutManager(layoutManager);
         AuthServices.berita(getContext(), new AuthServices.BeritaResponseListener() {
             @Override
@@ -117,7 +102,20 @@ public class HomeFragment extends Fragment {
                 Log.e("Berita Error",message);
             }
         });
-                return view;
+        AuthServices.surat(getContext(), new AuthServices.SuratResponseListener() {
+            @Override
+            public void onSuccess(List<Surat> suratList) {
+                CustomAdapterSurat customAdapterSurat = new CustomAdapterSurat(suratList, getContext());
+                recyclerView.setAdapter(customAdapterSurat);
+                suratList1 = suratList;
+            }
+
+            @Override
+            public void onError(String message) {
+                Log.e("Surat Error",message);
+            }
+        });
+        return view;
     }
     public static class CustomAdapterBerita extends RecyclerView.Adapter<CustomAdapterBerita.ViewHolder> {
         private List<Berita> beritaList;
@@ -172,6 +170,57 @@ public class HomeFragment extends Fragment {
                 imageView = itemView.findViewById(R.id.imageBerita);
                 judulTextView = itemView.findViewById(R.id.judulBerita);
                 subtitleTextView = itemView.findViewById(R.id.subtitleBerita);
+            }
+        }
+    }
+    public static class CustomAdapterSurat extends RecyclerView.Adapter<CustomAdapterSurat.ViewHolder> {
+        private List<Surat> suratList;
+        private Context context;
+        private LayoutInflater layoutInflater;
+
+        public CustomAdapterSurat(List<Surat> suratList, Context context) {
+            this.suratList = suratList;
+            this.context = context;
+            this.layoutInflater = LayoutInflater.from(context);
+        }
+
+        @NonNull
+        @Override
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = layoutInflater.inflate(R.layout.list_item_surat, parent, false);
+            return new ViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+            holder.namaSurat.setText(suratList.get(position).getNamaSurat());
+            Glide.with(context).load(AuthServices.getIMAGE() + suratList.get(position).getImage()).into(holder.imageView);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = holder.getAdapterPosition();
+                    if (pos != RecyclerView.NO_POSITION) {
+                        Intent intent = new Intent(context, DaftarKeluarga.class);
+                        intent.putExtra("data", suratList.get(pos));
+                        context.startActivity(intent);
+                    }
+                }
+            });
+        }
+
+        @Override
+        public int getItemCount() {
+            return suratList.size();
+        }
+
+        public static class ViewHolder extends RecyclerView.ViewHolder {
+            TextView namaSurat;
+            ImageView imageView;
+
+            public ViewHolder(View itemView) {
+                super(itemView);
+                imageView = itemView.findViewById(R.id.logoSurat);
+                namaSurat = itemView.findViewById(R.id.namaSurat);
             }
         }
     }
