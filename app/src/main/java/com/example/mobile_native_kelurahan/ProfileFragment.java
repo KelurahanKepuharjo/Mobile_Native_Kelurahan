@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mobile_native_kelurahan.Auth.AuthServices;
 import com.example.mobile_native_kelurahan.Model.Masyarakat;
@@ -165,6 +166,68 @@ public class ProfileFragment extends Fragment {
                 final AlertDialog dialog = alertDialog.create();
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
+                Button btnBatal = alertDialogView.findViewById(R.id.btnBatal);
+                Button btnSimpan = alertDialogView.findViewById(R.id.btnSimpan);
+                TextView txnohp = alertDialogView.findViewById(R.id.telpBox);
+
+
+                btnBatal.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.cancel();
+                    }
+                });
+                btnSimpan.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String noop = txnohp.getText().toString().trim();
+                        Log.e("noho", noop);
+                        if (noop.isEmpty()){
+                            txnohp.setError("Nomor Telepon harus diisi");
+                        } else if(noop.length() < 11){
+                            txnohp.setError("Nomer Telepon tidak boleh kurang dari 10 digit");
+                        } else {
+                            AuthServices.updatenohp(getContext(), token, noop, new AuthServices.UpdateResponseListener() {
+                                @Override
+                                public void onSuccess(String response) {
+                                    Toast.makeText(getContext(), response, Toast.LENGTH_LONG).show();
+                                    dialog.cancel();
+                                    AuthServices.getUserData(getContext(), token, new AuthServices.UserDataResponseListener() {
+                                        @Override
+                                        public void onSuccess(User user) {
+                                            String nama = user.getMasyarakat().getNamaLengkap();
+                                            String nik = user.getMasyarakat().getNik();
+                                            String nohp = user.getPhoneNumber();
+                                            String nokk = user.getNoKK();
+                                            Log.e("nokk", nokk);
+                                            TextView txt_namat = view.findViewById(R.id.tx_namaTop);
+                                            TextView txt_nama = view.findViewById(R.id.tx_nama_user);
+                                            TextView tct_nokk = view.findViewById(R.id.tx_kk_user);
+                                            TextView txt_nik = view.findViewById(R.id.tx_nik_user);
+                                            TextView txt_telp = view.findViewById(R.id.tx_nohp_user);
+                                            txt_nama.setText(nama);
+                                            tct_nokk.setText(nokk);
+                                            txt_namat.setText(nama);
+                                            txt_nik.setText(nik);
+                                            txt_telp.setText(nohp);
+                                        }
+
+                                        @Override
+                                        public void onError(String message) {
+                                            Log.e("getUserData Error", message);
+                                        }
+                                    });
+                                }
+
+                                @Override
+                                public void onError(String message) {
+                                    Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+                                    dialog.cancel();
+                                }
+                            });
+                        }
+                    }
+                });
             }
         });
 

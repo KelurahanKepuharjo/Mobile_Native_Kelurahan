@@ -26,6 +26,7 @@
         android:layout_height="120dp"
         android:layout_gravity="center"
         android:src="@drawable/berita1"
+        android:scaleType="fitXY"
         />
     <TextView
         android:id="@+id/dSubtitle"

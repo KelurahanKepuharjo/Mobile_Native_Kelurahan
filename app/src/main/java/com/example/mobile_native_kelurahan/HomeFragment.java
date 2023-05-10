@@ -103,7 +103,7 @@ public class HomeFragment extends Fragment {
                 fn.replace(R.id.fragmentContainer,suratfrag).commit();
             }
         });
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         ryView.setLayoutManager(layoutManager);
         AuthServices.berita(getContext(), new AuthServices.BeritaResponseListener() {
             @Override
@@ -142,6 +142,7 @@ public class HomeFragment extends Fragment {
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             holder.judulTextView.setText(beritaList.get(position).getJudul());
             holder.subtitleTextView.setText(beritaList.get(position).getSubTitle());
+            Glide.with(context).load(AuthServices.getIMAGE() + beritaList.get(position).getImage()).into(holder.imageView);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -151,6 +152,7 @@ public class HomeFragment extends Fragment {
                         intent.putExtra("judulBerita", beritaList.get(pos).getJudul());
                         intent.putExtra("subtitle", beritaList.get(pos).getSubTitle());
                         intent.putExtra("deskripsi", beritaList.get(pos).getDeskripsi());
+                        intent.putExtra("image", beritaList.get(pos).getImage());
                         context.startActivity(intent);
                     }
                 }
@@ -164,9 +166,11 @@ public class HomeFragment extends Fragment {
 
         public static class ViewHolder extends RecyclerView.ViewHolder {
             TextView judulTextView,subtitleTextView;
+            ImageView imageView;
 
             public ViewHolder(View itemView) {
                 super(itemView);
+                imageView = itemView.findViewById(R.id.imageBerita);
                 judulTextView = itemView.findViewById(R.id.judulBerita);
                 subtitleTextView = itemView.findViewById(R.id.subtitleBerita);
             }

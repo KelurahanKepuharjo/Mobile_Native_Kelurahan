@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AuthServices {
-    private static String HOST = "http://192.168.1.69:8000/";
+    private static String HOST = "http://192.168.1.79:8000/";
     private static String URL = HOST + "api/";
     private static String IMAGE = HOST + "images/";
     private static String PDF = HOST + "pdf/";
@@ -803,7 +803,7 @@ public class AuthServices {
         requestQueue.add(stringRequest);
     }
 
-    public static void updatenohp(Context context, String token,String nohp, final UpdateResponseListener listener ) {
+    public static void updatenohp(Context context, String token, String nohp, final UpdateResponseListener listener ) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL + "editnohp",
                 new Response.Listener<String>() {
                     @Override
