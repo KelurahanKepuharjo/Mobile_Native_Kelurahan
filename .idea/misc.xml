@@ -81,14 +81,17 @@
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/activity_main.xml" value="0.10008357709987463" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/activity_pembatalan_surat.xml" value="0.264" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/activity_registrasi.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/activity_tentang.xml" value="0.176" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/activity_unduh_pdf.xml" value="0.4" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/fragment_home.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/fragment_surat.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/item_status_diajukan.xml" value="0.264" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/item_status_proses.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/item_status_selesai.xml" value="0.4" />
-        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/popup_telp.xml" value="0.2013681060282172" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/popup_telp.xml" value="0.536" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/row_grid_items.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/row_list_item_berita.xml" value="0.20222317229585293" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/rows_item_keluarga.xml" value="0.264" />
       </map>
     </option>

@@ -92,7 +92,6 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), form_pengajuan.class);
                 startActivity(intent);
-                getActivity().finish();
             }
         });
         cardlainnya.setOnClickListener(new View.OnClickListener() {
