@@ -88,7 +88,7 @@ public class antrianFragment extends Fragment {
         SharedPreferences preferences = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE);
         String token = preferences.getString("token", "");
         Log.e("token", token);
-        AuthServices.diajukan(getContext(), token, new AuthServices.StatusResponseListener() {
+        AuthServices.status(getContext(), token, "Diajukan", new AuthServices.StatusResponseListener() {
             @Override
             public void onSuccess(List<Status> statusList) {
                 CustomAdapterStatus customAdapterStatus = new CustomAdapterStatus(statusList, getContext());

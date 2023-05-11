@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AuthServices {
-    private static String HOST = "http://192.168.0.85:8000/";
+    private static String HOST = "http://192.168.1.79:8000/";
     private static String URL = HOST + "api/";
     private static String IMAGE = HOST + "images/";
     private static String PDF = HOST + "pdf/";
@@ -516,8 +516,8 @@ public class AuthServices {
         requestQueue.add(stringRequest);
     }
 
-    public static void diajukan(Context context, String token, final StatusResponseListener listener ) {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "statusdiajukan",
+    public static void status(Context context, String token, String status, final StatusResponseListener listener ) {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL + "statusdiajukan",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -577,10 +577,10 @@ public class AuthServices {
                                 listener.onError(message);
                             } catch (JSONException | UnsupportedEncodingException e) {
                                 e.printStackTrace();
-                                listener.onError("Gagal mendapatkan data Keluarga: " + e.getMessage());
+                                listener.onError("Gagal mendapatkan Status: " + e.getMessage());
                             }
                         } else {
-                            listener.onError("Gagal mendapatkan data keluarga: network response is null");
+                            listener.onError("Gagal mendapatkan data Status: network response is null");
                         }
                     }
                 }) {
@@ -590,14 +590,20 @@ public class AuthServices {
                 headers.put("Authorization", "Bearer " + token);
                 return headers;
             }
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("status", status);
+                return params;
+            }
         };
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
     }
 
-    public static void selesai(Context context, String token, final StatusResponseListener listener ) {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "statusselesai",
+    public static void ditolak(Context context, String token, final StatusResponseListener listener ) {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "statusditolak",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

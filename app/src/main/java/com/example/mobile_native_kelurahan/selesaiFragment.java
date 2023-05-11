@@ -87,7 +87,7 @@ public class selesaiFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         SharedPreferences preferences = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE);
         String token = preferences.getString("token", "");
-        AuthServices.selesai(getContext(), token, new AuthServices.StatusResponseListener() {
+        AuthServices.status(getContext(), token, "Selesai", new AuthServices.StatusResponseListener() {
             @Override
             public void onSuccess(List<Status> statusList) {
                 selesaiFragment.CustomAdapterStatus customAdapterStatus = new selesaiFragment.CustomAdapterStatus(statusList, getContext());
