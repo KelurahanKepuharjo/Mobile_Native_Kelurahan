@@ -576,6 +576,41 @@
 
                         </RelativeLayout>
                         <RelativeLayout
+                            android:id="@+id/rlDibatalkan"
+                            android:layout_marginTop="18dp"
+                            android:clickable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/logoKeluarga"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/profil" />
+
+                            <TextView
+                                android:id="@+id/suratDibatalkan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="20dp"
+                                android:layout_toEndOf="@+id/logoKeluarga"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Surat Dibatalkan"
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"/>
+
+                        </RelativeLayout>
+                        <RelativeLayout
                             android:id="@+id/tentang"
                             android:layout_marginTop="18dp"
                             android:clickable="true"

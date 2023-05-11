@@ -64,6 +64,8 @@
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/layout/fragment_profile.xml" value="0.10008357709987463" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.141" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.141" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/drawable/bg_dibatalkan.xml" value="0.1165" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/drawable/bg_ditolak.xml" value="0.1165" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/drawable/bg_proses.xml" value="0.1665" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/drawable/bg_selesai.xml" value="0.1665" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/drawable/bkg_btn_putih.xml" value="0.1375" />
@@ -81,14 +83,21 @@
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/activity_main.xml" value="0.536" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/activity_pembatalan_surat.xml" value="0.264" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/activity_registrasi.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/activity_surat_dibatalkan.xml" value="0.17724388032638258" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/activity_tentang.xml" value="0.176" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/activity_unduh_pdf.xml" value="0.4" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/fragment_ditolak.xml" value="0.17724388032638258" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/fragment_home.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/fragment_profile.xml" value="0.36253776435045315" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/fragment_selesai.xml" value="0.17724388032638258" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/fragment_status.xml" value="0.8" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/fragment_surat.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/item_status_diajukan.xml" value="0.264" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/item_status_dibatalkan.xml" value="0.264" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/item_status_ditolak.xml" value="0.17724388032638258" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/item_status_proses.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/item_status_selesai.xml" value="0.4" />
+        <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/item_surat_ditolak.xml" value="0.2" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/list_item_surat.xml" value="0.20222317229585293" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/popup_telp.xml" value="0.536" />
         <entry key="..\:/Users/FAISAL/Mobile_Native_Kelurahan1/app/src/main/res/layout/row_grid_items.xml" value="0.20521590423257802" />

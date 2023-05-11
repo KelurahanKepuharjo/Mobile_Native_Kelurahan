@@ -71,7 +71,7 @@ public class ProfileFragment extends Fragment {
 
     Button btn_logout;
     TextView btnprofileTertaut;
-    RelativeLayout btnprof, editTelp, tentang;
+    RelativeLayout btnprof, editTelp,dibatalkan, tentang;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +94,7 @@ public class ProfileFragment extends Fragment {
         btnprofileTertaut = view.findViewById(R.id.profileTertaut);
         btnprof = view.findViewById(R.id.rlProfile);
         editTelp = view.findViewById(R.id.editTelp);
+        dibatalkan = view.findViewById(R.id.rlDibatalkan);
         tentang = view.findViewById(R.id.tentang);
 
         tentang.setOnClickListener(new View.OnClickListener() {

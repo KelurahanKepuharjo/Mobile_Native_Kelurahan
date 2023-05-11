@@ -84,6 +84,7 @@ public class StatusFragment extends Fragment{
         adapterFragment.addFragment(new antrianFragment(), "Diajukan");
         adapterFragment.addFragment(new prosesFragment(), "Proses");
         adapterFragment.addFragment(new selesaiFragment(), "Selesai");
+        adapterFragment.addFragment(new ditolakFragment(), "Ditolak");
         viewPager.setAdapter(adapterFragment);
         return view;
     }

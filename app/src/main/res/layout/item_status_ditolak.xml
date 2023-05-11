@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="15dp"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bkg_btn_putih">
+
+        <ImageView
+            android:id="@+id/logoSurat"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logosktm" />
+
+        <TextView
+            android:id="@+id/tx_namaLengkap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="16dp"
+            android:text="Nama Lengkap"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/logoSurat"
+            app:layout_constraintStart_toEndOf="@+id/logoSurat"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tx_NIK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="3509212504030000"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/logoSurat"
+            app:layout_constraintTop_toBottomOf="@+id/tx_namaLengkap" />
+
+        <TextView
+            android:id="@+id/statusSurat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="85dp"
+            android:background="@drawable/bg_ditolak"
+            android:fontFamily="@font/poppins_semibold"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="5dp"
+            android:text="Status"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tx_NIK"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.543" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
