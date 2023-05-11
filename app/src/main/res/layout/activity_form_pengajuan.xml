@@ -86,6 +86,10 @@
                     android:drawablePadding="6dp"
                     android:hint="Nama Lengkap"
                     app:hintTextColor="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHint="@color/lavender"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -107,6 +111,10 @@
                     android:hint="Nomer Induk Keluarga"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -127,6 +135,10 @@
                     android:hint="Tempat Tanggal Lahir"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -147,6 +159,10 @@
                     android:hint="Jenis Kelamin"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -167,6 +183,10 @@
                     android:hint="Kewarganegaraan"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -187,6 +207,10 @@
                     android:hint="Agama"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -208,6 +232,10 @@
                     android:inputType="text"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -229,6 +257,10 @@
                     android:inputType="text"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -249,6 +281,10 @@
                     android:hint="Pekerjaan"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -270,6 +306,10 @@
                     android:inputType="text"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -290,6 +330,10 @@
                     android:hint="Alamat Sesuai KTP"
                     android:inputType="text"
                     app:hintTextColor="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHint="@color/lavender"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -311,6 +355,10 @@
                     android:hint="RT"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -332,6 +380,10 @@
                     android:inputType="text"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -352,6 +404,10 @@
                     android:hint="Nama Ayah"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -372,6 +428,10 @@
                     android:hint="Umur Ayah"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -392,6 +452,10 @@
                     android:hint="Kebangsaan Ayah"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -412,6 +476,10 @@
                     android:hint="Agama Ayah"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -432,6 +500,10 @@
                     android:hint="Pekerjaan Ayah"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -452,6 +524,10 @@
                     android:hint="Alamat Ayah Sesuai KTP"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -473,6 +549,10 @@
                     android:hint="Nama Ibu"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -494,6 +574,10 @@
                     android:inputType="text"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -514,6 +598,10 @@
                     android:hint="Kebangsaan Ibu"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -534,6 +622,10 @@
                     android:hint="Agama Ibu"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -554,6 +646,10 @@
                     android:hint="Pekerjaan Ibu"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -574,6 +670,10 @@
                     android:hint="Alamat Ibu Sesuai KTP"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
@@ -597,6 +697,10 @@
                     android:inputType="text"
                     app:hintTextColor="@color/lavender"
                     android:textColorHint="@color/lavender"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
                     android:textColorHighlight="@color/cardview_dark_background"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText

@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="80dp"
     android:layout_height="80dp"
+    android:foreground="?android:attr/selectableItemBackground"
     android:padding="5dp">
 
     <LinearLayout
@@ -15,6 +16,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="5dp"
             android:background="@drawable/bg_surat">
+
             <ImageView
                 android:id="@+id/logoSurat"
                 android:layout_width="25dp"
@@ -29,6 +31,7 @@
             android:textColor="@color/black"
             android:fontFamily="@font/poppins_regular"
             android:textSize="9sp"
+            android:gravity="center"
             android:text="Tidak Mampu"/>
     </LinearLayout>
 

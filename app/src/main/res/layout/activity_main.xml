@@ -64,7 +64,7 @@
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/ic_baseline_lock_24"
                 android:drawablePadding="8dp"
-                android:hint="Password"
+                android:hint="Kata Sandi"
                 android:drawableRight="@drawable/ic_baseline_visibility_off_24"
                 android:padding="8dp"
                 android:longClickable="false"

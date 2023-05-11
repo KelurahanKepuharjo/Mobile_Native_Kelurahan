@@ -7,16 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".PembatalanSurat">
 
-    <Button
-        android:id="@+id/btnbatal"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:textSize="12sp"
-        android:fontFamily="@font/poppins_regular"
-
-        android:text="Pembatalan Surat"
-        android:textAllCaps="false"
-        />
+        android:layout_height="55dp"
+        android:gravity="center|center_vertical"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:fontFamily="@font/poppins_semibold"
+        android:background="@color/lavender"
+        android:text="Halaman Sruat" />
     <TextView
         android:id="@+id/tx_namaUser"
         android:fontFamily="@font/poppins_regular"
@@ -35,5 +34,15 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:text="nik user"/>
+    <Button
+        android:id="@+id/btnbatal"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:textSize="12sp"
+        android:layout_gravity="center"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Batalkan Surat"
+        android:textAllCaps="false"
+        />
 
 </LinearLayout>

@@ -37,7 +37,7 @@ public class form_pengajuan extends AppCompatActivity {
     ImageView uploadkk;
     Uri uri;
     Surat surat;
-    TextInputLayout til_nama, til_nik, til_ket;
+    TextInputLayout til_nama, til_nik, til_jenisKelamin,til_kewarganegaraan,til_agama, til_statusPerkawinan, til_, til_ket;
     TextInputEditText tiet_nama, tiet_nik, tiet_ket;
 
     @Override
@@ -85,6 +85,7 @@ public class form_pengajuan extends AppCompatActivity {
 
         til_nik = findViewById(R.id.tx_NIK);
         til_nama = findViewById(R.id.tx_nama);
+        til_jenisKelamin = findViewById(R.id.tx_jenisKelamin);
         til_ket = findViewById(R.id.tx_keperluan);
         tiet_ket = findViewById(R.id.et_keperluan);
 
@@ -94,9 +95,11 @@ public class form_pengajuan extends AppCompatActivity {
         String nama = intent.getStringExtra("namaLengkap");
         String nik = intent.getStringExtra("nik");
         Log.e("nik", nik);
+        String jenisKelamin = intent.getStringExtra("jenisKelamin");
         Editable keterangan = til_ket.getEditText().getText();
         til_nik.getEditText().setText(nik);
         til_nama.getEditText().setText(nama);
+        til_jenisKelamin.getEditText().setText(jenisKelamin);
 
         btnKirim.setOnClickListener(new View.OnClickListener() {
             @Override

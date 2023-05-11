@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
@@ -25,6 +26,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.mobile_native_kelurahan.Auth.AuthServices;
+import com.muddzdev.styleabletoast.StyleableToast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -106,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (nik.isEmpty()) {
                 nik_log.setError("Silahkan masukan NIK anda");
             } else if(password.isEmpty()){
-                pass_log.setError("Silahkan masukan Password anda");
+                pass_log.setError("Silahkan masukan Kata Sandi anda");
             } else if (nik.length() < 16) {
                 nik_log.setError("NIK harus terdiri dari 16 digit");
             } else if (password.length() < 8) {
@@ -118,6 +120,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Intent intent = new Intent(MainActivity.this, homeAdapter.class);
                         startActivity(intent);
                         finish();
+                        Toast.makeText(MainActivity.this, "Anda Berhasil Login", Toast.LENGTH_SHORT).show();
+//                        StyleableToast.makeText(MainActivity.this, "Anda Berhasil Login", Toast.LENGTH_LONG,R.style.kepuharjoToast).show();
+
                     }
 
                     @Override

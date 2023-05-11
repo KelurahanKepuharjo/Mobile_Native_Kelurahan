@@ -16,4 +16,15 @@
     <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
     </style>
+
+    <style name="kepuharjoToast">
+        <item name="stColorBackground">#70D4FF</item>
+        <item name="stStrokeColor">#000</item>
+        <!--        <item name="iconLeft">@drawable/logokepuharjo</item>-->
+        <!--        <item name="strokeColor">@color/white</item>-->
+        <!--        <item name="fontFamily">@font/poppins_regular</item>-->
+        <!--        <item name="strokeWidth">3dp</item>-->
+        <!--        <item name="length">LONG</item>-->
+        <!--        <item name="cornerRadius">20dp</item>-->
+    </style>
 </resources>
