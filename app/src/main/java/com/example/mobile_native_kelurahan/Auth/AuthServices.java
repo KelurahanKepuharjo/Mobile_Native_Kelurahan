@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AuthServices {
-    private static String HOST = "http://192.168.1.79:8000/";
+    private static String HOST = "http://192.168.0.102:8000/";
     private static String URL = HOST + "api/";
     private static String IMAGE = HOST + "images/";
     private static String PDF = HOST + "pdf/";
@@ -114,8 +114,8 @@ public class AuthServices {
                                 String message = jsonObject.getString("message");
                                 if (message.equals("Akun sudah terdaftar")) {
                                     listener.onError("Akun sudah terdaftar");
-                                } else if (message.equals("Nik anda belum terdaftar")) {
-                                    listener.onError("Nik anda belum terdaftar");
+                                } else if (message.equals("NIK anda belum terdaftar")) {
+                                    listener.onError("NIK anda belum terdaftar");
                                 }
                             } catch (JSONException | UnsupportedEncodingException e) {
                                 e.printStackTrace();
@@ -167,10 +167,10 @@ public class AuthServices {
                                 String responseBody = new String(error.networkResponse.data, "utf-8");
                                 JSONObject jsonObject = new JSONObject(responseBody);
                                 String message = jsonObject.getString("message");
-                                if (message.equals("Nik Anda Belum Terdaftar")) {
-                                    listener.onError("Nik Anda Belum Terdaftar");
-                                } else if (message.equals("Password Anda Salah")) {
-                                    listener.onError("Password Anda Salah");
+                                if (message.equals("NIK Anda Belum Terdaftar")) {
+                                    listener.onError("NIK Anda Belum Terdaftar");
+                                } else if (message.equals("Kata Sandi Anda Salah")) {
+                                    listener.onError("Kata Sandi Anda Salah");
                                 }
                             } catch (JSONException | UnsupportedEncodingException e) {
                                 e.printStackTrace();
@@ -344,7 +344,7 @@ public class AuthServices {
     }
 
     public static void logOut(Context context, String token, LogoutResponseListener listener) {
-        StringRequest request = new StringRequest(Request.Method.POST, URL + "auth/logout", new Response.Listener<String>() {
+        StringRequest request = new StringRequest(Request.Method.POST, URL + "api/auth/logout", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 listener.onSuccess(response);
@@ -367,7 +367,7 @@ public class AuthServices {
     }
 
     public static void berita(Context context, final BeritaResponseListener listener) {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "berita",
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "api/berita",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -417,7 +417,7 @@ public class AuthServices {
     }
 
     public static void surat(Context context, final SuratResponseListener listener) {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "surat",
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "api/surat",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

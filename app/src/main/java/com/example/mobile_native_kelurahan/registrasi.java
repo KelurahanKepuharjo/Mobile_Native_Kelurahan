@@ -71,10 +71,10 @@ public class registrasi extends AppCompatActivity implements View.OnClickListene
                  if (nik.length() < 16) {
                     nik_reg.setError("NIK harus terdiri dari 16 digit");
                 } else if (pass.length() < 8) {
-                    pass_reg.setError("Password harus terdiri dari 8 digit atau lebih");
+                    pass_reg.setError("Kata Sandi harus terdiri dari 8 digit atau lebih");
                 } else if(!pass.equals(cpass)){
-                     pass_reg.setError("Password harus sama");
-                     cpass_reg.setError("Password harus sama");
+                     pass_reg.setError("Kata Sandi harus sama");
+                     cpass_reg.setError("Kata Sandi harus sama");
                  } else {
                      AuthServices.register(this, nik, pass, no_tlp, new AuthServices.RegisterResponseListener() {
                          @Override

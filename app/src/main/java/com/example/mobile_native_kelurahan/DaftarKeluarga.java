@@ -43,7 +43,7 @@ public class DaftarKeluarga extends AppCompatActivity {
         if (intent.getExtras() != null){
             surat = (Surat) intent.getSerializableExtra("data");
             idSurat = surat.getIdSurat();
-            Log.e("gatau", idSurat);
+            Log.e("", idSurat);
         }
         SharedPreferences preferences = getSharedPreferences("myPrefs", MODE_PRIVATE);
         String token = preferences.getString("token", "");

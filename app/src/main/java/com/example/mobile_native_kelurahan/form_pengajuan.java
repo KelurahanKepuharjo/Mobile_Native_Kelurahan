@@ -34,10 +34,10 @@ import org.json.JSONObject;
 
 public class form_pengajuan extends AppCompatActivity {
     Button btnKirim;
-    ImageView uploadkk;
+    ImageView uploadkk,uploadBukti;
     Uri uri;
     Surat surat;
-    TextInputLayout til_nama, til_nik, til_jenisKelamin,til_kewarganegaraan,til_agama, til_statusPerkawinan, til_, til_ket;
+    TextInputLayout til_nama, til_nik, til_jenisKelamin,til_kewarganegaraan,til_agama, til_statusPerkawinan,til_statusKeluarga,til_noKitap,til_golDarah,til_noPaspor,til_pekerjaan,til_alamat,til_namaAyah,til_namaIbu, til_ket;
     TextInputEditText tiet_nama, tiet_nik, tiet_ket;
 
     @Override
@@ -66,6 +66,7 @@ public class form_pengajuan extends AppCompatActivity {
                             Intent data = result.getData();
                             uri = data.getData();
                             uploadkk.setImageURI(uri);
+                            uploadBukti.setImageURI(uri);
                         } else {
                             Toast.makeText(form_pengajuan.this, "Tidak Ada Foto Yang Dipilih", Toast.LENGTH_SHORT).show();
                         }
@@ -82,10 +83,30 @@ public class form_pengajuan extends AppCompatActivity {
                 activityResultLauncher.launch(photoPicker);
             }
         });
+        uploadBukti = findViewById(R.id.uploadBukti);
+        uploadBukti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent photoPicker = new Intent(Intent.ACTION_PICK);
+                photoPicker.setType("image/*");
+                activityResultLauncher.launch(photoPicker);
+            }
+        });
 
         til_nik = findViewById(R.id.tx_NIK);
         til_nama = findViewById(R.id.tx_nama);
         til_jenisKelamin = findViewById(R.id.tx_jenisKelamin);
+        til_agama = findViewById(R.id.tx_agama);
+        til_kewarganegaraan = findViewById(R.id.tx_kewarganegaraan);
+        til_statusPerkawinan = findViewById(R.id.tx_statusPerkawinan);
+        til_statusKeluarga = findViewById(R.id.tx_statusKeluarga);
+        til_pekerjaan = findViewById(R.id.tx_pekerjaan);
+        til_alamat = findViewById(R.id.tx_alamat);
+        til_golDarah = findViewById(R.id.tx_golDarah);
+        til_noKitap = findViewById(R.id.tx_noKitap);
+        til_noPaspor = findViewById(R.id.tx_noPaspor);
+        til_namaAyah = findViewById(R.id.tx_namaAyah);
+        til_namaIbu = findViewById(R.id.tx_namaIbu);
         til_ket = findViewById(R.id.tx_keperluan);
         tiet_ket = findViewById(R.id.et_keperluan);
 
@@ -96,10 +117,33 @@ public class form_pengajuan extends AppCompatActivity {
         String nik = intent.getStringExtra("nik");
         Log.e("nik", nik);
         String jenisKelamin = intent.getStringExtra("jenisKelamin");
+        String agama = intent.getStringExtra("agama");
+        String kewarganegaraan = intent.getStringExtra("kewarganegaraan");
+        String statusPerkawinan = intent.getStringExtra("statusPerkawinan");
+        String statusKeluarga = intent.getStringExtra("statusKeluarga");
+        String pekerjaan = intent.getStringExtra("pekerjaan");
+        String alamat = intent.getStringExtra("alamat");
+        String golDarah = intent.getStringExtra("golongan_darah");
+        String noKitap = intent.getStringExtra("noKitap");
+        String noPaspor = intent.getStringExtra("noPaspor");
+        String namaAyah = intent.getStringExtra("namaAyah");
+        String namaIbu = intent.getStringExtra("namaIbu");
         Editable keterangan = til_ket.getEditText().getText();
         til_nik.getEditText().setText(nik);
         til_nama.getEditText().setText(nama);
         til_jenisKelamin.getEditText().setText(jenisKelamin);
+        til_agama.getEditText().setText(agama);
+        til_kewarganegaraan.getEditText().setText(kewarganegaraan);
+        til_statusPerkawinan.getEditText().setText(statusPerkawinan);
+        til_statusKeluarga.getEditText().setText(statusKeluarga);
+        til_pekerjaan.getEditText().setText(pekerjaan);
+        til_alamat.getEditText().setText(alamat);
+        til_golDarah.getEditText().setText(golDarah);
+        til_noKitap.getEditText().setText(noKitap);
+        til_noPaspor.getEditText().setText(noPaspor);
+        til_namaAyah.getEditText().setText(namaAyah);
+        til_namaIbu.getEditText().setText(namaIbu);
+
 
         btnKirim.setOnClickListener(new View.OnClickListener() {
             @Override

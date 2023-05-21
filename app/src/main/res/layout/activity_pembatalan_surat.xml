@@ -15,7 +15,7 @@
         android:textSize="18sp"
         android:fontFamily="@font/poppins_semibold"
         android:background="@color/lavender"
-        android:text="Halaman Sruat" />
+        android:text="Halaman Surat" />
     <TextView
         android:id="@+id/tx_namaUser"
         android:fontFamily="@font/poppins_regular"
