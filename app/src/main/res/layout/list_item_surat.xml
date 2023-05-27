@@ -1,39 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="80dp"
-    android:layout_height="80dp"
+    android:layout_width="95dp"
+    android:layout_height="95dp"
     android:foreground="?android:attr/selectableItemBackground"
     android:padding="5dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="95dp"
         android:layout_gravity="center"
         android:orientation="vertical">
         <FrameLayout
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_gravity="center"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/bg_surat">
+            android:layout_marginTop="5dp"
+            android:background="@drawable/bg_surat1">
 
             <ImageView
                 android:id="@+id/logoSurat"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
                 android:layout_gravity="center"
                 android:src="@drawable/logosktm"/>
         </FrameLayout>
         <TextView
             android:id="@+id/namaSurat"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="14dp"
             android:textColor="@color/black"
             android:fontFamily="@font/poppins_regular"
-            android:textSize="9sp"
+            android:textSize="10sp"
             android:gravity="center"
+            android:layout_gravity="center"
             android:text="Tidak Mampu"/>
     </LinearLayout>
-
 
 </FrameLayout>

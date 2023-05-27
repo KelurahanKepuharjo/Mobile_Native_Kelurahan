@@ -3,6 +3,7 @@ package com.example.mobile_native_kelurahan;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -77,12 +78,18 @@ public class HomeFragment extends Fragment {
     RecyclerView ryView, recyclerView;
     List<Berita> beritaList1 = new ArrayList<>();
     List<Surat> suratList1 = new ArrayList<>();
+    ImageView gawal;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        gawal = view.findViewById(R.id.gawal);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            gawal.setClipToOutline(true);
+        }
         ryView = view.findViewById(R.id.rycycleBerita);
         recyclerView = view.findViewById(R.id.recyclerSuratHome);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
@@ -168,6 +175,9 @@ public class HomeFragment extends Fragment {
             public ViewHolder(View itemView) {
                 super(itemView);
                 imageView = itemView.findViewById(R.id.imageBerita);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    imageView.setClipToOutline(true);
+                }
                 judulTextView = itemView.findViewById(R.id.judulBerita);
                 subtitleTextView = itemView.findViewById(R.id.subtitleBerita);
             }

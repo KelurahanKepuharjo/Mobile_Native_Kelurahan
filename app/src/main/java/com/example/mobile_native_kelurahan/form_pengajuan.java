@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
@@ -32,12 +35,25 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
 public class form_pengajuan extends AppCompatActivity {
     Button btnKirim;
     ImageView uploadkk,uploadBukti;
     Uri uri;
     Surat surat;
-    TextInputLayout til_nama, til_nik, til_jenisKelamin,til_kewarganegaraan,til_agama, til_statusPerkawinan,til_statusKeluarga,til_noKitap,til_golDarah,til_noPaspor,til_pekerjaan,til_alamat,til_namaAyah,til_namaIbu, til_ket;
+    TextInputLayout til_nama, til_nik, til_jenisKelamin,til_tempatTanggalLahir,til_kewarganegaraan,til_agama,til_pendidikan,til_rw,til_rt, til_statusPerkawinan,til_statusKeluarga,til_noKitap,til_golonganDarah,til_noPaspor,til_pekerjaan,til_alamat,til_namaAyah,til_namaIbu, til_ket;
     TextInputEditText tiet_nama, tiet_nik, tiet_ket;
 
     @Override
@@ -102,7 +118,9 @@ public class form_pengajuan extends AppCompatActivity {
         til_statusKeluarga = findViewById(R.id.tx_statusKeluarga);
         til_pekerjaan = findViewById(R.id.tx_pekerjaan);
         til_alamat = findViewById(R.id.tx_alamat);
-        til_golDarah = findViewById(R.id.tx_golDarah);
+        til_tempatTanggalLahir = findViewById(R.id.tx_ttl);
+        til_golonganDarah = findViewById(R.id.tx_golDarah);
+        til_pendidikan = findViewById(R.id.tx_pendidikan);
         til_noKitap = findViewById(R.id.tx_noKitap);
         til_noPaspor = findViewById(R.id.tx_noPaspor);
         til_namaAyah = findViewById(R.id.tx_namaAyah);
@@ -123,11 +141,15 @@ public class form_pengajuan extends AppCompatActivity {
         String statusKeluarga = intent.getStringExtra("statusKeluarga");
         String pekerjaan = intent.getStringExtra("pekerjaan");
         String alamat = intent.getStringExtra("alamat");
-        String golDarah = intent.getStringExtra("golongan_darah");
+        String golonganDarah = intent.getStringExtra("golonganDarah");
+        String pendidikan = intent.getStringExtra("pendidikan");
         String noKitap = intent.getStringExtra("noKitap");
         String noPaspor = intent.getStringExtra("noPaspor");
         String namaAyah = intent.getStringExtra("namaAyah");
         String namaIbu = intent.getStringExtra("namaIbu");
+        String tempatLahir = intent.getStringExtra("tempatLahir");
+        String tanggalLahir = intent.getStringExtra("tanggalLahir");
+        String tempatTanggalLahir = tempatLahir + ", " + tanggalLahir;
         Editable keterangan = til_ket.getEditText().getText();
         til_nik.getEditText().setText(nik);
         til_nama.getEditText().setText(nama);
@@ -138,36 +160,109 @@ public class form_pengajuan extends AppCompatActivity {
         til_statusKeluarga.getEditText().setText(statusKeluarga);
         til_pekerjaan.getEditText().setText(pekerjaan);
         til_alamat.getEditText().setText(alamat);
-        til_golDarah.getEditText().setText(golDarah);
+        til_golonganDarah.getEditText().setText(golonganDarah);
+        til_pendidikan.getEditText().setText(pendidikan);
         til_noKitap.getEditText().setText(noKitap);
         til_noPaspor.getEditText().setText(noPaspor);
         til_namaAyah.getEditText().setText(namaAyah);
         til_namaIbu.getEditText().setText(namaIbu);
+        til_tempatTanggalLahir.getEditText().setText(tempatTanggalLahir);
 
 
         btnKirim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (String.valueOf(keterangan).isEmpty()){
+                if (String.valueOf(keterangan).isEmpty()) {
                     til_ket.setError("Keperluan Harus diisi");
+                } else if (uploadkk.getDrawable() == null) {
+                    Toast.makeText(form_pengajuan.this, "Unggah KK harus dilampirkan", Toast.LENGTH_LONG).show();
+                } else if (uploadBukti.getDrawable() == null) {
+                    Toast.makeText(form_pengajuan.this, "Unggah Bukti harus dilampirkan", Toast.LENGTH_LONG).show();
                 } else {
-                    AuthServices.pengajuan(form_pengajuan.this, nik, String.valueOf(keterangan), id_surat, new AuthServices.PengajuanResponseListener() {
+                    // Mengubah gambar menjadi file
+                    File fileKK = new File(getCacheDir(), "uploadkk.jpg");
+                    File fileBukti = new File(getCacheDir(), "uploadbukti.jpg");
+                    try {
+                        FileOutputStream outputStreamKK = new FileOutputStream(fileKK);
+                        FileOutputStream outputStreamBukti = new FileOutputStream(fileBukti);
+                        BitmapDrawable drawableKK = (BitmapDrawable) uploadkk.getDrawable();
+                        BitmapDrawable drawableBukti = (BitmapDrawable) uploadBukti.getDrawable();
+                        Bitmap bitmapKK = drawableKK.getBitmap();
+                        Bitmap bitmapBukti = drawableBukti.getBitmap();
+                        bitmapKK.compress(Bitmap.CompressFormat.JPEG, 100, outputStreamKK);
+                        bitmapBukti.compress(Bitmap.CompressFormat.JPEG, 100, outputStreamBukti);
+                        outputStreamKK.flush();
+                        outputStreamBukti.flush();
+                        outputStreamKK.close();
+                        outputStreamBukti.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    // Membuat permintaan pengajuan menggunakan OkHttp
+                    String url = AuthServices.getURL() + "uploadfoto"; // Sesuaikan dengan URL backend Anda
+
+                    OkHttpClient client = new OkHttpClient();
+
+                    RequestBody requestBody = new MultipartBody.Builder()
+                            .setType(MultipartBody.FORM)
+                            .addFormDataPart("keterangan", String.valueOf(keterangan))
+                            .addFormDataPart("uploadkk", fileKK.getName(), RequestBody.create(MediaType.parse("image/jpeg"), fileKK))
+                            .addFormDataPart("uploadbukti", fileBukti.getName(), RequestBody.create(MediaType.parse("image/jpeg"), fileBukti))
+                            .build();
+
+                    Request.Builder requestBuilder = new Request.Builder()
+                            .url(url)
+                            .post(requestBody);
+
+                    SharedPreferences preferences = form_pengajuan.this.getSharedPreferences("myPrefs", MODE_PRIVATE);
+                    String token = preferences.getString("token", "");
+
+                    requestBuilder.addHeader("Authorization", "Bearer " + token);
+
+                    Request request = requestBuilder.build();
+
+                    client.newCall(request).enqueue(new Callback() {
                         @Override
-                        public void onSuccess(JSONObject response) {
-                            Toast.makeText(form_pengajuan.this, "Pengajuan Surat Anda Berhasil", Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(form_pengajuan.this, homeAdapter.class);
-                            startActivity(intent);
-                            finish();
+                        public void onFailure(Call call, IOException e) {
+                            e.printStackTrace();
+                            // Gagal mengirim permintaan HTTP
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(form_pengajuan.this, "Gagal mengirim permintaan", Toast.LENGTH_SHORT).show();
+                                }
+                            });
                         }
 
                         @Override
-                        public void onError(String message) {
-                            Toast.makeText(form_pengajuan.this, message, Toast.LENGTH_LONG).show();
+                        public void onResponse(Call call, Response response) throws IOException {
+                            if (response.isSuccessful()) {
+                                // Berhasil mengajukan pengajuan
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(form_pengajuan.this, "Pengajuan Surat Anda Berhasil", Toast.LENGTH_LONG).show();
+                                        Intent intent = new Intent(form_pengajuan.this, homeAdapter.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                });
+                            } else {
+                                // Gagal mengajukan pengajuan
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(form_pengajuan.this, "Pengajuan Surat Gagal", Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                            }
                         }
                     });
                 }
             }
         });
+
 
     }
 //    @Override

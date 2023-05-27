@@ -2,6 +2,7 @@ package com.example.mobile_native_kelurahan.Auth;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Base64;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -21,6 +22,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AuthServices {
-    private static String HOST = "http://192.168.0.102:8000/";
+    private static String HOST = "http://10.212.26.194:8000/";
     private static String URL = HOST + "api/";
     private static String IMAGE = HOST + "images/";
     private static String PDF = HOST + "pdf/";
@@ -39,6 +43,10 @@ public class AuthServices {
 
     public static String getPDF() {
         return PDF;
+    }
+
+    public static String getURL() {
+        return URL;
     }
 
     public interface RegisterResponseListener {
@@ -86,6 +94,10 @@ public class AuthServices {
         void onSuccess(String response);
         void onError(String message);
     }
+//    public interface UploadFotoResponseListener {
+//        void onSuccess(JSONObject response);
+//        void onError(String message);
+//    }
 
     public static void register(Context context, String nik, String pass, String no_tlp, RegisterResponseListener listener) {
 
@@ -344,7 +356,7 @@ public class AuthServices {
     }
 
     public static void logOut(Context context, String token, LogoutResponseListener listener) {
-        StringRequest request = new StringRequest(Request.Method.POST, URL + "api/auth/logout", new Response.Listener<String>() {
+        StringRequest request = new StringRequest(Request.Method.POST, URL + "auth/logout", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 listener.onSuccess(response);
@@ -367,7 +379,7 @@ public class AuthServices {
     }
 
     public static void berita(Context context, final BeritaResponseListener listener) {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "api/berita",
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "berita",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -417,7 +429,7 @@ public class AuthServices {
     }
 
     public static void surat(Context context, final SuratResponseListener listener) {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "api/surat",
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "surat",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -860,4 +872,74 @@ public class AuthServices {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
     }
+
+//    public static void uploadfoto(Context context, String token, String imagePath, final UploadFotoResponseListener listener) {
+//        String uploadUrl = URL + "ufoto";
+//
+//        try {
+//            File file = new File(imagePath);
+//            FileInputStream fileInputStream = new FileInputStream(file);
+//            byte[] byteArray = new byte[(int) file.length()];
+//            fileInputStream.read(byteArray);
+//
+//            String encodedFile = Base64.encodeToString(byteArray, Base64.DEFAULT);
+//
+//            StringRequest stringRequest = new StringRequest(Request.Method.POST, uploadUrl,
+//                    new Response.Listener<String>() {
+//                        @Override
+//                        public void onResponse(String response) {
+//                            try {
+//                                JSONObject jsonObject = new JSONObject(response);
+//                                String message = jsonObject.getString("message");
+//                                if (message.equals("Profile picture updated successfully")) {
+//                                    listener.onSuccess(jsonObject);
+//                                }
+//                            } catch (JSONException e) {
+//                                e.printStackTrace();
+//                                listener.onError("Invalid JSON response");
+//                            }
+//                        }
+//                    },
+//                    new Response.ErrorListener() {
+//                        @Override
+//                        public void onErrorResponse(VolleyError error) {
+//                            if (error.networkResponse != null && error.networkResponse.data != null) {
+//                                try {
+//                                    String responseBody = new String(error.networkResponse.data, "utf-8");
+//                                    JSONObject jsonObject = new JSONObject(responseBody);
+//                                    String message = jsonObject.getString("message");
+//                                    listener.onError(message);
+//                                } catch (JSONException | UnsupportedEncodingException e) {
+//                                    e.printStackTrace();
+//                                    listener.onError("Failed to update photo: " + e.getMessage());
+//                                }
+//                            } else {
+//                                listener.onError("Failed to update: network response is null");
+//                            }
+//                        }
+//                    }) {
+//                @Override
+//                public Map<String, String> getHeaders() throws AuthFailureError {
+//                    Map<String, String> headers = new HashMap<>();
+//                    headers.put("Authorization", "Bearer " + token);
+//                    return headers;
+//                }
+//
+//                @Override
+//                protected Map<String, String> getParams() {
+//                    Map<String, String> params = new HashMap<>();
+//                    params.put("image", encodedFile);
+//                    File fileKK = new File(imagePathKK);
+//                    File fileBukti = new File(imagePathBukti);
+//                    params.put("image_kk", new DataPart(fileKK.getName(), getFileDataFromPath(imagePathKK)));
+//                    params.put("image_bukti", new DataPart(fileBukti.getName(), getFileDataFromPath(imagePathBukti)));
+//                    return params;
+//                }
+//            };
+//
+//            Volley.newRequestQueue(context).add(stringRequest);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

@@ -47,8 +47,12 @@
            </LinearLayout>
 
            <ImageView
-               android:layout_width="match_parent"
-               android:layout_height="150dp"
+               android:id="@+id/gawal"
+               android:layout_width="380dp"
+               android:layout_height="180dp"
+               android:layout_gravity="center"
+               android:background="@drawable/rounded_imgberita"
+               android:clipToOutline="true"
                android:scaleType="fitXY"
                android:src="@drawable/kab"/>
 
@@ -74,7 +78,7 @@
            <androidx.recyclerview.widget.RecyclerView
                android:id="@+id/recyclerSuratHome"
                android:layout_width="wrap_content"
-               android:layout_height="100dp"
+               android:layout_height="110dp"
                android:padding="10dp"
                android:orientation="horizontal"
                />
