@@ -31,8 +31,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
+
 public class AuthServices {
-    private static String HOST = "http://10.212.26.194:8000/";
+    private static String HOST = "http://192.168.43.199:8000/";
     private static String URL = HOST + "api/";
     private static String IMAGE = HOST + "images/";
     private static String PDF = HOST + "pdf/";
@@ -51,72 +56,89 @@ public class AuthServices {
 
     public interface RegisterResponseListener {
         void onSuccess(JSONObject response);
+
         void onError(String message);
     }
+
     public interface LoginResponseListener {
         void onSuccess(JSONObject response);
+
         void onError(String message);
+
         void onTokenReceived(String token);
     }
+
     public interface UserDataResponseListener {
         void onSuccess(User user);
+
         void onError(String message);
     }
-    public interface KeluargaResponseListener{
+
+    public interface KeluargaResponseListener {
         void onSuccess(List<Masyarakat> masyarakatList);
+
         void onError(String message);
     }
+
     public interface LogoutResponseListener {
         void onSuccess(String message);
+
         void onError(String message);
     }
+
     public interface BeritaResponseListener {
         void onSuccess(List<Berita> beritaList);
+
         void onError(String message);
     }
+
     public interface SuratResponseListener {
         void onSuccess(List<Surat> suratList);
+
         void onError(String message);
     }
+
     public interface PengajuanResponseListener {
         void onSuccess(JSONObject response);
+
         void onError(String message);
     }
+
     public interface StatusResponseListener {
         void onSuccess(List<Status> statusList);
+
         void onError(String message);
     }
-    public interface  PembatalanResponseListener{
+
+    public interface PembatalanResponseListener {
         void onSuccess(String response);
+
         void onError(String message);
     }
-    public interface  UpdateResponseListener{
+
+    public interface UpdateResponseListener {
         void onSuccess(String response);
+
         void onError(String message);
     }
-//    public interface UploadFotoResponseListener {
-//        void onSuccess(JSONObject response);
-//        void onError(String message);
-//    }
 
     public static void register(Context context, String nik, String pass, String no_tlp, RegisterResponseListener listener) {
-
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL + "auth/register", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     String message = jsonObject.getString("message");
-                    if (message.equals("Berhasil Register")){
+                    if (message.equals("Berhasil Register")) {
                         JSONObject userObj = jsonObject.getJSONObject("user");
                         listener.onSuccess(userObj);
                     }
-                } catch (JSONException e){
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         },
-                new Response.ErrorListener(){
+                new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         if (error.networkResponse != null && error.networkResponse.data != null) {
@@ -133,12 +155,11 @@ public class AuthServices {
                                 e.printStackTrace();
                                 listener.onError("Gagal register: " + e.getMessage());
                             }
-                        }else{
+                        } else {
                             listener.onError("Gagal register: network response is null");
                         }
                     }
-                })
-        {
+                }) {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
@@ -153,25 +174,24 @@ public class AuthServices {
     }
 
     public static void login(Context context, String nik, String pass, LoginResponseListener listener) {
-
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL + "auth/login", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     String message = jsonObject.getString("message");
-                    if (message.equals("Berhasil login")){
+                    if (message.equals("Berhasil login")) {
                         JSONObject userObj = jsonObject.getJSONObject("user");
                         String token = jsonObject.getString("token");
                         listener.onSuccess(userObj);
                         listener.onTokenReceived(token);
                     }
-                } catch (JSONException e){
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         },
-                new Response.ErrorListener(){
+                new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         if (error.networkResponse != null && error.networkResponse.data != null) {
@@ -188,14 +208,13 @@ public class AuthServices {
                                 e.printStackTrace();
                                 listener.onError("Gagal Login: " + e.getMessage());
                             }
-                        }else{
+                        } else {
                             listener.onError("Gagal Login: network response is null");
                         }
                     }
-                })
-        {
+                }) {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError{
+            protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("nik", nik);
                 params.put("password", pass);
@@ -214,7 +233,7 @@ public class AuthServices {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String message = jsonObject.getString("message");
-                            if (message.equals("success")){
+                            if (message.equals("success")) {
                                 JSONObject userObj = jsonObject.getJSONObject("data");
                                 String id = userObj.getString("id");
                                 String password = userObj.getString("password");
@@ -244,10 +263,10 @@ public class AuthServices {
                                         masyarakatObj.getString("nama_ibu"),
                                         masyarakatObj.getString("id")
                                 );
-                                User user = new User(id, password, phoneNumber, role,no_kk, masyarakat);
+                                User user = new User(id, password, phoneNumber, role, no_kk, masyarakat);
                                 listener.onSuccess(user);
                             }
-                        } catch (JSONException e){
+                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
@@ -282,7 +301,7 @@ public class AuthServices {
         requestQueue.add(stringRequest);
     }
 
-    public static void keluarga(Context context, String token, final KeluargaResponseListener listener ) {
+    public static void keluarga(Context context, String token, final KeluargaResponseListener listener) {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "keluarga",
                 new Response.Listener<String>() {
                     @Override
@@ -290,7 +309,7 @@ public class AuthServices {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String message = jsonObject.getString("message");
-                            if (message.equals("success")){
+                            if (message.equals("success")) {
                                 JSONObject userObj = jsonObject.getJSONObject("data");
                                 JSONArray jsonArray = userObj.getJSONArray("masyarakat");
                                 List<Masyarakat> masyarakatList = new ArrayList<>();
@@ -315,12 +334,12 @@ public class AuthServices {
                                     String nama_ayah = masyarakatObj.getString("nama_ayah");
                                     String nama_ibu = masyarakatObj.getString("nama_ibu");
                                     String id = masyarakatObj.getString("id");
-                                    Masyarakat masyarakat = new Masyarakat(idMasyarakat,nik,namaLengkap,jenisKelamin,tempatLahir,tanggalLahir,agama,pendidikan,pekerjaan,golonganDarah,statusPerkawinan,tglPerkawinan,statusKeluarga,kewarganegaraan,nopaspor,nokitap,nama_ayah,nama_ibu,id);
+                                    Masyarakat masyarakat = new Masyarakat(idMasyarakat, nik, namaLengkap, jenisKelamin, tempatLahir, tanggalLahir, agama, pendidikan, pekerjaan, golonganDarah, statusPerkawinan, tglPerkawinan, statusKeluarga, kewarganegaraan, nopaspor, nokitap, nama_ayah, nama_ibu, id);
                                     masyarakatList.add(masyarakat);
                                 }
                                 listener.onSuccess(masyarakatList);
                             }
-                        } catch (JSONException e){
+                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
@@ -386,7 +405,7 @@ public class AuthServices {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String message = jsonObject.getString("message");
-                            if (message.equals("success")){
+                            if (message.equals("success")) {
                                 JSONArray jsonArray = jsonObject.getJSONArray("data");
                                 List<Berita> beritaList = new ArrayList<>();
                                 for (int i = 0; i < jsonArray.length(); i++) {
@@ -396,12 +415,12 @@ public class AuthServices {
                                     String subTitle = beritaObj.getString("sub_title");
                                     String deskripsi = beritaObj.getString("deskripsi");
                                     String image = beritaObj.getString("image");
-                                    Berita berita = new Berita(id, judul, subTitle, deskripsi,image);
+                                    Berita berita = new Berita(id, judul, subTitle, deskripsi, image);
                                     beritaList.add(berita);
                                 }
                                 listener.onSuccess(beritaList);
                             }
-                        } catch (JSONException e){
+                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
@@ -436,7 +455,7 @@ public class AuthServices {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String message = jsonObject.getString("message");
-                            if (message.equals("success")){
+                            if (message.equals("success")) {
                                 JSONArray jsonArray = jsonObject.getJSONArray("data");
                                 List<Surat> suratList = new ArrayList<>();
                                 for (int i = 0; i < jsonArray.length(); i++) {
@@ -444,12 +463,12 @@ public class AuthServices {
                                     String idSurat = suratObj.getString("id_surat");
                                     String namaSurat = suratObj.getString("nama_surat");
                                     String image = suratObj.getString("image");
-                                    Surat surat = new Surat(idSurat, namaSurat,image);
+                                    Surat surat = new Surat(idSurat, namaSurat, image);
                                     suratList.add(surat);
                                 }
                                 listener.onSuccess(suratList);
                             }
-                        } catch (JSONException e){
+                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
@@ -476,7 +495,7 @@ public class AuthServices {
         requestQueue.add(stringRequest);
     }
 
-    public static void pengajuan(Context context, String nik,String keterangan, String id_surat, PengajuanResponseListener listener) {
+    public static void pengajuan(Context context, String nik, String keterangan, String id_surat, PengajuanResponseListener listener) {
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL + "pengajuan", new Response.Listener<String>() {
             @Override
@@ -484,16 +503,16 @@ public class AuthServices {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     String message = jsonObject.getString("message");
-                    if (message.equals("Berhasil mengajukan surat")){
+                    if (message.equals("Berhasil mengajukan surat")) {
                         JSONObject dataObj = jsonObject.getJSONObject("data");
                         listener.onSuccess(dataObj);
                     }
-                } catch (JSONException e){
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         },
-                new Response.ErrorListener(){
+                new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         if (error.networkResponse != null && error.networkResponse.data != null) {
@@ -508,15 +527,14 @@ public class AuthServices {
                                 e.printStackTrace();
                                 listener.onError("Gagal mengajukan: " + e.getMessage());
                             }
-                        }else{
+                        } else {
                             listener.onError("Gagal mengajukan surat: network response is null");
                         }
                     }
-                })
-        {
+                }) {
 
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError{
+            protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("nik", nik);
                 params.put("keterangan", keterangan);
@@ -528,7 +546,7 @@ public class AuthServices {
         requestQueue.add(stringRequest);
     }
 
-    public static void status(Context context, String token, String status, final StatusResponseListener listener ) {
+    public static void status(Context context, String token, String status, final StatusResponseListener listener) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL + "statusdiajukan",
                 new Response.Listener<String>() {
                     @Override
@@ -536,12 +554,12 @@ public class AuthServices {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String message = jsonObject.getString("message");
-                            if (message.equals("success")){
+                            if (message.equals("success")) {
                                 JSONArray jsonArray = jsonObject.getJSONArray("data");
                                 List<Status> statusList = new ArrayList<>();
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject statusObj = jsonArray.getJSONObject(i);
-                                    String uuid = statusObj.getString("uuid");
+                                    String uuid = statusObj.getString("id");
                                     String status = statusObj.getString("status");
                                     String keterangan = statusObj.getString("keterangan");
                                     String created_at = statusObj.getString("created_at");
@@ -568,12 +586,12 @@ public class AuthServices {
                                     String id = statusObj.getString("id");
                                     String namaSurat = statusObj.getString("nama_surat");
                                     String image = statusObj.getString("image");
-                                    Status status1 = new Status(uuid,status,keterangan,created_at,filepdf,idMasyarakat,idSurat,nik,namaLengkap,jenisKelamin,tempatLahir,tanggalLahir,agama,pendidikan,pekerjaan,golonganDarah,statusPerkawinan,tglPerkawinan,statusKeluarga,kewarganegaraan,nopaspor,nokitap,nama_ayah,nama_ibu,id,namaSurat,image);
+                                    Status status1 = new Status(uuid, status, keterangan, created_at, filepdf, idMasyarakat, idSurat, nik, namaLengkap, jenisKelamin, tempatLahir, tanggalLahir, agama, pendidikan, pekerjaan, golonganDarah, statusPerkawinan, tglPerkawinan, statusKeluarga, kewarganegaraan, nopaspor, nokitap, nama_ayah, nama_ibu, id, namaSurat, image);
                                     statusList.add(status1);
                                 }
                                 listener.onSuccess(statusList);
                             }
-                        } catch (JSONException e){
+                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
@@ -602,6 +620,7 @@ public class AuthServices {
                 headers.put("Authorization", "Bearer " + token);
                 return headers;
             }
+
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
@@ -614,7 +633,7 @@ public class AuthServices {
         requestQueue.add(stringRequest);
     }
 
-    public static void ditolak(Context context, String token, final StatusResponseListener listener ) {
+    public static void ditolak(Context context, String token, final StatusResponseListener listener) {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "statusditolak",
                 new Response.Listener<String>() {
                     @Override
@@ -622,12 +641,12 @@ public class AuthServices {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String message = jsonObject.getString("message");
-                            if (message.equals("success")){
+                            if (message.equals("success")) {
                                 JSONArray jsonArray = jsonObject.getJSONArray("data");
                                 List<Status> statusList = new ArrayList<>();
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject statusObj = jsonArray.getJSONObject(i);
-                                    String uuid = statusObj.getString("uuid");
+                                    String uuid = statusObj.getString("id");
                                     String status = statusObj.getString("status");
                                     String keterangan = statusObj.getString("keterangan");
                                     String created_at = statusObj.getString("created_at");
@@ -654,12 +673,12 @@ public class AuthServices {
                                     String id = statusObj.getString("id");
                                     String namaSurat = statusObj.getString("nama_surat");
                                     String image = statusObj.getString("image");
-                                    Status status1 = new Status(uuid,status,keterangan,created_at,filepdf,idMasyarakat,idSurat,nik,namaLengkap,jenisKelamin,tempatLahir,tanggalLahir,agama,pendidikan,pekerjaan,golonganDarah,statusPerkawinan,tglPerkawinan,statusKeluarga,kewarganegaraan,nopaspor,nokitap,nama_ayah,nama_ibu,id,namaSurat,image);
+                                    Status status1 = new Status(uuid, status, keterangan, created_at, filepdf, idMasyarakat, idSurat, nik, namaLengkap, jenisKelamin, tempatLahir, tanggalLahir, agama, pendidikan, pekerjaan, golonganDarah, statusPerkawinan, tglPerkawinan, statusKeluarga, kewarganegaraan, nopaspor, nokitap, nama_ayah, nama_ibu, id, namaSurat, image);
                                     statusList.add(status1);
                                 }
                                 listener.onSuccess(statusList);
                             }
-                        } catch (JSONException e){
+                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
@@ -694,7 +713,7 @@ public class AuthServices {
         requestQueue.add(stringRequest);
     }
 
-    public static void proses(Context context, String token, final StatusResponseListener listener ) {
+    public static void proses(Context context, String token, final StatusResponseListener listener) {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "statusproses",
                 new Response.Listener<String>() {
                     @Override
@@ -702,12 +721,12 @@ public class AuthServices {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String message = jsonObject.getString("message");
-                            if (message.equals("success")){
+                            if (message.equals("success")) {
                                 JSONArray jsonArray = jsonObject.getJSONArray("data");
                                 List<Status> statusList = new ArrayList<>();
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject statusObj = jsonArray.getJSONObject(i);
-                                    String uuid = statusObj.getString("uuid");
+                                    String uuid = statusObj.getString("id");
                                     String status = statusObj.getString("status");
                                     String keterangan = statusObj.getString("keterangan");
                                     String created_at = statusObj.getString("created_at");
@@ -734,12 +753,12 @@ public class AuthServices {
                                     String id = statusObj.getString("id");
                                     String namaSurat = statusObj.getString("nama_surat");
                                     String image = statusObj.getString("image");
-                                    Status status1 = new Status(uuid,status,keterangan,created_at,filepdf,idMasyarakat,idSurat,nik,namaLengkap,jenisKelamin,tempatLahir,tanggalLahir,agama,pendidikan,pekerjaan,golonganDarah,statusPerkawinan,tglPerkawinan,statusKeluarga,kewarganegaraan,nopaspor,nokitap,nama_ayah,nama_ibu,id,namaSurat,image);
+                                    Status status1 = new Status(uuid, status, keterangan, created_at, filepdf, idMasyarakat, idSurat, nik, namaLengkap, jenisKelamin, tempatLahir, tanggalLahir, agama, pendidikan, pekerjaan, golonganDarah, statusPerkawinan, tglPerkawinan, statusKeluarga, kewarganegaraan, nopaspor, nokitap, nama_ayah, nama_ibu, id, namaSurat, image);
                                     statusList.add(status1);
                                 }
                                 listener.onSuccess(statusList);
                             }
-                        } catch (JSONException e){
+                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
@@ -774,7 +793,7 @@ public class AuthServices {
         requestQueue.add(stringRequest);
     }
 
-    public static void pembatalan(Context context, String nik,String surat, final PembatalanResponseListener listener ) {
+    public static void pembatalan(Context context, String nik, String surat, final PembatalanResponseListener listener) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL + "pembatalan",
                 new Response.Listener<String>() {
                     @Override
@@ -782,10 +801,10 @@ public class AuthServices {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String message = jsonObject.getString("message");
-                            if (message.equals("Surat berhasil dibatalkan")){
+                            if (message.equals("Surat berhasil dibatalkan")) {
                                 listener.onSuccess("Surat berhasil dibatalkan");
                             }
-                        } catch (JSONException e){
+                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
@@ -821,7 +840,7 @@ public class AuthServices {
         requestQueue.add(stringRequest);
     }
 
-    public static void updatenohp(Context context, String token, String nohp, final UpdateResponseListener listener ) {
+    public static void updatenohp(Context context, String token, String nohp, final UpdateResponseListener listener) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL + "editnohp",
                 new Response.Listener<String>() {
                     @Override
@@ -829,10 +848,10 @@ public class AuthServices {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String message = jsonObject.getString("message");
-                            if (message.equals("Nomor HP berhasil diperbarui")){
+                            if (message.equals("Nomor HP berhasil diperbarui")) {
                                 listener.onSuccess("Nomor HP berhasil diperbarui");
                             }
-                        } catch (JSONException e){
+                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
@@ -861,6 +880,7 @@ public class AuthServices {
                 headers.put("Authorization", "Bearer " + token);
                 return headers;
             }
+
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
@@ -872,74 +892,5 @@ public class AuthServices {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
     }
-
-//    public static void uploadfoto(Context context, String token, String imagePath, final UploadFotoResponseListener listener) {
-//        String uploadUrl = URL + "ufoto";
-//
-//        try {
-//            File file = new File(imagePath);
-//            FileInputStream fileInputStream = new FileInputStream(file);
-//            byte[] byteArray = new byte[(int) file.length()];
-//            fileInputStream.read(byteArray);
-//
-//            String encodedFile = Base64.encodeToString(byteArray, Base64.DEFAULT);
-//
-//            StringRequest stringRequest = new StringRequest(Request.Method.POST, uploadUrl,
-//                    new Response.Listener<String>() {
-//                        @Override
-//                        public void onResponse(String response) {
-//                            try {
-//                                JSONObject jsonObject = new JSONObject(response);
-//                                String message = jsonObject.getString("message");
-//                                if (message.equals("Profile picture updated successfully")) {
-//                                    listener.onSuccess(jsonObject);
-//                                }
-//                            } catch (JSONException e) {
-//                                e.printStackTrace();
-//                                listener.onError("Invalid JSON response");
-//                            }
-//                        }
-//                    },
-//                    new Response.ErrorListener() {
-//                        @Override
-//                        public void onErrorResponse(VolleyError error) {
-//                            if (error.networkResponse != null && error.networkResponse.data != null) {
-//                                try {
-//                                    String responseBody = new String(error.networkResponse.data, "utf-8");
-//                                    JSONObject jsonObject = new JSONObject(responseBody);
-//                                    String message = jsonObject.getString("message");
-//                                    listener.onError(message);
-//                                } catch (JSONException | UnsupportedEncodingException e) {
-//                                    e.printStackTrace();
-//                                    listener.onError("Failed to update photo: " + e.getMessage());
-//                                }
-//                            } else {
-//                                listener.onError("Failed to update: network response is null");
-//                            }
-//                        }
-//                    }) {
-//                @Override
-//                public Map<String, String> getHeaders() throws AuthFailureError {
-//                    Map<String, String> headers = new HashMap<>();
-//                    headers.put("Authorization", "Bearer " + token);
-//                    return headers;
-//                }
-//
-//                @Override
-//                protected Map<String, String> getParams() {
-//                    Map<String, String> params = new HashMap<>();
-//                    params.put("image", encodedFile);
-//                    File fileKK = new File(imagePathKK);
-//                    File fileBukti = new File(imagePathBukti);
-//                    params.put("image_kk", new DataPart(fileKK.getName(), getFileDataFromPath(imagePathKK)));
-//                    params.put("image_bukti", new DataPart(fileBukti.getName(), getFileDataFromPath(imagePathBukti)));
-//                    return params;
-//                }
-//            };
-//
-//            Volley.newRequestQueue(context).add(stringRequest);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 }
+

@@ -51,9 +51,5 @@ public class PembatalanSurat extends AppCompatActivity {
                 });
             }
         });
-
-
-
-
     }
 }
