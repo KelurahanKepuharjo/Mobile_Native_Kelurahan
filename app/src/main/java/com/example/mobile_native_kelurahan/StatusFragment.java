@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,11 @@ import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.example.mobile_native_kelurahan.Auth.AuthServices;
+import com.example.mobile_native_kelurahan.Model.Berita;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -78,14 +83,24 @@ public class StatusFragment extends Fragment{
         View view = inflater.inflate(R.layout.fragment_status, container, false);
         tabLayout = view.findViewById(R.id.tabLayout);
         viewPager = view.findViewById(R.id.viewpager);
+        AuthServices.berita(getContext(), new AuthServices.BeritaResponseListener() {
+            @Override
+            public void onSuccess(List<Berita> beritaList) {
+                Log.e("BErita", "ok");
+                tabLayout.setupWithViewPager(viewPager);
+                AdapterFragment adapterFragment = new AdapterFragment(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+                adapterFragment.addFragment(new antrianFragment(), "Diajukan");
+                adapterFragment.addFragment(new prosesFragment(), "Proses");
+                adapterFragment.addFragment(new selesaiFragment(), "Selesai");
+                adapterFragment.addFragment(new ditolakFragment(), "Ditolak");
+                viewPager.setAdapter(adapterFragment);
+            }
 
-        tabLayout.setupWithViewPager(viewPager);
-        AdapterFragment adapterFragment = new AdapterFragment(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        adapterFragment.addFragment(new antrianFragment(), "Diajukan");
-        adapterFragment.addFragment(new prosesFragment(), "Proses");
-        adapterFragment.addFragment(new selesaiFragment(), "Selesai");
-        adapterFragment.addFragment(new ditolakFragment(), "Ditolak");
-        viewPager.setAdapter(adapterFragment);
+            @Override
+            public void onError(String message) {
+
+            }
+        });
         return view;
     }
 
