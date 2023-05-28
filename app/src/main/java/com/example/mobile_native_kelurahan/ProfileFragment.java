@@ -102,33 +102,52 @@ public class ProfileFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), tentang.class);
                 startActivity(intent);
-                getActivity().finish();
             }
         });
         // Memberikan listener pada button untuk menangani event klik
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String token = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE).getString("token", "");
-                AuthServices.logOut(getContext(), token, new AuthServices.LogoutResponseListener() {
-                    @Override
-                    public void onSuccess(String response) {
-                        Intent intent = new Intent(getActivity(), MainActivity.class);
-                        startActivity(intent);
-                        getActivity().finish();
-                        SharedPreferences preferences = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE);
-                        SharedPreferences.Editor editor = preferences.edit();
-                        editor.remove("isLogin");
-                        editor.remove("token");
-                        editor.apply();
-                    }
+                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+                    View alertDialogView = LayoutInflater.from(getContext()).inflate(R.layout.popup_telp,
+                            (RelativeLayout) v.findViewById(R.id.dialogLogout));
+                    alertDialog.setView(alertDialogView);
+                    final AlertDialog dialog = alertDialog.create();
+                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    dialog.show();
+                    Button btnBatal = alertDialogView.findViewById(R.id.btnBatal);
+                    Button btnOke = alertDialogView.findViewById(R.id.btnOke);
 
-                    @Override
-                    public void onError(String message) {
-                        Log.e("LogOut Error", message);
-                    }
-                });
+                    btnBatal.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.cancel();
+                        }
+                    });
+                    btnOke.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
 
+                            String token = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE).getString("token", "");
+                            AuthServices.logOut(getContext(), token, new AuthServices.LogoutResponseListener() {
+                                @Override
+                                public void onSuccess(String response) {
+                                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                                    startActivity(intent);
+                                    getActivity().finish();
+                                    SharedPreferences preferences = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = preferences.edit();
+                                    editor.remove("isLogin");
+                                    editor.remove("token");
+                                    editor.apply();
+                                }
+
+                                @Override
+                                public void onError(String message) {
+                                    Log.e("LogOut Error", message);
+                                }
+                            });
+                        }});
             }
         });
             SharedPreferences preferences = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE);
@@ -162,6 +181,13 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProfileTertaut.class);
+                startActivity(intent);
+            }
+        });
+        dibatalkan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), suratDibatalkan.class);
                 startActivity(intent);
             }
         });

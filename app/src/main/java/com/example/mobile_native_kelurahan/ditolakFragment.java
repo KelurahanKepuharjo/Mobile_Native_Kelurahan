@@ -84,7 +84,7 @@ public class ditolakFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         SharedPreferences preferences = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE);
         String token = preferences.getString("token", "");
-        AuthServices.ditolak(getContext(), token, new AuthServices.StatusResponseListener() {
+        AuthServices.status(getContext(), token,"Ditolak RT", new AuthServices.StatusResponseListener() {
             @Override
             public void onSuccess(List<Status> statusList) {
                 ditolakFragment.CustomAdapterStatus customAdapterStatus = new ditolakFragment.CustomAdapterStatus(statusList, getContext());

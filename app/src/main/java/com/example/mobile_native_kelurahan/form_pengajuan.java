@@ -58,7 +58,7 @@ public class form_pengajuan extends AppCompatActivity {
     Surat surat;
     Bitmap bitmapKK, bitmapBukti;
     File fileKK,fileBukti;
-    TextInputLayout til_nama, til_nik, til_jenisKelamin,til_tempatTanggalLahir,til_kewarganegaraan,til_agama,til_pendidikan,til_rw,til_rt, til_statusPerkawinan,til_statusKeluarga,til_noKitap,til_golonganDarah,til_noPaspor,til_pekerjaan,til_alamat,til_namaAyah,til_namaIbu, til_ket;
+    TextInputLayout til_nama, til_nik, til_jenisKelamin,til_tempatTanggalLahir,til_kewarganegaraan,til_agama,til_pendidikan,til_rw,til_rt, til_statusPerkawinan,til_statusKeluarga,til_noKitap,til_golonganDarah,til_noPaspor,til_pekerjaan,til_namaAyah,til_namaIbu, til_ket;
     TextInputEditText tiet_nama, tiet_nik, tiet_ket;
 
     @Override
@@ -76,7 +76,7 @@ public class form_pengajuan extends AppCompatActivity {
         til_statusPerkawinan = findViewById(R.id.tx_statusPerkawinan);
         til_statusKeluarga = findViewById(R.id.tx_statusKeluarga);
         til_pekerjaan = findViewById(R.id.tx_pekerjaan);
-        til_alamat = findViewById(R.id.tx_alamat);
+//        til_alamat = findViewById(R.id.tx_alamat);
         til_tempatTanggalLahir = findViewById(R.id.tx_ttl);
         til_golonganDarah = findViewById(R.id.tx_golDarah);
         til_pendidikan = findViewById(R.id.tx_pendidikan);
@@ -178,7 +178,7 @@ public class form_pengajuan extends AppCompatActivity {
         String statusPerkawinan = intent.getStringExtra("statusPerkawinan");
         String statusKeluarga = intent.getStringExtra("statusKeluarga");
         String pekerjaan = intent.getStringExtra("pekerjaan");
-        String alamat = intent.getStringExtra("alamat");
+//        String alamat = intent.getStringExtra("alamat");
         String golonganDarah = intent.getStringExtra("golonganDarah");
         String pendidikan = intent.getStringExtra("pendidikan");
         String noKitap = intent.getStringExtra("noKitap");
@@ -197,7 +197,7 @@ public class form_pengajuan extends AppCompatActivity {
         til_statusPerkawinan.getEditText().setText(statusPerkawinan);
         til_statusKeluarga.getEditText().setText(statusKeluarga);
         til_pekerjaan.getEditText().setText(pekerjaan);
-        til_alamat.getEditText().setText(alamat);
+//        til_alamat.getEditText().setText(alamat);
         til_golonganDarah.getEditText().setText(golonganDarah);
         til_pendidikan.getEditText().setText(pendidikan);
         til_noKitap.getEditText().setText(noKitap);
@@ -212,6 +212,7 @@ public class form_pengajuan extends AppCompatActivity {
                 if (String.valueOf(keterangan).isEmpty()) {
                     til_ket.setError("Keperluan Harus diisi");
                 } else {
+
                     try {
                         FileOutputStream outputStreamKK = new FileOutputStream(fileKK);
                         FileOutputStream outputStreamBukti = new FileOutputStream(fileBukti);

@@ -15,6 +15,8 @@
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/drawable/custom_edittext.xml" value="0.1" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/drawable/ic_back.xml" value="0.134" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/drawable/ic_baseline_10mp_24.xml" value="0.208" />
+        <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/drawable/lavender_round.xml" value="0.222" />
+        <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/drawable/lavender_round1.xml" value="0.222" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/drawable/round_back_home_100.xml" value="0.2555" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/drawable/round_back_status_100.xml" value="0.215" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/drawable/round_back_surat_100.xml" value="0.1215" />
@@ -28,6 +30,7 @@
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/activity_registrasi.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/activity_surat_dibatalkan.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/coba.xml" value="0.1631912964641886" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/fragment_antrian.xml" value="0.1" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/fragment_home.xml" value="0.4" />
@@ -40,6 +43,7 @@
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/grid_item.xml" value="0.2" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/list_dropdown.xml" value="0.1" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/list_item_surat.xml" value="1.1395348837209303" />
+        <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/popup_logout.xml" value="0.22282608695652173" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/popup_telp.xml" value="0.25" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/row_grid_items.xml" value="0.4" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/row_list_item_berita.xml" value="0.25" />

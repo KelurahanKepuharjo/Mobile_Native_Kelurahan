@@ -345,31 +345,31 @@
                         android:focusableInTouchMode="false"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tx_alamat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:drawablePadding="6dp"
-                    android:hint="Alamat Sesuai KTP"
-                    android:inputType="text"
-                    app:hintTextColor="@color/lavender"
-                    app:boxCornerRadiusBottomEnd="30dp"
-                    app:boxCornerRadiusBottomStart="30dp"
-                    app:boxCornerRadiusTopEnd="30dp"
-                    app:boxCornerRadiusTopStart="30dp"
-                    android:textColorHint="@color/lavender"
-                    android:textColorHighlight="@color/cardview_dark_background"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:fontFamily="@font/poppins_regular"
-                        android:textSize="14sp"
-                        android:focusable="false"
-                        android:focusableInTouchMode="false"/>
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+<!--                    android:id="@+id/tx_alamat"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="5dp"-->
+<!--                    android:drawablePadding="6dp"-->
+<!--                    android:hint="Alamat Sesuai KTP"-->
+<!--                    android:inputType="text"-->
+<!--                    app:hintTextColor="@color/lavender"-->
+<!--                    app:boxCornerRadiusBottomEnd="30dp"-->
+<!--                    app:boxCornerRadiusBottomStart="30dp"-->
+<!--                    app:boxCornerRadiusTopEnd="30dp"-->
+<!--                    app:boxCornerRadiusTopStart="30dp"-->
+<!--                    android:textColorHint="@color/lavender"-->
+<!--                    android:textColorHighlight="@color/cardview_dark_background"-->
+<!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+<!--                    <com.google.android.material.textfield.TextInputEditText-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="60dp"-->
+<!--                        android:fontFamily="@font/poppins_regular"-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:focusable="false"-->
+<!--                        android:focusableInTouchMode="false"/>-->
 
-                </com.google.android.material.textfield.TextInputLayout>
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
 <!--                <com.google.android.material.textfield.TextInputLayout-->
 <!--                    android:id="@+id/tx_RT"-->
 <!--                    android:layout_width="match_parent"-->
