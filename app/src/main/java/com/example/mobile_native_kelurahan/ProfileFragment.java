@@ -109,7 +109,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                     AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
-                    View alertDialogView = LayoutInflater.from(getContext()).inflate(R.layout.popup_telp,
+                    View alertDialogView = LayoutInflater.from(getContext()).inflate(R.layout.popup_logout,
                             (RelativeLayout) v.findViewById(R.id.dialogLogout));
                     alertDialog.setView(alertDialogView);
                     final AlertDialog dialog = alertDialog.create();
@@ -127,7 +127,6 @@ public class ProfileFragment extends Fragment {
                     btnOke.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-
                             String token = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE).getString("token", "");
                             AuthServices.logOut(getContext(), token, new AuthServices.LogoutResponseListener() {
                                 @Override

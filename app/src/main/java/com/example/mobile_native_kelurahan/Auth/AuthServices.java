@@ -37,7 +37,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
 
 public class AuthServices {
-    private static String HOST = "http://192.168.97.140:8000/";
+    private static String HOST = "http://192.168.0.103:8000/";
     private static String URL = HOST + "api/";
     private static String IMAGE = HOST + "images/";
     private static String PDF = HOST + "pdf/";

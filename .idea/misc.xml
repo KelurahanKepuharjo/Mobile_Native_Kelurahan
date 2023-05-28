@@ -41,8 +41,13 @@
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/fragment_status.xml" value="0.264" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/fragment_surat.xml" value="0.264" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/grid_item.xml" value="0.2" />
+        <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/item_status_diajukan.xml" value="0.22282608695652173" />
+        <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/item_status_dibatalkan.xml" value="0.22282608695652173" />
+        <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/item_status_ditolak.xml" value="0.22282608695652173" />
+        <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/item_status_proses.xml" value="0.22282608695652173" />
+        <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/item_status_selesai.xml" value="0.22282608695652173" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/list_dropdown.xml" value="0.1" />
-        <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/list_item_surat.xml" value="1.1395348837209303" />
+        <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/list_item_surat.xml" value="0.264" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/popup_logout.xml" value="0.22282608695652173" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/popup_telp.xml" value="0.25" />
         <entry key="..\:/Users/FAISAL/AndroidStudioProjects/Mobile_Native_Kelurahan/app/src/main/res/layout/row_grid_items.xml" value="0.4" />

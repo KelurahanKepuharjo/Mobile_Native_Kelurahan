@@ -48,7 +48,6 @@
                         android:id="@+id/tx_namaTop"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Faisal Okta"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold"
@@ -132,7 +131,6 @@
                                 android:layout_marginStart="20dp"
                                 android:layout_toEndOf="@+id/logoKeluarga"
                                 android:fontFamily="@font/poppins_regular"
-                                android:text="3000000000000000"
                                 android:textColor="@color/black"
                                 android:textSize="12sp" />
 
@@ -171,7 +169,6 @@
                                 android:layout_marginStart="20dp"
                                 android:layout_toEndOf="@+id/logoNiks"
                                 android:fontFamily="@font/poppins_regular"
-                                android:text="3000000000000000"
                                 android:textColor="@color/black"
                                 android:textSize="12sp" />
 
@@ -209,7 +206,6 @@
                                 android:layout_marginStart="20dp"
                                 android:layout_toEndOf="@+id/logoNames"
                                 android:fontFamily="@font/poppins_regular"
-                                android:text="Faisal Okta"
                                 android:textColor="@color/black"
                                 android:textSize="12sp" />
 
@@ -250,7 +246,6 @@
                                 android:layout_marginStart="20dp"
                                 android:layout_toEndOf="@+id/logotelp"
                                 android:fontFamily="@font/poppins_regular"
-                                android:text="083234678323"
                                 android:textColor="@color/black"
                                 android:textSize="12sp" />
 
