@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v == signinText) {
                 Intent intent = new Intent(MainActivity.this, registrasi.class);
                 startActivity(intent);
-                finish();
+//                finish();
         } else if (v == loginButton){
             String nik = nik_log.getText().toString().trim();
             String password = pass_log.getText().toString().trim();
@@ -140,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Intent intent = new Intent(MainActivity.this, homeAdapter.class);
                         intent.putExtra("token", token);
                         startActivity(intent);
+                        finish();
                     }
                 });
             }

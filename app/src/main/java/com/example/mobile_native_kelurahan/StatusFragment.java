@@ -1,5 +1,8 @@
 package com.example.mobile_native_kelurahan;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -73,8 +76,6 @@ public class StatusFragment extends Fragment{
         }
 
     }
-    private TextView antrian, proses, selesai;
-    private int selectedTabNumber = 1;
     private TabLayout tabLayout;
     private ViewPager viewPager;
     @Override
@@ -83,10 +84,12 @@ public class StatusFragment extends Fragment{
         View view = inflater.inflate(R.layout.fragment_status, container, false);
         tabLayout = view.findViewById(R.id.tabLayout);
         viewPager = view.findViewById(R.id.viewpager);
-        AuthServices.berita(getContext(), new AuthServices.BeritaResponseListener() {
+        SharedPreferences preferences = getActivity().getSharedPreferences("myPrefs", MODE_PRIVATE);
+        String token = preferences.getString("token", "");
+        AuthServices.cek(getContext(),token, new AuthServices.UpdateResponseListener() {
             @Override
-            public void onSuccess(List<Berita> beritaList) {
-                Log.e("BErita", "ok");
+            public void onSuccess(String response) {
+                Log.e("status", "ok");
                 tabLayout.setupWithViewPager(viewPager);
                 AdapterFragment adapterFragment = new AdapterFragment(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
                 adapterFragment.addFragment(new antrianFragment(), "Diajukan");

@@ -16,8 +16,8 @@
                     android:gravity="center">
                     <ImageView
                         android:id="@+id/logoSurat"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
                         android:src="@drawable/logosktm"
                         android:layout_gravity="center_horizontal"/>
                     <TextView

@@ -3,6 +3,7 @@ package com.example.mobile_native_kelurahan.Auth;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Base64;
+import android.util.Log;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -37,7 +38,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
 
 public class AuthServices {
-    private static String HOST = "http://192.168.0.117:8000/";
+    private static String HOST = "http://192.168.97.140:8000/";
     private static String URL = HOST + "api/";
     private static String IMAGE = HOST + "images/";
     private static String PDF = HOST + "pdf/";
@@ -143,22 +144,36 @@ public class AuthServices {
                     public void onErrorResponse(VolleyError error) {
                         if (error.networkResponse != null && error.networkResponse.data != null) {
                             try {
+                                int statusCode = error.networkResponse.statusCode;
                                 String responseBody = new String(error.networkResponse.data, "utf-8");
-                                JSONObject jsonObject = new JSONObject(responseBody);
-                                String message = jsonObject.getString("message");
-                                if (message.equals("Akun sudah terdaftar")) {
-                                    listener.onError("Akun sudah terdaftar");
-                                } else if (message.equals("NIK anda belum terdaftar")) {
-                                    listener.onError("NIK anda belum terdaftar");
+                                Log.e("Volley Error", "Status Code: " + statusCode);
+                                Log.e("Volley Error", "Response Body: " + responseBody);
+
+                                if (statusCode == 400) {
+                                    try {
+                                        JSONObject jsonObject = new JSONObject(responseBody);
+                                        String message = jsonObject.getString("message");
+
+                                        if (message.equals("Nik anda belum terdaftar")) {
+                                            listener.onError("Nik anda belum terdaftar");
+                                        } else {
+                                            listener.onError( message);
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                        listener.onError("Gagal register: " + e.getMessage());
+                                    }
                                 }
-                            } catch (JSONException | UnsupportedEncodingException e) {
+                                // Tambahkan penanganan untuk kode status lainnya jika diperlukan
+                            } catch (UnsupportedEncodingException e) {
                                 e.printStackTrace();
-                                listener.onError("Gagal register: " + e.getMessage());
                             }
                         } else {
                             listener.onError("Gagal register: network response is null");
                         }
                     }
+
+
                 }) {
             @Override
             protected Map<String, String> getParams() {
@@ -195,19 +210,25 @@ public class AuthServices {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         if (error.networkResponse != null && error.networkResponse.data != null) {
-                            try {
-                                String responseBody = new String(error.networkResponse.data, "utf-8");
-                                JSONObject jsonObject = new JSONObject(responseBody);
-                                String message = jsonObject.getString("message");
-                                if (message.equals("NIK Anda Belum Terdaftar")) {
-                                    listener.onError("NIK Anda Belum Terdaftar");
-                                } else if (message.equals("Kata Sandi Anda Salah")) {
-                                    listener.onError("Kata Sandi Anda Salah");
+                            int statusCode = error.networkResponse.statusCode;
+                            String responseBody = new String(error.networkResponse.data);
+
+                            if (statusCode == 400) {
+                                try {
+                                    JSONObject jsonObject = new JSONObject(responseBody);
+                                    String message = jsonObject.getString("message");
+
+                                    if (message.equals("Nik Anda Belum Terdaftar")) {
+                                        listener.onError("NIK Anda Belum Terdaftar");
+                                    } else {
+                                        listener.onError(message);
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                    listener.onError("Gagal Login: " + e.getMessage());
                                 }
-                            } catch (JSONException | UnsupportedEncodingException e) {
-                                e.printStackTrace();
-                                listener.onError("Gagal Login: " + e.getMessage());
                             }
+                            // Tambahkan penanganan untuk kode status lainnya jika diperlukan
                         } else {
                             listener.onError("Gagal Login: network response is null");
                         }
@@ -890,6 +911,52 @@ public class AuthServices {
                 Map<String, String> params = new HashMap<>();
                 params.put("no_hp", nohp);
                 return params;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(stringRequest);
+    }
+
+    public static void cek(Context context, String token, final UpdateResponseListener listener) {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + "auth/cek",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String message = jsonObject.getString("message");
+                            if (message.equals("success")) {
+                                listener.onSuccess("ok");
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        if (error.networkResponse != null && error.networkResponse.data != null) {
+                            try {
+                                String responseBody = new String(error.networkResponse.data, "utf-8");
+                                JSONObject jsonObject = new JSONObject(responseBody);
+                                String message = jsonObject.getString("message");
+                                listener.onError(message);
+                            } catch (JSONException | UnsupportedEncodingException e) {
+                                e.printStackTrace();
+                                listener.onError("Ga" + e.getMessage());
+                            }
+                        } else {
+                            listener.onError("Gagal");
+                        }
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer " + token);
+                return headers;
             }
         };
 

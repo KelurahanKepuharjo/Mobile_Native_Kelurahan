@@ -94,7 +94,6 @@ public class form_pengajuan extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(form_pengajuan.this, DaftarKeluarga.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -211,11 +210,16 @@ public class form_pengajuan extends AppCompatActivity {
             public void onClick(View view) {
                 if (String.valueOf(keterangan).isEmpty()) {
                     til_ket.setError("Keperluan Harus diisi");
-                } else {
+                } else if (fileBukti == null) {
+                    Toast.makeText(form_pengajuan.this, "Foto Bukti Harus diisi", Toast.LENGTH_SHORT).show();
+                } else if (fileKK == null) {
+                    Toast.makeText(form_pengajuan.this, "Foto KK Harus diisi", Toast.LENGTH_SHORT).show();
+                }
+                else {
 
                     try {
-                        FileOutputStream outputStreamKK = new FileOutputStream(fileKK);
                         FileOutputStream outputStreamBukti = new FileOutputStream(fileBukti);
+                        FileOutputStream outputStreamKK = new FileOutputStream(fileKK);
                         bitmapKK.compress(Bitmap.CompressFormat.JPEG, 100, outputStreamKK);
                         bitmapBukti.compress(Bitmap.CompressFormat.JPEG, 100, outputStreamBukti);
                         outputStreamKK.flush();
@@ -277,7 +281,7 @@ public class form_pengajuan extends AppCompatActivity {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Toast.makeText(form_pengajuan.this, "Surat Sebelumnya Masih belum selesail", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(form_pengajuan.this, "Surat sebelumnya masih belum selesai", Toast.LENGTH_LONG).show();
                                     }
                                 });
                             }

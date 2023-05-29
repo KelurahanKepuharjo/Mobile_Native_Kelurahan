@@ -168,7 +168,7 @@ public class ProfileFragment extends Fragment {
                 tct_nokk.setText(nokk);
                 txt_namat.setText(nama);
                 txt_nik.setText(nik);
-                txt_telp.setText(nohp);
+                txt_telp.setText(0 + nohp);
             }
 
             @Override
@@ -243,7 +243,7 @@ public class ProfileFragment extends Fragment {
                                             tct_nokk.setText(nokk);
                                             txt_namat.setText(nama);
                                             txt_nik.setText(nik);
-                                            txt_telp.setText(nohp);
+                                            txt_telp.setText(0 + nohp);
                                         }
 
                                         @Override

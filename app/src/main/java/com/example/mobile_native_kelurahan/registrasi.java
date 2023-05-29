@@ -67,36 +67,37 @@ public class registrasi extends AppCompatActivity implements View.OnClickListene
             String pass = pass_reg.getText().toString().trim();
             String cpass = cpass_reg.getText().toString().trim();
 
-            if (!nik.isEmpty() && !no_tlp.isEmpty() && !pass.isEmpty() && !cpass.isEmpty() && !no_tlp.isEmpty()) {
-                 if (nik.length() < 16) {
-                    nik_reg.setError("NIK harus terdiri dari 16 digit");
-                } else if (pass.length() < 8) {
-                    pass_reg.setError("Kata Sandi harus terdiri dari 8 digit atau lebih");
-                } else if(!pass.equals(cpass)){
-                     pass_reg.setError("Kata Sandi harus sama");
-                     cpass_reg.setError("Kata Sandi harus sama");
-                 } else {
-                     AuthServices.register(this, nik, pass, no_tlp, new AuthServices.RegisterResponseListener() {
-                         @Override
-                         public void onSuccess(JSONObject response) {
-                             Toast.makeText(registrasi.this, "Berhasil Mengaktifkan Akun Anda", Toast.LENGTH_LONG).show();
-                             Intent intent = new Intent(registrasi.this, MainActivity.class);
-                             startActivity(intent);
-                             finish();
-                         }
-
-                         @Override
-                         public void onError(String message) {
-                             nik_reg.setError(message);
-                             Toast.makeText(registrasi.this, message, Toast.LENGTH_LONG).show();
-                         }
-                     });
-                 }
+            if (nik.isEmpty()) {
+                nik_reg.setError("Nik tidak boleh kosong");
+            } else if (no_tlp.isEmpty()) {
+                notelp_reg.setError("No.telepon tidak boleh kosong");
+            }else if (pass.isEmpty()) {
+                pass_reg.setError("Kata Sandi tidak boleh kosong");
+            }else if (cpass.isEmpty()) {
+                cpass_reg.setError("Konfirmasi Kata Sandi tidak boleh kosong");
+            } else if (nik.length() < 16) {
+                nik_reg.setError("NIK harus terdiri dari 16 digit");
+            } else if (pass.length() < 8) {
+                pass_reg.setError("Kata Sandi harus terdiri dari 8 digit atau lebih");
+            } else if(!pass.equals(cpass)){
+                pass_reg.setError("Kata Sandi harus sama");
+                cpass_reg.setError("Kata Sandi harus sama");
             } else {
-                nik_reg.setError("Silahkan masukan nik anda");
-                notelp_reg.setError("Silahkan masukan nomor telepon anda");
-                pass_reg.setError("Silahkan masukan kata sandi anda");
-                cpass_reg.setError("Silahkan masukan konfirmasi kata sandi anda");
+                AuthServices.register(this, nik, pass, no_tlp, new AuthServices.RegisterResponseListener() {
+                    @Override
+                    public void onSuccess(JSONObject response) {
+                        Toast.makeText(registrasi.this, "Berhasil Mengaktifkan Akun Anda", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(registrasi.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+
+                    @Override
+                    public void onError(String message) {
+                        nik_reg.setError(message);
+                        Toast.makeText(registrasi.this, message, Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         }
     }
